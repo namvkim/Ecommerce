@@ -1,22 +1,43 @@
 .header {
-    height: 100px;
+    height: 50px;
     background: #34495e;
     padding: 0 20px;
     color: #fff;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+}
+
+.header-logo {
+    display: flex;
 }
 
 .logo {
-    line-height: 100px;
-    float: left;
-    text-transform: uppercase;
+    height: 40px;
+    margin-top: 5px;
 }
 
-.menu {
-    float: right;
-    line-height: 100px;
+.logo-title {
+    line-height: 50px;
+    margin: 0 5px;
+    font-size: 20px;
 }
 
-.menu a {
+.header-cart {
+    transition: 0.4s;
+    font-size: 28px;
+    line-height: 50px;
+    cursor: pointer;
+    display: none;
+    color: white;
+}
+
+.header-menu {
+    line-height: 50px;
+}
+
+.header-menu a {
     color: #fff;
     text-transform: uppercase;
     text-decoration: none;
@@ -32,15 +53,11 @@
     display: none;
 }
 
-.show-menu-btn {
-    float: right;
-}
-
 .show-menu-btn i {
-    line-height: 100px;
+    line-height: 50px;
 }
 
-.menu a:hover,
+.header-menu a:hover,
 .show-menu-btn:hover,
 .hide-menu-btn:hover {
     color: #3498db;
@@ -68,10 +85,11 @@
 
 @media screen and (max-width:800px) {
     .show-menu-btn,
-    .hide-menu-btn {
+    .hide-menu-btn,
+    .header-cart {
         display: block;
     }
-    .menu {
+    .header-menu {
         position: fixed;
         width: 100%;
         height: 100vh;
@@ -83,7 +101,7 @@
         line-height: normal;
         transition: 0.7s;
     }
-    .menu a {
+    .header-menu a {
         display: block;
         padding: 20px;
     }
@@ -92,7 +110,7 @@
         top: 40px;
         right: 40px;
     }
-    #chk:checked~.menu {
+    #chk:checked~.header-menu {
         right: 0;
     }
 }
