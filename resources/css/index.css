@@ -11,13 +11,18 @@ html {
     text-rendering: optimizeLegibility;
 }
 
-.content {
-    max-width: 1440px;
-    margin: 0 auto;
-}
-
 .clearfix::after {
     content: "";
     display: table;
     clear: both;
+}
+
+.content {
+    max-width: 2000px;
+    margin: 0 auto;
+    padding: 0 80px;
+}
+
+.content p {
+    text-align: justify;
 }
