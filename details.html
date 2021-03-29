@@ -21,7 +21,7 @@
 
 <body>
     <div class="header">
-        <ul class="header-menu">
+        <ul class="header-menu hide-menu">
             <a href="#">HOME PAGE</a>
             <a href="#">ABOUT US</a>
         </ul>
@@ -37,6 +37,8 @@
         </label>
 
         <ul class="header-menu">
+            <a href="#" class="show-menu">HOME PAGE</a>
+            <a href="#" class="show-menu">ABOUT US</a>
             <a href="#">SIGN IN</a>
             <a href="#"><i class="fas fa-search"></i></a>
             <a href="#"><i class="fas fa-shopping-cart"></i></a>
@@ -50,8 +52,36 @@
         <img class="content-poster" src="https://nhandaovadoisong.com.vn/wp-content/uploads/2019/05/anh-thien-nhien-dep-1200x675.jpg" alt="">
         <div class="conntent-details">
             <div class="conntent-details__img">
-                <img class="conntent-details__img-main" src="https://cdn.daotaobeptruong.vn/wp-content/uploads/2020/11/an-vat-han-quoc.jpg" alt="">
-
+                <div id="demo" class="carousel slide" data-ride="carousel">
+                    <ul class="carousel-indicators">
+                        <li data-target="#demo" data-slide-to="0" class="active"></li>
+                        <li data-target="#demo" data-slide-to="1"></li>
+                        <li data-target="#demo" data-slide-to="2"></li>
+                    </ul>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="conntent-details__img-box">
+                                <img class="conntent-details__img-item" src="https://cdn.daotaobeptruong.vn/wp-content/uploads/2020/11/an-vat-han-quoc.jpg" alt="Los Angeles" width="1100" height="500">
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="conntent-details__img-box">
+                                <img class="conntent-details__img-item" src="https://i.pinimg.com/736x/fa/01/7d/fa017dd4f5faeba4dc369c8cf7de7c00.jpg" alt="Chicago" width="1100" height="500">
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="conntent-details__img-box">
+                                <img class="conntent-details__img-item" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRV8V2qhHuRS7yrZJQM_sJhKXNdBJrzNPNPWg&usqp=CAU" alt="Los Angeles" width="1100" height="500">
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                        <i class="fas fa-chevron-left conntent-details__img-icon"></i>
+                    </a>
+                    <a class="carousel-control-next" href="#demo" data-slide="next">
+                        <i class="fas fa-chevron-right conntent-details__img-icon"></i>
+                    </a>
+                </div>
             </div>
             <div class="conntent-details__info">
                 <p class="conntent-details__title">Toboki</p>

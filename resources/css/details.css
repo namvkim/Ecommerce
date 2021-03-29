@@ -37,20 +37,37 @@ html {
 }
 
 .conntent-details__img {
-    width: 30%;
+    float: left;
+    width: 40%;
+    height: 500px;
+    z-index: -1;
+    position: relative;
 }
 
-.conntent-details__img-main {
+.conntent-details__img:hover {
+    background-color: blanchedalmond;
+}
+
+.conntent-details__img-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
     width: 100%;
 }
 
-.conntent-details__img {
-    float: left;
-    padding: 20px;
+.conntent-details__img-item {
+    max-width: 80%;
+    max-height: 460px;
+    height: auto;
+}
+
+.conntent-details__img-icon {
+    color: black;
 }
 
 .conntent-details__info {
-    width: 70%;
+    width: 60%;
     float: right;
     padding: 20px;
 }
