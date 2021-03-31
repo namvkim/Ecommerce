@@ -28,7 +28,7 @@
 
 
     <div class="content" style="background-image: url('./resources/img/foodd.jpg');
-      background-repeat:no-repeat; background-size:100%; height:615px; width:100% ;  display: flex; align-items: center; " >
+      background-repeat:no-repeat; background-size:cover; height:615px; width:100% ;  display: flex; align-items: center; " >
     
     <div class="container content-input">
             
