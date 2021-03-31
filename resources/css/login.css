@@ -17,3 +17,31 @@ html {
     display: table;
     clear: both;
 }
+
+.content-input {
+    /* background-image: url("./resources/content-img-food.png"); */
+    width: 500px;
+    background-color: #99FFFF;
+}
+
+.content-input-flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.content-input-footer {
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+.footer-logo {
+    display: flex;
+    justify-content: center;
+}

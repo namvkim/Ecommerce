@@ -17,3 +17,24 @@ html {
     display: table;
     clear: both;
 }
+
+.content-input {
+    width: 500px;
+    background-color: #99FFFF;
+}
+
+.content-input-flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.content-input-footer {
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-logo {
+    display: flex;
+    justify-content: center;
+}

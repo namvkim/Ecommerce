@@ -16,19 +16,137 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="./resources/css/signUp.css">
+
+    
 </head>
 
 <body>
-    <div class="header">
-       
+<div class="header" style="background-color :cadetblue; height:80px; display: flex;
+    justify-content: center; padding-top:15px;">
+       <h2>ĐĂNG KYS</h2>
     </div>
-    <div class="content">
 
+
+    <div class="content" style="background-image: url('./resources/img/foodd.jpg');
+      background-repeat:no-repeat; background-size:100%; height:615px; width:100% ;  display: flex; align-items: center; " >
+    
+    <div class="container content-input">
+            
+
+                  <form action="/action_page.php">
+                <br>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="fullname" placeholder="Nhập họ và tên của bạn" name="fullname">
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" id="email" placeholder="Nhập email của bạn" name="email">
+                </div>
+
+                <div class="form-group">
+                    <input type="password" class="form-control" id="password1" placeholder="Tạo mật khẩu" name="password1">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="password2" placeholder="Nhập lại mật khẩu" name="password2">
+                </div>
+
+
+                
+                <!-- <a href=""><input type="submit" name="btn" value="Sign In"></input></a> -->
+                <a href=""> <button type="button" class="btn btn-primary btn-lg btn-block" name="btn">Đăng Ký</button></a>
+
+                <div class="content-input-footer" >
+                    <div>Đã có tài khoản</div>
+                    <div> <a href="./login.php"><u>Đăng Nhập</u></a></div>
+                </div><br>
+
+            </form>
+
+        </div>
     </div>
-    <div class="footer">
 
+
+
+    <div class="footer" style="background-color :cadetblue;  height:125px;">
+        
+    <div class="footer-logo" style="padding-top:15px; display: flex;
+    justify-content: center;">
+        
+        <p class="footer-logo-title" style="font-size: 50px;">FA</p>
+        <img class="logo" src="./resources/img/logo.jpg" alt="logo" style="height: 100px; width:100px;">
+        <p class="footer-logo-title" style="font-size: 50px;">TEAM</p>
+</div>
     </div>
 </body>
+
+<?php
+
+                
+
+    class Customer
+    {
+        protected $name;
+        protected $email;
+        protected $pass1;
+        protected $pass2;
+
+        public function getInfo()
+        {
+            return $this->name;
+            $this->email;
+            $this->pass1;
+            $this->pass2;
+        }
+        public function setInfo($name,$email, $pass1, $pass2)
+        {
+            $this->name =$name;
+            $this->email = $email;
+            $this->pass1 = $pass1;
+            $this->pass2 = $pass2;
+        }
+
+    }
+
+
+       
+if(isset($_POST['btn']))
+{
+    if(empty($_POST['fullname']))
+    {
+        echo"Bạn chưa nhập vào họ và tên";
+    }
+    else if(empty($_POST['email']))
+    {
+        echo "Bạn chưa nhập email";
+    }
+    else if(empty($_POST['password1']))
+    {
+        echo "Bạn chưa nhập mật khẩu";
+    }
+    else if(empty($_POST['password2']))
+    {
+        echo "Bạn chưa nhập lại mật khẩu";
+    }
+    else
+    {
+        $fullname = $_POST['fullname'];
+        $email = $_POST['email'];
+        $pass = $_POST['password1'];
+        $pass2 = $_POST['password2'];
+         
+        if($pass1 != $pass2)
+        {
+            echo"Mật khẩu của bạn không trùng khớp";
+        }
+        else{
+            header("#");
+        }
+
+
+        
+    }
+}
+
+?>
 <script src="./resources/js/signUp.js"></script>
 
 </html>
