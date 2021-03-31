@@ -52,12 +52,12 @@
             $data= $this->conn->connect();
             $query = "update * FROM Users set (name_user = $name, pass = $password, phone_num = $phone, email = $email, address = $address";
             $result = $this->conn->req($data,$query);
-            if ($result==true) {
-			    echo "Sửa thành công";
-			}
-            else{
-			    echo "Lỗi";
-			}
+            // if ($result==true) {
+			//     echo "Sửa thành công";
+			// }
+            // else{
+			//     echo "Lỗi";
+			// }
         
         }
 

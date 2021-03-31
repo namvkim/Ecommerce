@@ -57,7 +57,10 @@
                 <!-- <a href=""><input type="submit" name="btn" value="Sign In"></input></a> -->
                 <a href=""> <button type="button" class="btn btn-primary btn-lg btn-block">Đăng Nhập</button></a>
 
-                
+                <div class="content-input-footer" >
+                    <div>Chưa có tài khoản</div>
+                    <div> <a href="./signUp.php"><u>Đăng Ký</u></a></div>
+                </div><br>
 
             </form>
 
