@@ -1,12 +1,13 @@
 <?php
-class connect
+class connect_data
 {
-    public function connect($data)
+    public function connect()
     {
-        return mysqli_connect('localhost', 'root', '', $data) or die("Khong ket noi duoc !");
+        return mysqli_connect('localhost', 'root', '', 'csdl') or die("Khong ket noi duoc !");
     }
     
-    public function req($data,$sql){
-        return mysqli_query($data, $sql);
+    public function req($database,$sql){
+        return mysqli_query($database, $sql);
     }
 }
+?>
