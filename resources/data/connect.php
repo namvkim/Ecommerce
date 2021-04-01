@@ -3,7 +3,7 @@ class connect_data
 {
     public function connect()
     {
-        return mysqli_connect('localhost', 'root', '', 'csdl') or die("Khong ket noi duoc !");
+        return mysqli_connect('localhost', 'root', '', 'csdl');
     }
     
     public function req($database,$sql){

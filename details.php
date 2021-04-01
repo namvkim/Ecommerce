@@ -18,7 +18,6 @@
     <link rel="stylesheet" href="./resources/css/menu.css">
     <link rel="stylesheet" href="./resources/css/details.css">
 </head>
-
 <body>
     <div class="header">
         <ul class="header-menu hide-menu">
@@ -98,7 +97,6 @@
             </div>
         </div>
     </div>
-
     <div class="footer">
 
     </div>

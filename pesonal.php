@@ -15,8 +15,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="./resources/css/pesonal.css">
     <link rel="stylesheet" href="./resources/css/menu.css">
+    <link rel="stylesheet" href="./resources/css/pesonal.css">
+
 </head>
 
 <body>
@@ -61,7 +62,23 @@
         </div>
         <div class="tab-content content-main">
             <div class="tab-pane fade show active" id="history">
-                helllo
+                <?php
+                require 'resources/data/product_data.php';
+                $pro = new product();
+                $result = $pro->view();
+                // $sql = "select * from products ";
+                // $result = $pro->req($data, $sql);
+                // while ($row = mysqli_fetch_assoc($result)) {
+                //     echo "$row[0]";
+                // }
+                // $data = mysqli_connect('localhost', 'root', '', 'csdl');
+          
+                
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo "id: " . $row["ID_pro"] ;        
+                }
+
+                ?>
             </div>
             <div class="tab-pane fade" id="product">
                 nam
