@@ -1,5 +1,5 @@
 .header {
-    height: 50px;
+    height: 5vh;
     background: #34495e;
     padding: 0 80px;
     color: #fff;
@@ -15,12 +15,12 @@
 }
 
 .logo {
-    height: 40px;
+    height: 4vh;
     margin-top: 5px;
 }
 
 .logo-title {
-    line-height: 50px;
+    line-height: 5vh;
     margin: 0 5px;
     font-size: 20px;
 }
@@ -35,7 +35,7 @@
 }
 
 .header-menu {
-    line-height: 50px;
+    line-height: 5vh;
 }
 
 .header-menu a {

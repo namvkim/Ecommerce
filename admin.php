@@ -32,11 +32,5 @@
 
 </html>
 
-<?php
-require_once "sdfds";
-$req= new admin();
-$req->add('nam','123')
-?>
-
 <!-- <div class="clearfix"></div> -->
 <!-- <h1 class="animate__animated animate__bounce">An animated element</h1> -->
