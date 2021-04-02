@@ -65,19 +65,10 @@
                 <?php
                 require 'resources/data/product_data.php';
                 $pro = new product();
-                $result = $pro->view();
-                // $sql = "select * from products ";
-                // $result = $pro->req($data, $sql);
-                // while ($row = mysqli_fetch_assoc($result)) {
-                //     echo "$row[0]";
+                $result = $pro->delete(1);
+                // while($row = mysqli_fetch_assoc($result)){
+                //     echo $row["name_pro"];
                 // }
-                // $data = mysqli_connect('localhost', 'root', '', 'csdl');
-          
-                
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo "id: " . $row["ID_pro"] ;        
-                }
-
                 ?>
             </div>
             <div class="tab-pane fade" id="product">

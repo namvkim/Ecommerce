@@ -1,3 +1,17 @@
+-- -----------------------------------------delete table----------------------------------
+
+drop table admin;
+drop table carts;
+drop table materials;
+drop table order_details;
+drop table orders;
+drop table pictures;
+drop table products;
+drop table users;
+
+
+--------------------------------------------create table----------------------------------
+
 create table users(
   ID_user int primary key auto_increment,
   name_user varchar(50),
@@ -47,6 +61,7 @@ values(
 create table orders(
   ID_order int primary key auto_increment,
   ID_user int,
+  datee varchar(50),
   FOREIGN KEY (ID_user) REFERENCES users (ID_user) on delete cascade
 );
 
@@ -58,7 +73,6 @@ create table order_details(
   ID_order int,
   ID_pro int,
   quantity int,
-  datee varchar(50),
   FOREIGN KEY (ID_order) REFERENCES orders (ID_order) on delete cascade,
   FOREIGN KEY (ID_pro) REFERENCES products (ID_pro) on delete cascade
 );
