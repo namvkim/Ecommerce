@@ -18,7 +18,7 @@ html {
 }
 
 .content-input {
-    /* background-image: url("./resources/content-img-food.png"); */
+    background-image: url("./resources/content-img-food.png");
     width: 500px;
     background-color: #99FFFF;
 }
