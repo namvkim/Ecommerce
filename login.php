@@ -25,12 +25,12 @@
 </head>
 
 <body>
-    <div class="header" style="background-color :cadetblue; height:80px; padding-top:15px;">
+    <!-- <div class="header" style="background-color :cadetblue; height:80px; padding-top:15px;">
     
         <h2 >ĐĂNG NHẬP</h2>
-    </div>
-    <div class="content" style="background-image: url('./resources/img/foodd.jpg');
-      background-repeat:no-repeat; background-size:cover; height:615px; width:100% ;  display: flex; align-items: center; " >
+    </div> -->
+    <div class="content" style="background-image: url('./resources/img/background.jpg');
+      background-repeat:no-repeat; background-size:cover;height:100vh; width:100% ;  display: flex; align-items: center; " >
         
         
         <div class="container content-input" >
@@ -54,7 +54,6 @@
                         <a><u> Quên mật khẩu</u> </a>
                     </div>
                 </DIV>
-                <!-- <a href=""><input type="submit" name="btn" value="Sign In"></input></a> -->
                 <a href=""> <button type="button" class="btn btn-primary btn-lg btn-block">Đăng Nhập</button></a>
 
                 <div class="content-input-footer" >
@@ -66,7 +65,7 @@
 
         </div>
     </div>
-    <div class="footer" style="background-color :cadetblue;  height:125px;">
+    <!-- <div class="footer" style="background-color :cadetblue;  height:125px;">
         
         <div class="footer-logo" style="padding-top:15px;">
         
@@ -74,35 +73,31 @@
                 <img class="logo" src="./resources/img/logo.jpg" alt="logo" style="height: 100px; width:100px;">
                 <p class="footer-logo-title" style="font-size: 50px;">TEAM</p>
         </div>
-    </div>
-</body>
+    </div> -->
+</body> 
 
 
     <?php
 
-if(isset($_POST['btn']))
-{
-    if(empty($_POST['name']))
-    {
-        echo"Bạn chưa nhập vào tên đăng nhập";
-    }
-    else if(empty($_POST['password']))
-    {
-        echo "Bạn chưa nhập mật khẩu";
-    }
-    else
-    {
-        $username = $_POST['name'];
-        $pass = $_POST['password'];
+// if(isset($_POST['btn']))
+// {
+//     if(empty($_POST['name']))
+//     {
+//         echo"Bạn chưa nhập vào tên đăng nhập";
+//     }
+//     else if(empty($_POST['password']))
+//     {
+//         echo "Bạn chưa nhập mật khẩu";
+//     }
+//     else
+//     {
+//         $username = $_POST['name'];
+//         $pass = $_POST['password'];
 
 
 
-    }
-}
-?>
-<script src="./resources/js/login.js"></script>
+//     }
+// }
+?> <script src="./resources/js/login.js"></script>
 
 </html>
-
-<!-- <div class="clearfix"></div> -->
-<!-- <h1 class="animate__animated animate__bounce">An animated element</h1> -->

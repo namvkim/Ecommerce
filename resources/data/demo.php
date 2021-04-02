@@ -50,18 +50,25 @@
 
 <?php
 
-if(isset($_POST['btn']))
-{
-    $name =$_POST['name'];
-    $address = $_POST['address'];
-    $email =$_POST['email'];
-    $phone = $_POST['phone'];
+// if(isset($_POST['btn']))
+// {
+//     $name =$_POST['name'];
+//     $address = $_POST['address'];
+//     $email =$_POST['email'];
+//     $phone = $_POST['phone'];
 
 
     
+// require_once 'Users.php';
+// $user1 = new User();
+// $user1->addUser($name, $password, $phone,$email, $address);
+// $user1->getUser();
+// }
+
+
+
 require_once 'Users.php';
 $user1 = new User();
-$user1->addUser($name, $password, $phone,$email, $address);
+$user1->addUser('ni', '1234', '0124886436', 'ni.ho@gmil.com','QT');
 $user1->getUser();
-}
 ?>
