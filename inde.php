@@ -54,7 +54,7 @@
         <img class="content-poster" src="https://nhandaovadoisong.com.vn/wp-content/uploads/2019/05/anh-thien-nhien-dep-1200x675.jpg" alt="">
         <br><br>
         <div class="main">
-        <form action ="" method ="POST"class="form">
+        <form action ="" method ="GET"class="form">
             <div id="myBtnContainer">   
                 <input type ="submit" class="btn active" name ="food" value ="Food"></input>
                 <input type ="submit" class="btn " name ="drink" value ="Drink"></input>
@@ -66,44 +66,68 @@
             <hr>
             <!-- Portfolio Gallery Grid -->
             <?php
-            require 'resources\data\connect.php';
+
+            require_once 'resources\data\product_data.php';
+            $pro = new product();
+            $result=$pro->delete(1);
+            // while ($row= mysqli_fetch_assoc($result)){
+            //     echo $row['name_pro'];
+            //     echo $row['describes'];
+            // }
+
+            require_once 'resources\data\product_data.php';
             
-            $conn1= new connect_data();
-            $data= $conn1->connect();
-            $sql="select * from products";
-            $result= $conn1->req($data,$sql);
+                $pro= new product();
+                $result = $pro->viewAll() ;
+           
+                $check = mysqli_num_rows($result);
+                if($check > 0){
+                    
 
-
-                echo "star";
-     
-                if(isset($_POST['food'])){    
-                //echo "star";
-                    while($row = mysqli_fetch_assoc($result)){
+                while($row = mysqli_fetch_assoc($result)){
+                 //   if(isset($_POST['food'])){    
+                  if($row['category']== 2){
                     ?>
                     <div class="row">
+                    <?php
+                        echo $row['name_pro'];
+                        echo $row['describes'];
+                    ?>
                     <div class="column nature">
+                        
                     <div class="content">
+                        
                     <img src="" alt="Mountains" style="width:100%">
                     <h4><?php echo $row['name_pro']?></h4>
                     <p><?php echo $row['describes']?></p>
                     </div>
                 </div>
                 <?php
-                    }
-                }else if(isset($_POST['drink'])){    
+                //    }
+            }
+                 if(isset($_POST['drink'])){    
                     //echo "star";
-                        while($row = mysqli_fetch_assoc($result)){
-                        ?>
-                        <div class="row">
-                        <div class="column nature">
-                        <div class="content">
-                        <img src="" alt="Mountains" style="width:100%">
-                        <h4><?php echo $row['name_pro']?></h4>
-                        <p><?php echo $row['describes']?></p>
-                        </div>
-                    </div>
-                    <?php
-                        }
+                    if($row['category']== 1){
+                        $category = $row['category'];
+                        
+                      ?>
+                      <div class="row">
+                      <?php
+                          echo $row['name_pro'];
+                          echo $row['describes']
+                      ?>
+                      <div class="column nature">
+                          
+                      <div class="content">
+                          
+                      <img src="" alt="Mountains" style="width:100%">
+                      <h4><?php echo $row['name_pro']?></h4>
+                      <p><?php echo $row['describes']?></p>
+                      </div>
+                  </div>
+                  <?php
+                    }
+                        
                 }else if(isset($_POST['top'])){    
                     while($row = mysqli_fetch_assoc($result)){
                     ?>
@@ -118,23 +142,14 @@
                 <?php
                     }
                 }else if(isset($_POST['near'])){    
-                    while($row = mysqli_fetch_assoc($result)){
-                    ?>
-                    <div class="row">
-                    <div class="column nature">
-                    <div class="content">
-                    <img src="" alt="Mountains" style="width:100%">
-                    <h4><?php echo $row['name_pro']?></h4>
-                    <p><?php echo $row['describes']?></p>
-                    </div>
-                </div>
-                <?php
-                
-            }
+
         }
     
-    
-
+    }
+    }else{
+        echo "không kết nối";
+    }
+    function food ($category){}
             ?>
 
             <!-- END MAIN -->

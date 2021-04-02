@@ -23,6 +23,7 @@ values('Bánh', '10000', 'Ngọt', 1),
   ('Kẹo', '20000', 'Chua', 1),
   ('Coca cola', '50000', 'ngon', 2);
 create table picture(
+  ID_pic int primary key auto_increment,
   ID_pro int,
   FOREIGN KEY (ID_pro) REFERENCES Products (ID_pro),
   pic varchar(250)
