@@ -3,7 +3,7 @@ class connect_data
 {
     public function connect()
     {
-        return mysqli_connect('localhost', 'root', '', 'csdl');
+        return mysqli_connect('localhost', 'root', '', 'ecommerce_data');
     }
     
     public function req($database,$sql){
