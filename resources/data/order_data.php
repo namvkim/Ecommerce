@@ -1,39 +1,38 @@
 <?php
- require_once 'connect.php';
- $conn1= new connect_data();
 
+require_once 'connect.php';
+require_once 'order_details_data.php';
  
   class orders{
-      public function add($ID_user){
+      public function add($ID_user, $datee){
+        $conn1= new connect_data();
           $data= $conn1->connect();
-          $sql="INSERT INTO admin(ID_user)  value('$ID_user')";
+          $sql="INSERT INTO `orders`( `ID_user`, `datee`) VALUES ('$ID_user','$datee')";
           $result= $conn1->req($data,$sql);
       }
 
-      public function update($ID_user){
-        $sql = "UPDATE `orders` SET ID_user = $ID_user WHERE id='$ID_user'";
-        if ($conn->$sql === TRUE) {
-            header('location:admin.php');
-        } 
-        else {
-            echo "Error updating record: " . $conn->error;
-        }
-
+      public function update($ID_order, $ID_user,$datee){
+        $conn1= new connect_data();
+        $data= $conn1->connect();
+        $sql = "UPDATE `orders` SET `ID_user`=' $ID_user',`datee`='$datee' WHERE `ID_order`='$ID_order'";
+        $result= $conn1->req($data,$sql);
       }
 
-      public function delete($ID_user){
-        if(isset($_REQUEST['ID_user']) and $_REQUEST['ID_user']!=""){
-            $id=$_GET['ID_user'];
-            $sql = "DELETE FROM user WHERE ID_user='$ID_user'";
-        if ($conn->req($sql) === TRUE) {
-            header('location:admin.php');
-        } else {
-            echo "Error updating record: " . $conn->error;
-        }
-        
-        }
-     
-      $conn->close();
+      public function delete($ID_order){
+        $conn1= new connect_data();
+        $order = new orders_details();
+        $order->delete_All($ID_order);
+        $data= $conn1->connect();
+        $sql = "DELETE FROM `orders` WHERE `ID_order`= '$ID_order'";
+        $result= $conn1->req($data,$sql);
+      }
+
+      public function view(){
+        $conn1= new connect_data();
+        $data= $conn1->connect();
+        $sql = 'select * from orders';
+        return $conn1->req($data,$sql);
+       
       }
 
     }
