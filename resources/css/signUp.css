@@ -51,15 +51,51 @@ input[class=form-control] {
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     border-radius: 20px;
-    border: 1px solid #2da8d9;
-    /* color: #a0d18c; */
+    border: 1px solid none;
+    color: #BB0000;
     width: 100%;
     padding-left: 10px;
 }
 
 input[class=form-control]:focus {
     outline: none;
-    background: #66CCCC;
+    background: #99FFFF;
     border: 1px solid #2da8d9;
-    /* color: #2d9fd9; */
+    color: #f33838;
+}
+
+input[class=form-control]:hover {
+    background: #CCFFFF;
+    border: 1px solid #2da8d9;
+}
+
+.content-input-wrap {
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    position: relative;
+    color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0px 20px 20px rgb(0 0 0 / 10%), 0px 30px 26px rgb(0 0 0 / 10%);
+}
+
+.content-input-wrap h3 {
+    font-weight: 300;
+    color: #2da8d9;
+}
+
+.content-input-wrap .social {
+    width: 100%;
+}
+
+.content-input-wrap .social a {
+    width: 100%;
+    display: block;
+    border: 1px solid #00FFFF;
+    color: rgba(243, 75, 9, 0.2);
+    background: #99CCFF;
+}
+
+.content-input-wrap .social a:hover {
+    background: rgba(233, 116, 7, 0.2);
+    color: rgba(255, 255, 255, 0.2);
+    border-color: #00FFFF;
 }

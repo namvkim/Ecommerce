@@ -18,7 +18,6 @@ html {
 }
 
 .content-input {
-    background-image: url("./resources/content-img-food.png");
     width: 500px;
     background-color: #99FFFF;
 }
@@ -43,4 +42,30 @@ html {
 .footer-logo {
     display: flex;
     justify-content: center;
+}
+
+input[class=form-control] {
+    background: transparent;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    border: 1px solid #2da8d9;
+    /* color: #a0d18c; */
+    width: 100%;
+    padding-left: 10px;
+}
+
+input[class=form-control]:focus {
+    outline: none;
+    background: #66CCCC;
+    border: 1px solid #2da8d9;
+    /* color: #2d9fd9; */
+}
+
+.form-control {
+    border-radius: 40px;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    border-bottom-left-radius: 40px;
 }

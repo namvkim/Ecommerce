@@ -18,50 +18,53 @@
   
 </head>
 <body>
-<!-- <div class="header" style="background-color :cadetblue; height:80px; display: flex;
-   justify-content: center; padding-top:15px; position: relative;">
-      <h2>ĐĂNG KÝ</h2>
-   </div> -->
+ 
    <div class="content" style="background-image: url('./resources/img/background.jpg');
      background-repeat:no-repeat; background-size:cover; height:100vh; width:100% ;  display: flex; align-items: center;  " >
   
-   <div class="container content-input"  >
+   <div class="container content-input content-input-wrap"  >
+   <h3 class=" text-center "  ><b> ĐĂNG Ký</b></h3>
+    
           
-                  <form action="/action_page.php"  >
+                  <form action="/action_page.php" method="POST"  >
                <br>
                <div class="form-group">
-                   <input type="text" class="form-control" id="fullname" placeholder="Nhập họ và tên của bạn" name="fullname">
+                   <input type="text" class="form-control" id="name" placeholder="Name *" name="name" value="<?php if(isset($_POST['name'])){echo $_POST["name"] ;}?>">
+               </div>
+               
+               <div class="form-group">
+                   <input type="password" class="form-control" id="password1" placeholder="Password *" name="password1" value="<?php if(isset($_POST['passeord1'])){echo $_POST["password1"] ;}?>">
                </div>
                <div class="form-group">
-                   <input type="email" class="form-control" id="email" placeholder="Nhập email của bạn" name="email">
+                   <input type="password" class="form-control" id="password2" placeholder="Password *" name="password2">
                </div>
                <div class="form-group">
-                   <input type="password" class="form-control" id="password1" placeholder="Tạo mật khẩu" name="password1">
+                   <input type="email" class="form-control" id="email" placeholder="Email *" name="email " value="<?php if(isset($_POST['email'])){echo $_POST["email"] ;}?>">
                </div>
                <div class="form-group">
-                   <input type="password" class="form-control" id="password2" placeholder="Nhập lại mật khẩu" name="password2">
+                   <input type="number" class="form-control" id="phone" placeholder="Phone number *" name="phone" value="<?php if(isset($_POST['phone'])){echo $_POST["phone"] ;}?>">
                </div>
-              
-               <!-- <a href=""><input type="submit" name="btn" value="Sign In"></input></a> -->
-               <a href=""> <button type="button" class="form-control btn btn-primary btn-lg btn-block" name="btn">Đăng Ký</button></a>
+               <div class="form-group">
+                   <input type="text" class="form-control" id="address" placeholder="Address *" name="address" value="<?php if(isset($_POST['address'])){echo $_POST["address"] ;}?>">
+               </div>
+           
+                <a href="./inde.php">
+                <button type="button" class="form-control btn btn-primary btn-lg btn-block" name="btn">Đăng Ký</button>
+                </a>
+                
                <div class="content-input-footer" >
-                   <div>Đã có tài khoản</div>
-                   <div> <a href="./login.php"><u>Đăng Nhập</u></a></div>
+                   <div style="color:black">Đã có tài khoản</div>
+                   <div> <a href="login.php"><u >Đăng Nhập</u></a></div>
                </div><br>
            </form>
+           
        </div>
    </div>
-<!--
-   <div class="footer" style="background-color :cadetblue;  height:40px;">
-      
-   <div class="footer-logo" style=" display: flex;
-   justify-content: center;">
-      
-       <p class="footer-logo-title"  >FA</p>
-       <img class="logo" src="./resources/img/logo.jpg" alt="logo" style="width:30px; height:30px;"  >
-       <p class="footer-logo-title"  >TEAM</p>
-</div>
-   </div> -->
+
+   
+
+
+   
 </body>
 <?php
               
@@ -69,38 +72,24 @@
      
 if(isset($_POST['btn']))
 {
-   if(empty($_POST['fullname']))
-   {
-       echo"Bạn chưa nhập vào họ và tên";
-   }
-   else if(empty($_POST['email']))
-   {
-       echo "Bạn chưa nhập email";
-   }
-   else if(empty($_POST['password1']))
-   {
-       echo "Bạn chưa nhập mật khẩu";
-   }
-   else if(empty($_POST['password2']))
-   {
-       echo "Bạn chưa nhập lại mật khẩu";
-   }
-   else
-   {
-       $fullname = $_POST['fullname'];
-       $email = $_POST['email'];
-       $pass = $_POST['password1'];
-       $pass2 = $_POST['password2'];
-       
-       if($pass1 != $pass2)
-       {
-           echo"Mật khẩu của bạn không trùng khớp";
-       }
-       else{
-          
-       }
-      
-   }
+    $fullname = $_POST['fullname'];
+           $email = $_POST['email'];
+            $pass = $_POST['password1'];
+            $pass2 = $_POST['password2'];
+
+        if($pass == $pass2)
+        {
+            echo "Đăng ký thành công";
+            header("Location:http://localhost/Ecommerce/inde.php");
+        }
+        else
+        {
+            echo"Mật khẩu không trùng khớp";
+            
+        }
+  
+
+
 }
 ?>
 <script src="./resources/js/signUp.js"></script>
