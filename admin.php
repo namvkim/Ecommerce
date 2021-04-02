@@ -16,13 +16,118 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="./resources/css/admin.css">
+    <link rel="stylesheet" href="./resources/css/menu.css">
+
 </head>
 
 <body>
-    <div class="header">
 
+    <div class="header">
+        <ul class="header-menu hide-menu">
+        <a href="#" class="header-cart"><i class="fas fa-shopping-cart"></i></a>
+        <div class="header-logo">
+            <p class="logo-title">FA</p>
+            <img class="logo" src="./resources/img/logo.jpg" alt="logo">
+            <p class="logo-title">TEAM</p>
+        </div>
+        </ul>
+        
+        <input type="checkbox" id="chk"> </input>
+        <label for="chk" class="show-menu-btn">
+            <i class="fas fa-ellipsis-h"></i>
+        </label>
+    
+
+        <ul class="header-menu">
+        <form class="input-group" action="/action_page.php">
+                        <input type="text" class="form-control ml-auto" placeholder="Search..." style="max-width: 600px;">
+                        <div class="input-group-append mr-auto">
+                            <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
+                        </div>
+                    </form>
+        </ul>
     </div>
     <div class="content">
+        <div class="collapse show content-navigate">
+            <div class="nav-tabs" id="wrapper" style="border: none;">
+                <div class="border-right" id="sidebar-wrapper">
+                    <div class="list-group list-group-flush">
+                        <a href="#orders" class="list-group-item list-group-item-action nav-link content-navigate-item1" data-toggle="tab">Orders</a>
+                        <a href="#customer" class="list-group-item list-group-item-action nav-link content-navigate-item2" data-toggle="tab">Customers</a>
+                        <a href="#store" class="list-group-item list-group-item-action nav-link content-navigate-item3" data-toggle="tab">Store</a>
+                        <a href="#product" class="list-group-item list-group-item-action nav-link content-navigate-item2" data-toggle="tab">Product</a>
+                        <a href="#statistic" class="list-group-item list-group-item-action nav-link content-navigate-item3" data-toggle="tab">Statistic</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-content content-main">
+            <div class="tab-pane fade show active" id="product">
+            <?php
+            require 'resources/data/product_data.php';
+            $pro = new product();
+            $sql ='select * from Products';
+             $result = $pro->query($sql);
+             // Load dữ liệu lên website
+             while($row = mysqli_fetch_assoc($result)) {
+             echo "id: " . $row["ID_pro"];
+
+             }
+            ?>
+            </div>
+            <div class="tab-pane fade" id="customer">
+                <table border="1px">
+                    <tr>
+                        <th>ID</th>
+                        <th>User Name</th>
+                        <th>Password</th>
+                        <th>Phone nume</th>
+                        <th>Email</th>
+                        <th>Address</th>
+
+                    </tr>
+          
+
+                    <tr>
+                        <td>1</td>
+                        <td>Sag</td>
+                        <td>124</td>
+                        <td>94385</td>
+                        <td>@1234</td>
+                        <td>sdshdg</td>
+                    </tr>
+
+                </table>
+            </div>
+
+            <div class="tab-pane fade" id="store">
+            <table border="1px">
+                    <tr>
+                        <th>ID</th>
+                        <th>Material Name</th>
+                        <th>Amount</th>
+                        <th>Price</th>
+                        <th>Date Input</th>
+                  </tr>
+                    <tr></tr>
+            </table>
+            </div>
+            <div class="tab-pane fade" id="orders">
+            <table border="1px">
+                    <tr>
+                        <th>ID</th>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Describes</th>
+                        <th>Category</th>
+                   </tr>
+                    <tr></tr>
+            </table>
+            </div>
+            <div class="tab-pane fade" id="statistic">
+               thong ke doanh thu
+            </div>
+        </div>
     </div>
     <div class="footer">
 
@@ -31,6 +136,3 @@
 <script src="./resources/js/admin.js"></script>
 
 </html>
-
-<!-- <div class="clearfix"></div> -->
-<!-- <h1 class="animate__animated animate__bounce">An animated element</h1> -->
