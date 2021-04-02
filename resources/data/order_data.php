@@ -4,14 +4,14 @@ require_once 'connect.php';
 require_once 'order_details_data.php';
  
   class orders{
-      public function add($ID_user, $datee){
+      public function post($ID_user, $datee){
         $conn1= new connect_data();
           $data= $conn1->connect();
           $sql="INSERT INTO `orders`( `ID_user`, `datee`) VALUES ('$ID_user','$datee')";
           $result= $conn1->req($data,$sql);
       }
 
-      public function update($ID_order, $ID_user,$datee){
+      public function put($ID_order, $ID_user,$datee){
         $conn1= new connect_data();
         $data= $conn1->connect();
         $sql = "UPDATE `orders` SET `ID_user`=' $ID_user',`datee`='$datee' WHERE `ID_order`='$ID_order'";
@@ -27,7 +27,7 @@ require_once 'order_details_data.php';
         $result= $conn1->req($data,$sql);
       }
 
-      public function view(){
+      public function get(){
         $conn1= new connect_data();
         $data= $conn1->connect();
         $sql = 'select * from orders';
