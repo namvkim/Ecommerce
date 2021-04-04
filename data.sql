@@ -9,7 +9,6 @@ drop table pictures;
 drop table products;
 drop table users;
 
-
 --------------------------------------------create table----------------------------------
 
 create table users(

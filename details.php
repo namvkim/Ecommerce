@@ -34,7 +34,6 @@
         <label for="chk" class="show-menu-btn">
             <i class="fas fa-ellipsis-h"></i>
         </label>
-
         <ul class="header-menu">
             <a href="#" class="show-menu">HOME PAGE</a>
             <a href="#" class="show-menu">ABOUT US</a>

@@ -17,7 +17,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="./resources/css/menu.css">
     <link rel="stylesheet" href="./resources/css/pesonal.css">
-
 </head>
 
 <body>
@@ -36,7 +35,6 @@
         <label for="chk" class="show-menu-btn">
             <i class="fas fa-ellipsis-h"></i>
         </label>
-
         <ul class="header-menu">
             <a href="#" class="show-menu">HOME PAGE</a>
             <a href="#" class="show-menu">ABOUT US</a>
@@ -53,15 +51,53 @@
             <div class="nav-tabs" id="wrapper" style="border: none;">
                 <div class="border-right" id="sidebar-wrapper">
                     <div class="list-group list-group-flush">
-                        <a href="#history" class="list-group-item list-group-item-action nav-link content-navigate-item" data-toggle="tab">History</a>
-                        <a href="#product" class="list-group-item list-group-item-action nav-link content-navigate-item" data-toggle="tab">Thống kê</a>
-                        <a href="#contact" class="list-group-item list-group-item-action nav-link content-navigate-item" data-toggle="tab">Overview</a>
+                        <a href="#confirmation" class="list-group-item list-group-item-action nav-link content-navigate-item" data-toggle="tab">Confirmation</a>
+                        <a href="#shipping" class="list-group-item list-group-item-action nav-link content-navigate-item" data-toggle="tab">Shipping</a>
+                        <a href="#received" class="list-group-item list-group-item-action nav-link content-navigate-item" data-toggle="tab">Received</a>
                     </div>
                 </div>
             </div>
         </div>
         <div class="tab-content content-main">
-            <div class="tab-pane fade show active" id="history">
+            <div class="tab-pane fade show active" id="confirmation">
+                <div class="content_table">
+                    <div class="content_main">
+                        <div class="content_main1">ID</div>
+                        <div class="content_main2">LIST PRODUCT</div>
+                        <div class="content_main3">SUBTOTAL</div>
+                        <div class="content_main4">DATE</div>
+                    </div>
+
+
+                    <div class="content_item">
+                        <div class="content_item1">1</div>
+                        <div class="content_item2">
+                            <a href="#nav1" class="drop_down_animation">Chi tiết sản phẩm <i class="fas fa-caret-down"></i></a>
+                        </div>
+                        <div class="content_item3">500K</div>
+                        <div class="content_item4">15/2/2020</div>
+                    </div>
+                    <div class="expandable" id="nav1">
+                        <p>Cum enim magna parturient ac elementum, tincidunt tempor ac lectus platea placerat. Eros dis lectus. Ut aliquam. Porttitor risus mattis mauris lacus a, aliquam augue cras elementum! Adipiscing, vel ridiculus diam pellentesque sociis
+                            habitasse pellentesque, augue parturient sed elementum aenean. Tincidunt tristique.</p>
+                    </div>
+
+
+                    <div class="content_item">
+                        <div class="content_item1">1</div>
+                        <div class="content_item2">
+                            <a href="#nav2" class="drop_down_animation">Chi tiết sản phẩm <i class="fas fa-caret-down"></i></a>
+                        </div>
+                        <div class="content_item3">500K</div>
+                        <div class="content_item4">15/2/2020</div>
+                    </div>
+                    <div class="expandable" id="nav2">
+                        <p>Cum enim magna parturient ac elementum, tincidunt tempor ac lectus platea placerat. Eros dis lectus. Ut aliquam. Porttitor risus mattis mauris lacus a, aliquam augue cras elementum! Adipiscing, vel ridiculus diam pellentesque sociis
+                            habitasse pellentesque, augue parturient sed elementum aenean. Tincidunt tristique.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="shipping">
                 <div class="content_table">
                     <div class="content_row_main">
                         <div class="content_row_item1">ID</div>
@@ -83,11 +119,27 @@
                     </div>
                 </div>
             </div>
-            <div class="tab-pane fade" id="product">
-                nam
-            </div>
-            <div class="tab-pane fade" id="contact">
-                hsjf
+            <div class="tab-pane fade" id="received">
+                <div class="content_table">
+                    <div class="content_row_main">
+                        <div class="content_row_item1">ID</div>
+                        <div class="content_row_item2">LIST PRODUCT</div>
+                        <div class="content_row_item3">SUBTOTAL</div>
+                        <div class="content_row_item4">DATE</div>
+                    </div>
+                    <div class="content_row_item">
+                        <div class="content_row_item1">1</div>
+                        <div class="content_row_item2">Chi tiết sản phẩm <i class="fas fa-caret-down"></i></div>
+                        <div class="content_row_item3">500K</div>
+                        <div class="content_row_item4">15/2/2020</div>
+                    </div>
+                    <div class="content_row_item">
+                        <div class="content_row_item1">1</div>
+                        <div class="content_row_item2">Chi tiết sản phẩm <i class="fas fa-caret-down"></i></div>
+                        <div class="content_row_item3">500K</div>
+                        <div class="content_row_item4">15/2/2020</div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

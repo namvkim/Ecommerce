@@ -21,7 +21,7 @@ html {
 /* ------------------------------------------content----------------------------------- */
 
 
-/* ---------------------------------------history--------------------------------------- */
+/* ---------------------------------------table--------------------------------------- */
 
 .content-navigate {
     height: 95vh;
@@ -44,53 +44,96 @@ html {
     padding: 20px;
 }
 
-.content_row_main,
-.content_row_item {
+.content_main,
+.content_item {
     display: flex;
 }
 
-.content_row_main {
+.content_main {
     background-color: #5f727f;
     color: white;
     font-weight: bold;
 }
 
-.content_row_item {
+.content_item {
     border: 1px solid #5f727f;
     cursor: pointer;
 }
 
-.content_row_item1,
-.content_row_item2,
-.content_row_item3,
-.content_row_item4 {
+.content_main1,
+.content_main2,
+.content_main3,
+.content_main4,
+.content_item1,
+.content_item2,
+.content_item3,
+.content_item4 {
     padding: 10px;
 }
 
-.content_row_item1 {
+.content_main1,
+.content_item1 {
     width: 10%;
 }
 
-.content_row_item2 {
+.content_main2,
+.content_item2 {
     width: 70%;
 }
 
-.content_row_item .content_row_item2 {
+.content_item2 {
     background-color: #d6dae0;
-    border-radius: 2px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    border-radius: 4px;
 }
 
-.content_row_item .content_row_item2:hover {
+.content_item2:hover {
     background-color: #9a9ea5;
 }
 
-.content_row_item3 {
+.drop_down_animation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.content_main3,
+.content_item3 {
     width: 10%;
 }
 
-.content_row_item4 {
+.content_main4,
+.content_item4 {
     width: 10%;
+}
+
+
+/* -----------------------------------slide-down animation--------------------------------- */
+
+a {
+    text-decoration: none;
+}
+
+.expandable {
+    background: #fff;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+    line-height: 0;
+    padding: 0 1em;
+    color: transparent;
+    height: 0;
+}
+
+.expandable:target {
+    line-height: 1.5;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    color: black;
+    height: auto;
 }
