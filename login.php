@@ -1,8 +1,3 @@
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +14,7 @@
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-   <link rel="stylesheet" href="./resources/css/signUp.css">
+   <link rel="stylesheet" href="./resources/css/login.css">
   
 </head>
 <body>
@@ -40,9 +35,9 @@
      background-repeat:no-repeat; background-size:cover; height:100vh; width:100% ;  display: flex; align-items: center;  " >
   
    <div class="container content-input content-input-wrap"  >
-   <h3 class=" text-center " style="color:dodgerblue;"><b> ĐĂNG NHẬP</b></h3>
+   <h3 class=" text-center " ><b> ĐĂNG NHẬP</b></h3>
 
-                  <form action="/action_page.php"  >
+                  <form action="" method="post" >
                <br>
                <div class="form-group">
                    <input type="text" class="form-control" id="username" placeholder="Username" name="username">
@@ -92,25 +87,27 @@ if(isset($_POST['btn']))
     $username = $_POST['username'];
     $pass = $_POST['password'];
 
-    require_once "./resources/data/Users.php";
+    require_once "./resources/data/user.php";
     $user = new User();
-    $result = $user->getUser();
+    $result = $user->get();
     while ($row = mysqli_fetch_assoc($result)) {
         if ( $username == $row['name_user'])
         {
             if( $pass == $row['pass'])
             {
-                echo "Đăng nhập thành công";
-                header("Location:http://localhost:8088/Ecommerce/inde.php");
+                
+                header("Location:inde.php");
+                echo '<script language="javascript">alert("Đăng nhập thành công");window.history.go(-1)</script>';     
             }
             else
             {
-                echo "Mật khẩu sai";
+                echo '<script language="javascript">alert("Mật khẩu sai"); window.history.go(-1);</script>';  
+            break;          
             }
         }
         else 
         {
-            echo "Tài khoản không tồn tại";
+            echo '<script language="javascript">alert("Tài khoản không tồn tại"); window.history.go(-1);</script>';            
 
         }
      }
@@ -124,6 +121,3 @@ if(isset($_POST['btn']))
 <!-- <div class="clearfix"></div> -->
 <!-- <h1 class="animate__animated animate__bounce">An animated element</h1> -->
  
- 
- 
-
