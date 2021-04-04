@@ -53,23 +53,35 @@
             <div class="nav-tabs" id="wrapper" style="border: none;">
                 <div class="border-right" id="sidebar-wrapper">
                     <div class="list-group list-group-flush">
-                        <a href="#history" class="list-group-item list-group-item-action nav-link content-navigate-item1" data-toggle="tab">History</a>
-                        <a href="#product" class="list-group-item list-group-item-action nav-link content-navigate-item2" data-toggle="tab">Thống kê</a>
-                        <a href="#contact" class="list-group-item list-group-item-action nav-link content-navigate-item3" data-toggle="tab">Overview</a>
+                        <a href="#history" class="list-group-item list-group-item-action nav-link content-navigate-item" data-toggle="tab">History</a>
+                        <a href="#product" class="list-group-item list-group-item-action nav-link content-navigate-item" data-toggle="tab">Thống kê</a>
+                        <a href="#contact" class="list-group-item list-group-item-action nav-link content-navigate-item" data-toggle="tab">Overview</a>
                     </div>
                 </div>
             </div>
         </div>
         <div class="tab-content content-main">
             <div class="tab-pane fade show active" id="history">
-                <?php
-                require 'resources/data/product_data.php';
-                $pro = new product();
-                $result = $pro->delete(1);
-                // while($row = mysqli_fetch_assoc($result)){
-                //     echo $row["name_pro"];
-                // }
-                ?>
+                <div class="content_table">
+                    <div class="content_row_main">
+                        <div class="content_row_item1">ID</div>
+                        <div class="content_row_item2">LIST PRODUCT</div>
+                        <div class="content_row_item3">SUBTOTAL</div>
+                        <div class="content_row_item4">DATE</div>
+                    </div>
+                    <div class="content_row_item">
+                        <div class="content_row_item1">1</div>
+                        <div class="content_row_item2">Chi tiết sản phẩm <i class="fas fa-caret-down"></i></div>
+                        <div class="content_row_item3">500K</div>
+                        <div class="content_row_item4">15/2/2020</div>
+                    </div>
+                    <div class="content_row_item">
+                        <div class="content_row_item1">1</div>
+                        <div class="content_row_item2">Chi tiết sản phẩm <i class="fas fa-caret-down"></i></div>
+                        <div class="content_row_item3">500K</div>
+                        <div class="content_row_item4">15/2/2020</div>
+                    </div>
+                </div>
             </div>
             <div class="tab-pane fade" id="product">
                 nam
