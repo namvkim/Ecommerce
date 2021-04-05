@@ -19,12 +19,13 @@
     <link rel="stylesheet" href="./resources/css/details.css">
 </head>
 <body>
-    <div class="header">
+<div class="header">
         <ul class="header-menu hide-menu">
-            <a href="#">HOME PAGE</a>
-            <a href="#">ABOUT US</a>
+            <a href="inde.php">HOME PAGE</a>
+            <a href="pesonal.php">HISTORY</a>
+            <a href="about.php">ABOUT US</a>
         </ul>
-        <a href="#" class="header-cart"><i class="fas fa-shopping-cart"></i></a>
+        <a href="order.php" class="header-cart"><i class="fas fa-shopping-cart"></i></a>
         <div class="header-logo">
             <p class="logo-title">FA</p>
             <img class="logo" src="./resources/img/logo.jpg" alt="logo">
@@ -35,11 +36,12 @@
             <i class="fas fa-ellipsis-h"></i>
         </label>
         <ul class="header-menu">
-            <a href="#" class="show-menu">HOME PAGE</a>
-            <a href="#" class="show-menu">ABOUT US</a>
-            <a href="#">SIGN IN</a>
+            <a href="inde.php" class="show-menu">HOME PAGE</a>
+            <a href="pesonal.php" class="show-menu">HISTORY</a>
+            <a href="about.php" class="show-menu">ABOUT US</a>
+            <a href="login.php">SIGN IN</a>
             <a href="#"><i class="fas fa-search"></i></a>
-            <a href="#"><i class="fas fa-shopping-cart"></i></a>
+            <a href="order.php"><i class="fas fa-shopping-cart"></i></a>
             <label for="chk" class="hide-menu-btn">
                 <i class="fas fa-times"></i>
             </label>

@@ -21,12 +21,13 @@
 
 <body>
 
-    <div class="header">
+<div class="header">
         <ul class="header-menu hide-menu">
-            <a href="#">HOME PAGE</a>
-            <a href="#">ABOUT US</a>
+            <a href="inde.php">HOME PAGE</a>
+            <a href="pesonal.php">HISTORY</a>
+            <a href="about.php">ABOUT US</a>
         </ul>
-        <a href="#" class="header-cart"><i class="fas fa-shopping-cart"></i></a>
+        <a href="order.php" class="header-cart"><i class="fas fa-shopping-cart"></i></a>
         <div class="header-logo">
             <p class="logo-title">FA</p>
             <img class="logo" src="./resources/img/logo.jpg" alt="logo">
@@ -36,122 +37,175 @@
         <label for="chk" class="show-menu-btn">
             <i class="fas fa-ellipsis-h"></i>
         </label>
-
         <ul class="header-menu">
-            <a href="#" class="show-menu">HOME PAGE</a>
-            <a href="#" class="show-menu">ABOUT US</a>
-            <a href="#">SIGN IN</a>
+            <a href="inde.php" class="show-menu">HOME PAGE</a>
+            <a href="pesonal.php" class="show-menu">HISTORY</a>
+            <a href="about.php" class="show-menu">ABOUT US</a>
+            <a href="login.php">SIGN IN</a>
             <a href="#"><i class="fas fa-search"></i></a>
-            <a href="#"><i class="fas fa-shopping-cart"></i></a>
+            <a href="order.php"><i class="fas fa-shopping-cart"></i></a>
             <label for="chk" class="hide-menu-btn">
                 <i class="fas fa-times"></i>
             </label>
         </ul>
     </div>
 
-    <div class="content">
-
-        <img class="content-poster" src="https://nhandaovadoisong.com.vn/wp-content/uploads/2019/05/anh-thien-nhien-dep-1200x675.jpg" alt="">
+    <div class="content content-poster">
+        <!--slideshow-->
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="https://cdn.asiatatler.com/asiatatler/i/th/2019/08/15162927-dsc0499_cover_2000x1335.jpg" alt="First slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="https://tuongotchinsu.net/wp-content/uploads/2020/05/an-vat.jpg" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+            <img class="d-block w-100" src="https://d1ralsognjng37.cloudfront.net/040c06d5-9d77-4574-84e0-ba050c9e237b" alt="Third slide">
+            </div>
+        </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+    </div>  
+        <!--sli-->
+        <!-- <img class="content-poster" src="https://cdn.asiatatler.com/asiatatler/i/th/2019/08/15162927-dsc0499_cover_2000x1335.jpg" alt="background"> </image> -->
         <br><br>
         <div class="main">
-        <form action ="" method ="GET"class="form">
-            <div id="myBtnContainer">   
-                <input type ="submit" class="btn active" name ="food" value ="Food"></input>
-                <input type ="submit" class="btn " name ="drink" value ="Drink"></input>
-                <input type ="submit" class="btn " name ="top" value ="Top"></input>
-                <input type ="submit" class="btn " name ="near" value ="Near"></input>
+        <form action ="" method ="POST"class="form">
+            <div class="tab">   
+                <button class="btn" name ="food" value ="Food">Food</button>
+                <button class="btn" name ="drink" value ="Drink">Drink</button>
+                <button class="btn" name ="top" value ="Top">Top</button>
+                <button class="btn" name ="sale" value ="Sale">Sale</button>
     
             </div>
-            </form>
+        </form>
             <hr>
-            <!-- Portfolio Gallery Grid -->
+
             <?php
 
+            if(isset($_POST['near']))echo "HI";
+ 
             require_once 'resources\data\product_data.php';
-            $pro = new product();
-            $result=$pro->delete(1);
-            // while ($row= mysqli_fetch_assoc($result)){
-            //     echo $row['name_pro'];
-            //     echo $row['describes'];
-            // }
 
-            require_once 'resources\data\product_data.php';
-            
                 $pro= new product();
-                $result = $pro->viewAll() ;
-           
-                $check = mysqli_num_rows($result);
-                if($check > 0){
-                    
+                $result = $pro->get();
 
-                while($row = mysqli_fetch_assoc($result)){
-                 //   if(isset($_POST['food'])){    
-                  if($row['category']== 2){
-                    ?>
-                    <div class="row">
-                    <?php
-                        echo $row['name_pro'];
-                        echo $row['describes'];
-                    ?>
-                    <div class="column nature">
-                        
-                    <div class="content">
-                        
-                    <img src="" alt="Mountains" style="width:100%">
-                    <h4><?php echo $row['name_pro']?></h4>
-                    <p><?php echo $row['describes']?></p>
-                    </div>
-                </div>
-                <?php
-                //    }
-            }
-                 if(isset($_POST['drink'])){    
-                    //echo "star";
-                    if($row['category']== 1){
-                        $category = $row['category'];
-                        
-                      ?>
-                      <div class="row">
-                      <?php
-                          echo $row['name_pro'];
-                          echo $row['describes']
-                      ?>
-                      <div class="column nature">
-                          
-                      <div class="content">
-                          
-                      <img src="" alt="Mountains" style="width:100%">
-                      <h4><?php echo $row['name_pro']?></h4>
-                      <p><?php echo $row['describes']?></p>
-                      </div>
-                  </div>
-                  <?php
-                    }
-                        
-                }else if(isset($_POST['top'])){    
-                    while($row = mysqli_fetch_assoc($result)){
-                    ?>
-                    <div class="row">
-                    <div class="column nature">
-                    <div class="content">
-                    <img src="" alt="Mountains" style="width:100%">
-                    <h4><?php echo $row['name_pro']?></h4>
-                    <p><?php echo $row['describes']?></p>
-                    </div>
-                </div>
-                <?php
-                    }
-                }else if(isset($_POST['near'])){    
+                require_once 'resources\data\picture_data.php';  
+                $pic= new picture();
 
-        }
+                if(isset($_POST['drink'])){
+
+                    ?>
+                        <div class="row">
+                        <?php  
+                        while($row = mysqli_fetch_assoc($result)){   
     
-    }
-    }else{
-        echo "không kết nối";
-    }
-    function food ($category){}
-            ?>
+                        if($row['category']== 2){    
+                       //     while ($data = mysqli_fetch_assoc($pic->get('ID_pro'))){                                            
+                            ?> 
+                            <div class="column">
+                                <div class ="card">
+                                <?php
+                                    while ($data = mysqli_fetch_assoc($pic->get('ID_pro'))){ 
+                                  //  if($data['ID_pro'] == $row['ID_pro']){
+                                    ?> 
+                                        <img class ="column_img" src="<?php echo $data['pic']?>"  alt="<?php echo $row['name_pro']; ?>">
+                                       <?php
+                                        break;
+                                     //   }
+                                        }                                       
+                                        ?>
+                                        <h4><?php echo $row['name_pro']?></h4>
+                                        <p><?php echo $row['describes']?></p>
+                                        <p class="column_Price_Cart"><?php echo $row['price']?> đ <button class="column-cart"> <i class="fa fa-cart-arrow-down"></i> Add to cart</button></p>
+                                </div> 
+                            </div>                         
+                            <?php 
+                                               
+                            }
+                        }                  
+                        ?>
+                        </div>
+                        <?php
+                    
+                     }else if(isset($_POST['top'])){
 
+                        ?>
+                        <div class="row">
+                        <?php  
+                        while($row = mysqli_fetch_assoc($result)){   
+    
+                        if($row['category']== 2){    
+                       //     while ($data = mysqli_fetch_assoc($pic->get('ID_pro'))){                                            
+                            ?> 
+                            <div class="column">
+                                <div class ="card">
+                                <?php
+                                    while ($data = mysqli_fetch_assoc($pic->get('ID_pro'))){ 
+                                  //  if($data['ID_pro'] == $row['ID_pro']){
+                                    ?> 
+                                        <img class ="column_img" src="<?php echo $data['pic']?>"  alt="<?php echo $row['name_pro']; ?>">
+                                       <?php
+                                        break;
+                                     //   }
+                                        }                                       
+                                        ?>
+                                        <h4><?php echo $row['name_pro']?></h4>
+                                        <p><?php echo $row['describes']?></p>
+                                        <p class="column_Price_Cart"><?php echo $row['price']?> đ <button class="column-cart"> <i class="fa fa-cart-arrow-down"></i> Add to cart</button></p>
+                                </div> 
+                            </div>                         
+                            <?php 
+                                               
+                            }
+                        }                  
+                        ?>
+                        </div>
+                        <?php
+
+                    }else if(isset($_POST['sale'])){
+
+                    }else{
+                        ?>
+                        <div class="row">
+                        <?php  
+                        while($row = mysqli_fetch_assoc($result)){
+    
+                        if($row['category']== 1){                                                
+                        ?> 
+                        <div class="column">
+                            <div class ="card">
+                                <img class ="column_img" src="https://assets.brandinside.asia/uploads/2019/07/shutterstock_1437332618-e1563988304801.jpg"  alt="<?php echo $row['name_pro']; ?>"  >
+                                <h4><?php echo $row['name_pro']?></h4>
+                                <p><?php echo $row['describes']?></p>
+                                <p class="column_Price_Cart"><?php echo $row['price']?> đ <button class="column-cart"> <i class="fa fa-cart-arrow-down"></i> Add to cart</button></p>
+                            </div> 
+                        </div>                         
+                        <?php                
+                        }
+    
+                    }
+                    ?>
+                    </div>
+                    <?php
+
+                }
+        //     }else{
+        //     echo "không kết nối";
+        // }
+            ?>
             <!-- END MAIN -->
         </div>
 

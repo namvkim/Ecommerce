@@ -31,15 +31,23 @@ insert into admin(user_AD, pass) value('admin', '12345');
 create table products(
   ID_pro int primary key auto_increment,
   name_pro varchar(50),
-  price decimal(10, 2),
+  price decimal(10,3),
   describes varchar(100),
   category char(50)
 );
 
 insert into products(name_pro, price, describes, category)
-values('Bánh', '10000', 'Ngọt', 1),
-  ('Kẹo', '20000', 'Chua', 1),
-  ('Coca cola', '50000', 'ngon', 2);
+values('Bánh tráng trộn', '20', '1 đĩa', 1),
+  ('Khoai tây chiên', '15', '1 phần', 1),
+  ('Xúc xích phô mai', '10', '1 cây', 1),
+  ('Bánh mì thịt chả', '15', '1 ổ', 1),
+  ('Ốc hút', '20', '1 đĩa', 1),
+  ('Bánh cuốn', '10', '1 đĩa', 1),
+  ('Bún đậu mắm tôm', '50', '1 đĩa', 1),
+  ('Coca cola', '10', '1 lon', 2),
+  ('Pepsi', '10', '1 lon', 2),
+  ('Sinh Tố', '20', '1 ly', 2),
+  ('Trà Sữa', '25', '1 ly', 2);
 
 create table pictures(
   ID_pic int primary key auto_increment,
@@ -50,18 +58,20 @@ create table pictures(
 
 insert into pictures(ID_pro, pic)
 values(
-    1,
-    'https://cdn.tgdd.vn/Products/Images/7199/79592/bhx/keo-mem-sugus-trai-cay-tui-210g-4-700x467.jpg'
-  ),
-  (
-    1,
-    'https://bizweb.dktcdn.net/thumb/large/100/004/714/products/keo-marshies-trai-tim-vi-dau-1.png?v=1605501325813'
-  );
+    1,'https://sascotravel.com/wp-content/uploads/2020/03/maxresdefault.jpg'),
+  (1,'https://images.says.com/uploads/story_source/source_image/671341/4c31.jpg'),
+  (2,'https://danviet.mediacdn.vn/zoom/700_438/upload/4-2016/images/2016-11-24/147997482165214-khoai-2.jpg'),
+  (3,'https://trasua38govap.com/upload/sanpham/khoai-tay-lac-8277.png'),
+  (4,'https://monanvietnamblog.files.wordpress.com/2017/07/banh-mi-kep-cha-lua.jpg'),
+  (5,'https://danangreview.com/wp-content/uploads/2018/10/quan-oc-hut-ba-my-da-nang-quan-oc-hut-ngon-tai-da-nang.jpg'),
+  (6,'https://quynhonservice.com/wp-content/uploads/2019/10/b%C3%A1nh-cu%E1%BB%91n-.jpg'),
+  (7,'https://beptruong.edu.vn/wp-content/uploads/2018/06/bun-dau-mam-tom-thap-cam.jpg');
 
 create table orders(
   ID_order int primary key auto_increment,
   ID_user int,
   datee varchar(50),
+  status int,
   FOREIGN KEY (ID_user) REFERENCES users (ID_user) on delete cascade
 );
 

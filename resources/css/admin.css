@@ -16,3 +16,160 @@ html {
     display: table;
     clear: both;
 }
+
+
+/* -----------------------------------------sidebar-------------- */
+
+.content-navigate {
+    height: 95vh;
+    width: 20%;
+    float: left;
+    margin-top: 5vh;
+    background-color: #2c3e50;
+}
+
+.content-navigate-item {
+    font-size: 20px;
+    color: white;
+    background-color: #2c3e50;
+}
+
+.content-main {
+    width: 80%;
+    float: right;
+    margin-top: 5vh;
+    padding: 20px;
+}
+
+
+/* ----------------------------------table------------------------- */
+
+button {
+    width: 9vh;
+    height: 4vh;
+    font-size: medium;
+    margin-top: 0.2vh;
+}
+
+
+/* -----------------------------------table order---------------- */
+
+.content_orders_main,
+.content_orders_item {
+    display: flex;
+}
+
+.content_orders_main {
+    background-color: #5f727f;
+    color: white;
+    font-weight: bold;
+}
+
+.content_orders_item {
+    border: 1px solid #5f727f;
+}
+
+.orders_item1,
+.orders_item2,
+.orders_item3,
+.orders_item4,
+.orders_main1,
+.orders_main2,
+.orders_main3,
+.orders_main4 {
+    padding: 10px;
+}
+
+.orders_main1,
+.orders_item1 {
+    width: 30%;
+}
+
+.orders_main2,
+.orders_item2 {
+    width: 30%;
+    border-left: ridge silver;
+}
+
+.orders_main3,
+.orders_item3 {
+    width: 20%;
+    border-left: ridge silver;
+}
+
+.orders_main4,
+.orders_item4 {
+    width: 20%;
+    border-left: ridge silver;
+}
+
+
+/* ---------------------------------table store, table product----------------------- */
+
+.content_store_main,
+.content_store_item {
+    display: flex;
+}
+
+.content_store_main {
+    background-color: #5f727f;
+    color: white;
+    font-weight: bold;
+}
+
+.content_store_item {
+    border: 1px solid #5f727f;
+}
+
+.store_item1,
+.store_item2,
+.store_item3,
+.store_item4,
+.store_item5,
+.store_item6,
+.store_main1,
+.store_main2,
+.store_main3,
+.store_main4,
+.store_main5,
+.store_main6 {
+    padding: 10px;
+}
+
+.store_main1,
+.store_item1 {
+    width: 10%;
+}
+
+.store_main2,
+.store_item2 {
+    width: 20%;
+    border-left: ridge silver;
+}
+
+.store_main3,
+.store_item3 {
+    width: 20%;
+    border-left: ridge silver;
+}
+
+.store_main4,
+.store_item4 {
+    width: 20%;
+    border-left: ridge silver;
+}
+
+.store_main5,
+.store_item5 {
+    width: 20%;
+    border-left: ridge silver;
+}
+
+.store_main6,
+.store_item6 {
+    width: 20%;
+    border-left: ridge silver;
+}
+
+
+/* --------------------------table product-------------------- */

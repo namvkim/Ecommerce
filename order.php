@@ -20,7 +20,7 @@
 </head>
 
 <body>
-    <div class="header">
+<div class="header">
         <ul class="header-menu hide-menu">
             <a href="inde.php">HOME PAGE</a>
             <a href="pesonal.php">HISTORY</a>

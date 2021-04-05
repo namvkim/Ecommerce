@@ -18,132 +18,249 @@
     <link rel="stylesheet" href="./resources/css/admin.css">
     <link rel="stylesheet" href="./resources/css/menu.css">
 
+
+
 </head>
 
 <body>
     <div class="header">
-        <ul class="header-menu hide-menu">
-            <a href="#" class="header-cart"><i class="fas fa-shopping-cart"></i></a>
-            <div class="header-logo">
-                <p class="logo-title">FA</p>
-                <img class="logo" src="./resources/img/logo.jpg" alt="logo">
-                <p class="logo-title">TEAM</p>
-            </div>
-        </ul>
-
-        <input type="checkbox" id="chk"> </input>
+        <!-- <ul class="header-menu hide-menu">
+            <a href="#">HOME PAGE</a>
+            <a href="#">ABOUT US</a>
+        </ul> -->
+        <a href="#" class="header-cart"><i class="fas fa-shopping-cart"></i></a>
+        <div class="header-logo">
+            <p class="logo-title">FA</p>
+            <img class="logo" src="./resources/img/logo.jpg" alt="logo">
+            <p class="logo-title">TEAM</p>
+        </div>
+        <!-- <input type="checkbox" id="chk">
         <label for="chk" class="show-menu-btn">
             <i class="fas fa-ellipsis-h"></i>
-        </label>
+        </label> -->
 
-
-        <ul class="header-menu">
-            <form class="input-group" action="/action_page.php">
-                <input type="text" class="form-control ml-auto" placeholder="Search..." style="max-width: 600px;">
-                <div class="input-group-append mr-auto">
-                    <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
-                </div>
-            </form>
-        </ul>
+        <!-- <ul class="header-menu">
+            <a href="#" class="show-menu">HOME PAGE</a>
+            <a href="#" class="show-menu">ABOUT US</a>
+            <a href="#">SIGN IN</a>
+            <a href="#"><i class="fas fa-search"></i></a>
+            <a href="#"><i class="fas fa-shopping-cart"></i></a>
+            <label for="chk" class="hide-menu-btn">
+                <i class="fas fa-times"></i>
+            </label>
+        </ul> -->
     </div>
     <div class="content">
         <div class="collapse show content-navigate">
             <div class="nav-tabs" id="wrapper" style="border: none;">
                 <div class="border-right" id="sidebar-wrapper">
                     <div class="list-group list-group-flush">
-                        <a href="#orders" class="list-group-item list-group-item-action nav-link content-navigate-item1" data-toggle="tab">Orders</a>
-                        <a href="#customer" class="list-group-item list-group-item-action nav-link content-navigate-item2" data-toggle="tab">Customers</a>
-                        <a href="#store" class="list-group-item list-group-item-action nav-link content-navigate-item3" data-toggle="tab">Store</a>
-                        <a href="#product" class="list-group-item list-group-item-action nav-link content-navigate-item2" data-toggle="tab">Product</a>
-                        <a href="#statistic" class="list-group-item list-group-item-action nav-link content-navigate-item3" data-toggle="tab">Statistic</a>
+                        <a href="#orders" class="list-group-item list-group-item-action nav-link content-navigate-item" data-toggle="tab">Orders</a>
+                        <a href="#store" class="list-group-item list-group-item-action nav-link content-navigate-item" data-toggle="tab">Store</a>
+                        <a href="#product" class="list-group-item list-group-item-action nav-link content-navigate-item" data-toggle="tab">Product</a>
+                        <a href="#customer" class="list-group-item list-group-item-action nav-link content-navigate-item" data-toggle="tab">Customers</a>
+                        <a href="#statistic" class="list-group-item list-group-item-action nav-link content-navigate-item" data-toggle="tab">Statistic</a>
                     </div>
                 </div>
             </div>
         </div>
         <div class="tab-content content-main">
-            <div class="tab-pane fade show active" id="oders">
-                <?php
-                
-               
-                // while ($row = mysqli_fetch_assoc($result)) {
-                //     echo "id: " . $row["datee"] ;        
-                // }
+            <div class="tab-pane fade show active" id="orders">
+
+                <div class="content_table">
+                    <div class="content_orders_main">
+                        <div class="orders_main1">ID_ORDER</div>
+                        <div class="orders_main2">ID_USER</div>
+                        <div class="orders_main3">DAY</div>
+                        <div class="orders_main4">ACTION</div>
+                    </div>
 
 
-                ?>
-            </div>
-            <div class="tab-pane fade" id="customer">
-                <fieldset style="width :30%">
-                    <legend>HIỂN THỊ THÔNG TIN ORDERS:</legend>
-                    <table border="0">
-                        <tr>
-                            <th>ID_order</th>
-                            <th>ID_user</th>
-                            <th>Day</th>
-                        
-                        </tr>
-                        <?php
-                        require 'resources/data/orders.php';
-                        $orders = new orders();
-                       
-                $result = $orders->view();
-                       
-                        //gửi một truy vấn duy nhất (nhiều truy vấn không được hỗ trợ) 
-                        //đến cơ sở dữ liệu hiện đang hoạt động trên máy chủ được liên kết với link_identifier được chỉ định.
-                        while ($row = mysqli_fetch_array($result)) { //đi tìm dữ liệu đưa vào mảng.
-                        ?>
-                            <tr>
-                                <td><?php echo $row['ID_order']; ?></td>
-                                <td><?php echo $row['ID_user']; ?></td>
-                                <td><?php echo $row['datee']; ?></td>
-                                
-                                <td><a href="edit_user.php?id=<?php echo $row['ID_order']; ?>">Details Order</a></td>
-                                <td><a href="delete_user.php?id=<?php echo $row['ID_user']; ?>">Delete</a></td>
-                            </tr>
+                    <?php
+                    require 'resources/data/order_data.php';
+                    $orders = new orders();
+                    $result = $orders->get();
 
-                </fieldset>
-            <?php
-                        }
-            ?>
-            <!-- <button><a href="themuser.php">Add</a></button> -->
-            <form action="" method="post">
-                <a href="themuser.php">Add</a>
-            </form>
-            </table>
-            </div>
+                    while ($row = mysqli_fetch_array($result)) { //đi tìm dữ liệu đưa vào mảng.
+                    ?>
+                        <div class="content_store_item">
+                            <div class="orders_item1"><?php echo $row['ID_order']; ?></div>
+                            <div class="orders_item2"><?php echo $row['ID_user']; ?></div>
+                            <div class="orders_item3"><?php echo $row['datee']; ?></div>
+                            <div class="orders_item4" style="display: flex;">
+                                <button type="submit" id="#profil1">EDIT</button>
+                                <button type="submit" name="delete" class="ml-sm-3">DELETE</button>
+                            </div>
 
-            <div class="tab-pane fade" id="store">
-                <table border="1px">
-                    <tr>
-                        <th>ID</th>
-                        <th>Material Name</th>
-                        <th>Amount</th>
-                        <th>Price</th>
-                        <th>Date Input</th>
-                    </tr>
-                    <tr></tr>
-                </table>
-            </div>
-            <div class="tab-pane fade" id="products">
-                <table border="1px">
-                    <tr>
-                        <th>ID</th>
-                        <th>Product Name</th>
-                        <th>Price</th>
-                        <th>Describes</th>
-                        <th>Category</th>
-                    </tr>
-                    <tr></tr>
-                </table>
-            </div>
-            <div class="tab-pane fade" id="statistic">
-                thong ke doanh thu
-            </div>
+                        </div>
+                    <?php } ?>
+                </div>
+
+                <div id="profil1" class="modal">
+                    <div class="modal-content">
+                        <h4 class="center">Mon Profil</h4>
+                        </br>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <label>Nom : <?php echo $_SESSION['nom'] ?></label>
+                            </div>
+
+                            <div class="input-field col s6">
+                                <label>Prénom : <?php echo $_SESSION['prenom'] ?></label>
+                                </br>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <label>Adresse mail : <?php echo $_SESSION['mail'] ?></label>
+                                </br>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <label>Classe : <?php echo $_SESSION['classe'] ?></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <div class="input-field col s6">
+                            <a href="editionprofil.php" class="modal-action modal-close btn waves-effect waves-light blue" name="action">Modifier mon profil</a>
+                        </div>
+                        <div class="input-field col s6">
+                            <a href="deconnexion.php" class="modal-action modal-close btn waves-effect waves-light blue" name="action">Me deconnecter</a>
+                        </div>
+                    </div>
+                </div>
+                <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+                <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+                <script type="text/javascript" src="materialize/js/app.js"></script>
+</body>
+
+
+</div>
+
+
+<div class="tab-pane fade" id="store">
+    <button class="btn btn-primary" data-toggle="modal" data-target="#addProductModal">
+        <i class="fas fa-plus mr-2"></i> </button>
+    <div class="content_table">
+        <div class="content_store_main">
+            <div class="store_main1">ID</div>
+            <div class="store_main2">NAME</div>
+            <div class="store_main3">AMOUNT</div>
+            <div class="store_main4">PRICE</div>
+            <div class="store_main5">DAY</div>
+            <div class="store_main6">ACTION</div>
         </div>
-    </div>
-    <div class="footer">
+        <?php
+        require 'resources/data/store_data.php';
+        $store = new Store();
+        $result = $store->get();
+        $i = 0;
+        $i++;
+        while ($row = mysqli_fetch_array($result)) { //đi tìm dữ liệu đưa vào mảng.
+        ?>
+            <div class="content_store_item">
+                <div class="store_item1"><?php echo $row['ID_mate']; ?></div>
+                <div class="store_item2"><?php echo $row['name_mate']; ?></div>
+                <div class="store_item3"><?php echo $row['amount_mate']; ?></div>
+                <div class="store_item4"><?php echo $row['price_mate']; ?></div>
+                <div class="store_item5"><?php echo $row['date_input']; ?></div>
+                <div class="store_item6" style="display: flex;">
+                    <button type="button">EDIT</button>
+
+                    <a href="resources/data/delete_store.php?id=<?php echo $row['ID_mate'] ?>"><button class="ml-sm-3">DELETE</button></a>
+                </div>
+            </div>
+        <?php } ?>
+
+
 
     </div>
+
+
+
+</div>
+<div class="tab-pane fade" id="product">
+
+    <div class="content_table">
+        <div class="content_store_main">
+            <div class="store_main1">ID</div>
+            <div class="store_main2">NAME</div>
+            <div class="store_main3">PRICE</div>
+            <div class="store_main4">DESCRIBES</div>
+            <div class="store_main5">CATEGORY</div>
+            <div class="store_main6">ACTION</div>
+        </div>
+        <?php
+        require 'resources/data/product_data.php';
+        $product = new product();
+        $result = $product->get();
+
+        while ($row = mysqli_fetch_array($result)) { //đi tìm dữ liệu đưa vào mảng.
+        ?>
+            <div class="content_store_item">
+                <div class="store_item1"><?php echo $row['ID_pro']; ?></div>
+                <div class="store_item2"><?php echo $row['name_pro']; ?></div>
+                <div class="store_item3"><?php echo $row['price']; ?></div>
+                <div class="store_item4"><?php echo $row['describes']; ?></div>
+                <div class="store_item4"><?php echo $row['category']; ?></div>
+                <div class="store_item6" style="display: flex;">
+                    <button type="submit" name="EDIT">EDIT</button>
+                    <button type="submit" name="delete" class="ml-sm-3">DELETE</button>
+                </div>
+
+            </div>
+        <?php } ?>
+
+    </div>
+</div>
+<div class="tab-pane fade" id="customer">
+    <div class="content_table">
+        <div class="content_store_main">
+            <div class="store_main1">ID_USER</div>
+            <div class="store_main2">NAME_USER</div>
+            <div class="store_main3">PASSWORD</div>
+            <div class="store_main4">PHONE_NUM</div>
+            <div class="store_main5">EMAIL</div>
+            <div class="store_main6">ACTION</div>
+        </div>
+        <?php
+        require 'resources/data/user.php';
+        $user = new User();
+        $result = $user->get();
+
+        while ($row = mysqli_fetch_array($result)) { //đi tìm dữ liệu đưa vào mảng.
+        ?>
+            <div class="content_store_item">
+                <div class="store_item1"><?php echo $row['ID_user']; ?></div>
+                <div class="store_item2"><?php echo $row['name_user']; ?></div>
+                <div class="store_item3"><?php echo $row['pass']; ?></div>
+                <div class="store_item4"><?php echo $row['phone_num']; ?></div>
+                <div class="store_item4"><?php echo $row['email']; ?></div>
+                <div class="store_item6" style="display: flex;">
+                    <button type="submit" name="EDIT">EDIT</button>
+                    <button type="submit" name="delete" class="ml-sm-3">DELETE</button>
+                </div>
+
+            </div>
+        <?php } ?>
+
+
+
+    </div>
+</div>
+<div class="tab-pane fade" id="statistic">
+    thong ke doanh thu
+</div>
+</div>
+</div>
+<div class="footer">
+
+</div>
 </body>
 <script src="./resources/js/admin.js"></script>
 
