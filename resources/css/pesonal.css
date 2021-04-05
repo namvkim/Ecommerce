@@ -20,6 +20,9 @@ html {
 
 /* ------------------------------------------content----------------------------------- */
 
+
+/* ---------------------------------------table--------------------------------------- */
+
 .content-navigate {
     height: 95vh;
     width: 20%;
@@ -28,17 +31,143 @@ html {
     background-color: #2c3e50;
 }
 
-.content-navigate-item1,
-.content-navigate-item2,
-.content-navigate-item3 {
+.content-navigate-item {
     font-size: 20px;
     color: white;
     background-color: #2c3e50;
 }
 
-.content-main {
+.content_box {
     width: 80%;
     float: right;
     margin-top: 5vh;
     padding: 20px;
+}
+
+.content_main,
+.content_item {
+    display: flex;
+}
+
+.content_main {
+    background-color: #5f727f;
+    color: white;
+    font-weight: bold;
+}
+
+.content_item {
+    border: 1px solid #5f727f;
+    cursor: pointer;
+}
+
+.content_main1,
+.content_main2,
+.content_main3,
+.content_main4,
+.content_item1,
+.content_item2,
+.content_item3,
+.content_item4 {
+    padding: 10px;
+}
+
+.content_main1,
+.content_item1 {
+    width: 10%;
+}
+
+.content_main2,
+.content_item2 {
+    width: 70%;
+}
+
+.content_item2 {
+    background-color: #d6dae0;
+    border-radius: 4px;
+}
+
+.content_item2:hover {
+    background-color: #9a9ea5;
+}
+
+.drop_down_animation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.content_main3,
+.content_item3 {
+    width: 10%;
+}
+
+.content_main4,
+.content_item4 {
+    width: 10%;
+}
+
+
+/* -----------------------------------slide-down animation--------------------------------- */
+
+a {
+    text-decoration: none;
+}
+
+.expandable {
+    background: #fff;
+    overflow: hidden;
+    transition: all 1s ease-in-out;
+    line-height: 0;
+    color: transparent;
+    height: 0;
+}
+
+.expandable:target {
+    line-height: 1;
+    color: black;
+    height: auto;
+}
+
+
+/* ---------------------------------------------table details------------------------------- */
+
+.table_details {
+    display: flex;
+    border: 1px solid #5f727f;
+    width: 70%;
+    margin-left: 10%;
+    padding: 5px 10px;
+    align-items: center;
+}
+
+.table_details_item1 {
+    width: 10%;
+}
+
+.table_details_item2 {
+    width: 50%;
+}
+
+.table_details_item3 {
+    width: 20%;
+}
+
+.table_details_item3 img {
+    height: 40px;
+    width: auto;
+}
+
+.table_details_item4 {
+    width: 10%;
+}
+
+.table_details_item5 {
+    width: 10%;
 }

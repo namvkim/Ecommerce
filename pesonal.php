@@ -17,16 +17,16 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="./resources/css/menu.css">
     <link rel="stylesheet" href="./resources/css/pesonal.css">
-
 </head>
 
 <body>
     <div class="header">
         <ul class="header-menu hide-menu">
-            <a href="#">HOME PAGE</a>
-            <a href="#">ABOUT US</a>
+            <a href="inde.php">HOME PAGE</a>
+            <a href="pesonal.php">HISTORY</a>
+            <a href="about.php">ABOUT US</a>
         </ul>
-        <a href="#" class="header-cart"><i class="fas fa-shopping-cart"></i></a>
+        <a href="order.php" class="header-cart"><i class="fas fa-shopping-cart"></i></a>
         <div class="header-logo">
             <p class="logo-title">FA</p>
             <img class="logo" src="./resources/img/logo.jpg" alt="logo">
@@ -36,13 +36,13 @@
         <label for="chk" class="show-menu-btn">
             <i class="fas fa-ellipsis-h"></i>
         </label>
-
         <ul class="header-menu">
-            <a href="#" class="show-menu">HOME PAGE</a>
-            <a href="#" class="show-menu">ABOUT US</a>
-            <a href="#">SIGN IN</a>
+            <a href="inde.php" class="show-menu">HOME PAGE</a>
+            <a href="pesonal.php" class="show-menu">HISTORY</a>
+            <a href="about.php" class="show-menu">ABOUT US</a>
+            <a href="login.php">SIGN IN</a>
             <a href="#"><i class="fas fa-search"></i></a>
-            <a href="#"><i class="fas fa-shopping-cart"></i></a>
+            <a href="order.php"><i class="fas fa-shopping-cart"></i></a>
             <label for="chk" class="hide-menu-btn">
                 <i class="fas fa-times"></i>
             </label>
@@ -53,29 +53,86 @@
             <div class="nav-tabs" id="wrapper" style="border: none;">
                 <div class="border-right" id="sidebar-wrapper">
                     <div class="list-group list-group-flush">
-                        <a href="#history" class="list-group-item list-group-item-action nav-link content-navigate-item1" data-toggle="tab">History</a>
-                        <a href="#product" class="list-group-item list-group-item-action nav-link content-navigate-item2" data-toggle="tab">Thống kê</a>
-                        <a href="#contact" class="list-group-item list-group-item-action nav-link content-navigate-item3" data-toggle="tab">Overview</a>
+                        <a href="#confirmation" class="list-group-item list-group-item-action nav-link content-navigate-item" data-toggle="tab">Confirmation</a>
+                        <a href="#shipping" class="list-group-item list-group-item-action nav-link content-navigate-item" data-toggle="tab">Shipping</a>
+                        <a href="#received" class="list-group-item list-group-item-action nav-link content-navigate-item" data-toggle="tab">Received</a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="tab-content content-main">
-            <div class="tab-pane fade show active" id="history">
-                <?php
-                require 'resources/data/product_data.php';
-                $pro = new product();
-                $result = $pro->delete(1);
-                // while($row = mysqli_fetch_assoc($result)){
-                //     echo $row["name_pro"];
-                // }
-                ?>
+        <div class="tab-content content_box">
+            <div class="tab-pane fade show active" id="confirmation">
+                <div class="content_table">
+                    <div class="content_main">
+                        <div class="content_main1">ID</div>
+                        <div class="content_main2">LIST PRODUCT</div>
+                        <div class="content_main3">SUBTOTAL</div>
+                        <div class="content_main4">DATE</div>
+                    </div>
+                    <div class="content_item">
+                        <div class="content_item1">1</div>
+                        <div class="content_item2">
+                            <a href="#nav1" class="drop_down_animation">Order details<i class="fas fa-caret-down"></i></a>
+                        </div>
+                        <div class="content_item3">500K</div>
+                        <div class="content_item4">15/2/2020</div>
+                    </div>
+                    <div class="expandable" id="nav1">
+                        <div class="table_details">
+                            <div class="table_details_item1">
+                                1
+                            </div>
+                            <div class="table_details_item2">
+                                keo
+                            </div>
+                            <div class="table_details_item3">
+                                <img src="https://cdn.tgdd.vn/Products/Images/7199/79592/bhx/keo-mem-sugus-trai-cay-tui-210g-4-700x467.jpg" alt="">
+                            </div>
+                            <div class="table_details_item4">
+                                15
+                            </div>
+                            <div class="table_details_item5">
+                                200k
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content_item">
+                        <div class="content_item1">1</div>
+                        <div class="content_item2">
+                            <a href="#nav2" class="drop_down_animation">Order details<i class="fas fa-caret-down"></i></a>
+                        </div>
+                        <div class="content_item3">500K</div>
+                        <div class="content_item4">15/2/2020</div>
+                    </div>
+                    <div class="expandable" id="nav2">
+                        <div class="table_details">
+                            <div class="table_details_item1">
+                                1
+                            </div>
+                            <div class="table_details_item2">
+                                keo
+                            </div>
+                            <div class="table_details_item3">
+                                <img src="https://cdn.tgdd.vn/Products/Images/7199/79592/bhx/keo-mem-sugus-trai-cay-tui-210g-4-700x467.jpg" alt="">
+                            </div>
+                            <div class="table_details_item4">
+                                15
+                            </div>
+                            <div class="table_details_item5">
+                                200k
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-            <div class="tab-pane fade" id="product">
-                nam
+            <div class="tab-pane fade" id="shipping">
+                <div class="content_table">
+
+                </div>
             </div>
-            <div class="tab-pane fade" id="contact">
-                hsjf
+            <div class="tab-pane fade" id="received">
+
             </div>
         </div>
     </div>

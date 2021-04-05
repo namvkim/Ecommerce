@@ -44,6 +44,7 @@
     text-decoration: none;
     padding: 0 10px;
     transition: 0.4s;
+    font-weight: bold;
 }
 
 .show-menu {
@@ -65,7 +66,7 @@
 .header-menu a:hover,
 .show-menu-btn:hover,
 .hide-menu-btn:hover {
-    color: #3498db;
+    color: #f368e0;
 }
 
 #chk {
