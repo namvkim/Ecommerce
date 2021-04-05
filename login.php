@@ -40,7 +40,7 @@
                   <form action="" method="post" >
                <br>
                <div class="form-group">
-                   <input type="text" class="form-control" id="username" placeholder="Username" name="username">
+                   <input type="email" class="form-control" id="email" placeholder="Email" name="email">
                </div>
 
                <div class="form-group">
@@ -84,37 +84,64 @@
      
 if(isset($_POST['btn']))
 {
-    $username = $_POST['username'];
+    $email = $_POST['email'];
     $pass = $_POST['password'];
 
     require_once "./resources/data/user.php";
     $user = new User();
-    $result = $user->get();
-    while ($row = mysqli_fetch_assoc($result)) {
-        if ( $username == $row['name_user'])
-        {
-            if( $pass == $row['pass'])
-            {
-                
-                header("Location:inde.php");
-                echo '<script language="javascript">alert("Đăng nhập thành công");window.history.go(-1)</script>';     
-            }
-            else
-            {
-                echo '<script language="javascript">alert("Mật khẩu sai"); window.history.go(-1);</script>';  
-            break;          
-            }
-        }
-        else 
-        {
-            echo '<script language="javascript">alert("Tài khoản không tồn tại"); window.history.go(-1);</script>';            
+    $result = $user->getUser($email,$pass);
+    // $row=mysqli_fetch_assoc($result);
+    // echo $row['email'];
+    if( mysqli_num_rows($result) > 0)
+    {
+     echo '<script language="javascript">alert("Đăng nhập thành công"); window.location="inde.php";</script>';
+    }
+    else
+    {
+         echo '<script language="javascript">alert("Đăng nhập không thành công"); window.history.go(-1);</script>'; 
+    }
 
-        }
-     }
+}
+
+
+   // $kt=0;
+// mysqli_num_rows()
+    // while ($row = mysqli_fetch_assoc($result)) {
+    //     if ( $username == $row['name_user'])
+    //     {
+    //         if( $pass == $row['pass'])
+    //         {
+    //             $kt =1;
+    //             break;
+    //             //echo '<script language="javascript">alert("Đăng nhập thành công");window.history.go(-1)</script>'; 
+    //             //header("Location:inde.php");
+    //             //echo '<script language="javascript">alert("Đăng nhập thành công"); window.location="inde.php";</script>';
+    
+    //         }
+           // else
+          //  {
+                //$kt =2;
+                //echo '<script language="javascript">alert("Mật khẩu sai"); window.history.go(-1);</script>';  
+           // break;          
+    //        // }
+    //     }
+    //     else 
+    //     {
+    //         echo '<script language="javascript">alert("Tài khoản không tồn tại"); window.history.go(-1);</script>'; 
+    //         break;           
+
+    //     }
+    //  }
+    //  if($kt ==1){
+    //     echo '<script language="javascript">alert("Đăng nhập thành công"); window.location="inde.php";</script>';
+    //  } else
+    //  {
+    //     echo '<script language="javascript">alert("Mật khẩu sai"); window.history.go(-1);</script>';  
+    //  }
 
 
     
-}
+
 ?>
 <script src="./resources/js/signUp.js"></script>
 </html>

@@ -52,21 +52,21 @@ input[class=form-control] {
     -moz-border-radius: 20px;
     border-radius: 20px;
     border: 1px solid none;
-    color: #BB0000;
+    color: black;
     width: 100%;
     padding-left: 10px;
 }
 
 input[class=form-control]:focus {
     outline: none;
-    background: #99FFFF;
-    border: 1px solid #2da8d9;
+    /* background: #99FFFF; */
+    border: 1px solid palevioletred;
     color: #f33838;
 }
 
 input[class=form-control]:hover {
-    background: #CCFFFF;
-    border: 1px solid #2da8d9;
+    /* background: #CCFFFF; */
+    border: 1px solid palevioletred;
 }
 
 .content-input-wrap {

@@ -8,6 +8,12 @@
             $sql="SELECT * from users";
             return $conn->req($data,$sql);
         }
+        public function getUser($email, $pass){
+            $conn = new connect_data();
+            $data= $conn->connect();
+            $sql="SELECT * from users WHERE email = '$email' and pass = '$pass'";
+            return $conn->req($data,$sql);
+        }
 
         public function post($name, $password, $phone,$email, $address){
             $conn = new connect_data();

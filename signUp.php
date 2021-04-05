@@ -19,7 +19,7 @@
 </head>
 <body>
  
-   <div class="content" style="background-image: url('./resources/img/background.jpg');
+   <div class="content" style="background-image: url('./resources/img/pink.jpg');
      background-repeat:no-repeat; background-size:cover; height:100vh; width:100% ;  display: flex; align-items: center;  " >
   
    <div class="container content-input content-input-wrap"  >
@@ -29,14 +29,14 @@
                   <form action="" method="POST"  >
                <br>
                <div class="form-group">
-                   <input type="text" class="form-control" id="name" placeholder="Name *" name="name" value="<?php if(isset($_POST['name'])){echo $_POST["name"] ;}?>">
+                   <input type="text" class="form-control" id="name" placeholder="Fullname *" name="name" value="<?php if(isset($_POST['name'])){echo $_POST["name"] ;}?>">
                </div>
                
                <div class="form-group">
                    <input type="password" class="form-control" id="pass1" placeholder="Password *" name="pass1" value="<?php if(isset($_POST['pass1'])){echo $_POST["pass1"] ;}?>">
                </div>
                <div class="form-group">
-                   <input type="password" class="form-control" id="pass2" placeholder="Password *" name="pass2">
+                   <input type="password" class="form-control" id="pass2" placeholder="Confirm *" name="pass2">
                </div>
                <div class="form-group">
                    <input type="email" class="form-control" id="email" placeholder="Email *" name="email " value="<?php if(isset($_POST['email'])){echo $_POST["email"] ;}?>">
@@ -49,7 +49,6 @@
                </div>
            
              
-                <!-- <input type="button" class="form-control btn btn-primary btn-lg btn-block" name="btn"> -->
                 <input type="submit" class="form-control btn btn-primary btn-lg btn-block" name="btn" value="Đăng Ký" />
 
                 
@@ -90,33 +89,44 @@
                         
 
                         require 'resources/data/user.php';
-                        $us = new User();
-                        $result= $us->get();
-                        $kt = 0;
-                        while($row = mysqli_fetch_assoc($result))
+                        $user = new User();
+                        $result = $user->getUser($email,$pass);
+                    
+                        if( mysqli_num_rows($result) > 0)
                         {
-                          //  $user1 = $row["name_user"];
-                            if($name == $row["name_user"])
-                            {
-                                $kt=1;
-                            }
+                         echo '<script language="javascript">alert("Tài khoản đã tồn tại"); window.history.go(-1);</script>'; 
+                        }
+                        else
+                        {
+                            $user->post($name, $pass1, $phone,$email, $address);
+                             echo '<script language="javascript">alert("Đăng ký thành công"); window.location="inde.php";</script>';
+                        }
+                        // $result= $us->get();
+                        // $kt = 0;
+                        // while($row = mysqli_fetch_assoc($result))
+                        // {
+                        //   //  $user1 = $row["name_user"];
+                        //     if($email == $row["email"])
+                        //     {
+                        //         $kt=1;
+                        //     }
                             
-                        }
-                        if($kt == 1)
-                        {
-                            echo '<script language="javascript">alert("Tài khoản đã tồn tại"); window.history.go(-1);</script>';  
-                        }
-                            else{
-                                $us->post($name, $pass1, $phone,$email, $address);
-                            // echo "Đăng ký thành công <a href= './inde.php'>Vào trang chủ</a>";
-                                echo '<script language="javascript">alert("Đăng ký thành công"); window.location="inde.php";</script>';
-                               
-
-
+                        // }
+                        //     if($kt == 1)
+                        //     {
+                        //         echo '<script language="javascript">alert("Tài khoản đã tồn tại"); window.history.go(-1);</script>';  
+                        //     }
+                        //     else{
+                        //             $us->post($name, $pass1, $phone,$email, $address);
+                        //         // echo "Đăng ký thành công <a href= './inde.php'>Vào trang chủ</a>";
+                        //             echo '<script language="javascript">alert("Đăng ký thành công"); window.location="inde.php";</script>';
                                 
-                            }
-                        }
-                }
+
+
+                                    
+                        //     }
+                        // }
+                }}
 
               ?>
            
