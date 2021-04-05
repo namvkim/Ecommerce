@@ -94,8 +94,6 @@
             <hr>
 
             <?php
-
-            if(isset($_POST['near']))echo "HI";
  
             require_once 'resources\data\product_data.php';
 
@@ -106,39 +104,28 @@
                 $pic= new picture();
 
                 if(isset($_POST['drink'])){
-
-                    ?>
-                        <div class="row">
-                        <?php  
-                        while($row = mysqli_fetch_assoc($result)){   
+                    while($row = mysqli_fetch_assoc($result)){
     
-                        if($row['category']== 2){    
-                       //     while ($data = mysqli_fetch_assoc($pic->get('ID_pro'))){                                            
-                            ?> 
-                            <div class="column">
-                                <div class ="card">
-                                <?php
-                                    while ($data = mysqli_fetch_assoc($pic->get('ID_pro'))){ 
-                                  //  if($data['ID_pro'] == $row['ID_pro']){
-                                    ?> 
-                                        <img class ="column_img" src="<?php echo $data['pic']?>"  alt="<?php echo $row['name_pro']; ?>">
-                                       <?php
-                                        break;
-                                     //   }
-                                        }                                       
-                                        ?>
-                                        <h4><?php echo $row['name_pro']?></h4>
-                                        <p><?php echo $row['describes']?></p>
-                                        <p class="column_Price_Cart"><?php echo $row['price']?> đ <button class="column-cart"> <i class="fa fa-cart-arrow-down"></i> Add to cart</button></p>
-                                </div> 
-                            </div>                         
-                            <?php 
-                                               
-                            }
-                        }                  
-                        ?>
-                        </div>
-                        <?php
+                        if($row['category']== 2){     
+                            $result_pic =$pic->get($row['ID_pro']);
+                            $row_pic = mysqli_fetch_assoc($result_pic);                                        
+                        ?> 
+                        <div class="column">
+                            <div class ="card">
+                                <div class ="column_img">
+                                <img  src="<?php echo $row_pic['pic'] ?>"  alt="<?php echo $row['name_pro']; ?>"  >
+
+                                </div>
+                                <h4><?php echo $row['name_pro']?></h4>
+                                <p><?php echo $row['describes']?></p>
+                                <p class="column_Price_Cart"><?php echo $row['price']?> đ <button class="column-cart"> <i class="fa fa-cart-arrow-down"></i> Add to cart</button></p>
+                            </div> 
+                        </div>                         
+                        <?php                
+                        }
+    
+                    }
+                
                     
                      }else if(isset($_POST['top'])){
 
@@ -178,16 +165,19 @@
                     }else if(isset($_POST['sale'])){
 
                     }else{
-                        ?>
-                        <div class="row">
-                        <?php  
+                    
                         while($row = mysqli_fetch_assoc($result)){
     
-                        if($row['category']== 1){                                                
+                        if($row['category']== 1){     
+                            $result_pic =$pic->get($row['ID_pro']);
+                            $row_pic = mysqli_fetch_assoc($result_pic);                                        
                         ?> 
                         <div class="column">
                             <div class ="card">
-                                <img class ="column_img" src="https://assets.brandinside.asia/uploads/2019/07/shutterstock_1437332618-e1563988304801.jpg"  alt="<?php echo $row['name_pro']; ?>"  >
+                                <div class ="column_img">
+                                <img  src="<?php echo $row_pic['pic'] ?>"  alt="<?php echo $row['name_pro']; ?>"  >
+
+                                </div>
                                 <h4><?php echo $row['name_pro']?></h4>
                                 <p><?php echo $row['describes']?></p>
                                 <p class="column_Price_Cart"><?php echo $row['price']?> đ <button class="column-cart"> <i class="fa fa-cart-arrow-down"></i> Add to cart</button></p>
@@ -197,9 +187,7 @@
                         }
     
                     }
-                    ?>
-                    </div>
-                    <?php
+                
 
                 }
         //     }else{

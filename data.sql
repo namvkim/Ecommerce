@@ -65,8 +65,11 @@ values(
   (4,'https://monanvietnamblog.files.wordpress.com/2017/07/banh-mi-kep-cha-lua.jpg'),
   (5,'https://danangreview.com/wp-content/uploads/2018/10/quan-oc-hut-ba-my-da-nang-quan-oc-hut-ngon-tai-da-nang.jpg'),
   (6,'https://quynhonservice.com/wp-content/uploads/2019/10/b%C3%A1nh-cu%E1%BB%91n-.jpg'),
-  (7,'https://beptruong.edu.vn/wp-content/uploads/2018/06/bun-dau-mam-tom-thap-cam.jpg');
-
+  (7,'https://beptruong.edu.vn/wp-content/uploads/2018/06/bun-dau-mam-tom-thap-cam.jpg'),
+  (8,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6653b84qLQeQslFlZ3HaeajSlsXbjCUy4bg&usqp=CAU'),
+  (9,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTC9NbRhANhOmzufCR5x3DIJkb9mWG7JSr9mQ&usqp=CAU'),
+  (10,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiLzX6Ry7Ih_VqR3Ih4w8VaalUt2fJN2yygg&usqp=CAU'),
+  (11,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3AoKdmgRdWGeqKCgj10v1Z27T0GRTFEaRSQ&usqp=CAU');
 create table orders(
   ID_order int primary key auto_increment,
   ID_user int,
