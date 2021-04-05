@@ -30,6 +30,13 @@
             return $conn->req($data,$sql);
         }
 
+        public function get_pro($id_pro){
+            $conn = new connect_data();
+            $data= $conn->connect();
+            $sql="select * from products where ID_pro = $id_pro";
+            return $conn->req($data,$sql);
+        }
+
         public function get_cate($category){
             $conn = new connect_data();
             $data= $conn->connect();

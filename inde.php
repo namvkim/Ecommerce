@@ -43,7 +43,7 @@
             <a href="about.php" class="show-menu">ABOUT US</a>
             <a href="login.php">SIGN IN</a>
             <a href="#"><i class="fas fa-search"></i></a>
-            <a href="order.php"><i class="fas fa-shopping-cart"></i></a>
+            <a href="cart.php"><i class="fas fa-shopping-cart"></i></a>
             <label for="chk" class="hide-menu-btn">
                 <i class="fas fa-times"></i>
             </label>

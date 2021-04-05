@@ -20,7 +20,7 @@
 </head>
 
 <body>
-<div class="header">
+    <div class="header">
         <ul class="header-menu hide-menu">
             <a href="inde.php">HOME PAGE</a>
             <a href="pesonal.php">HISTORY</a>
@@ -62,7 +62,41 @@
                 <div class="content_main6">CHOSE</div>
                 <div class="content_main7">DELETE</div>
             </div>
-            <div class="content_item">
+            <?php
+            require_once 'resources/data/cart_data.php';
+            require_once 'resources/data/product_data.php';
+            require_once 'resources/data/picture_data.php';
+            $cart = new cart();
+            $pro = new product();
+            $pic = new picture();
+            $result_cart = $cart->getUser(1);
+
+            while ($row_cart = mysqli_fetch_assoc($result_cart)) {
+                $result_pro = $pro->get_pro($row_cart['ID_pro']);
+                $row_pro = mysqli_fetch_assoc($result_pro);
+
+                $result_pic = $pic->get($row_cart['ID_pro']);
+                $row_pic = mysqli_fetch_assoc($result_pic);
+
+                echo "
+                    <div class='content_item'>
+                    <div class='content_item1'>{$row_cart['ID_cart']}</div>
+                    <div class='content_item2'>
+                        <img src='{$row_pic['pic']}' alt=''>
+                    </div>
+                    <div class='content_item3'>{$row_pro['name_pro']}</div>
+                    <div class='content_item4'>{$row_pro['price']}</div>
+                    <div class='content_item5'>{$row_cart['quantity']}</div>
+                    <div class='content_item6'>
+                        <input type='checkbox'>
+    
+                    </div>
+                    <div class='content_item7'><i class='far fa-trash-alt'></i></div>
+                </div>
+                    ";
+            }
+            ?>
+            <!-- <div class="content_item">
                 <div class="content_item1">1</div>
                 <div class="content_item2">
                     <img src="https://cdn.tgdd.vn/Products/Images/7199/79592/bhx/keo-mem-sugus-trai-cay-tui-210g-4-700x467.jpg" alt="">
@@ -77,7 +111,7 @@
 
                 </div>
                 <div class="content_item7"><i class="far fa-trash-alt"></i></div>
-            </div>
+            </div> -->
             <div class="content_footer">
                 <a href="">
                     <div class="content_footer_update">
@@ -86,7 +120,7 @@
                 </a>
                 <a href="">
                     <div class="content_footer_checkout">
-                    <i class="far fa-check-circle"></i>
+                        <i class="far fa-check-circle"></i>
                         CHECK OUT
                     </div>
                 </a>
