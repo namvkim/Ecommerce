@@ -75,8 +75,8 @@ create table orders(
   FOREIGN KEY (ID_user) REFERENCES users (ID_user) on delete cascade
 );
 
-insert into orders(ID_user)
-values(1), (2);
+insert into orders(ID_user,datee,status)
+values(1,"27-2-2002",1), (2,"15-5-2001",1);
 
 create table order_details(
   ID_order_detail int PRIMARY KEY auto_increment,
@@ -87,9 +87,9 @@ create table order_details(
   FOREIGN KEY (ID_pro) REFERENCES products (ID_pro) on delete cascade
 );
 
-insert into order_details(ID_order, ID_pro, quantity, datee)
-values(1, 1, 15, '25-3-2005'), 
-  (1, 2, 20, '15-3-2005');
+insert into order_details(ID_order, ID_pro, quantity)
+values(1, 1, 15), 
+  (1, 2, 20);
 
 create table carts(
   ID_cart int primary key auto_increment,
