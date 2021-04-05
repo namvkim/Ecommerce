@@ -49,12 +49,12 @@
                </div>
            
              
-                <input type="submit" class="form-control btn btn-primary btn-lg btn-block" name="btn" value="Đăng Ký" />
+                <input type="submit" class="form-control btn btn-outline-danger btn-lg btn-block" name="btn" value="Đăng Ký" />
 
                 
                 
                <div class="content-input-footer" >
-                   <div style="color:black">Đã có tài khoản</div>
+                   <div style="color:black ;padding-right:5px;">Đã có tài khoản</div>
                    <div> <a href="login.php"><u >Đăng Nhập</u></a></div>
                </div><br>
            </form>
@@ -71,23 +71,22 @@
      
               if(isset($_POST['btn']))
               {
-                            $name = $_POST['name'];
-                            $email = $_POST['email'];
-                            $pass1 = $_POST['pass1'];
-                            $pass2 = $_POST['pass2'];
-                            $phone = $_POST['phone'];
-                            $address = $_POST['address'];
-                         
               
-                      if($pass1 != $pass2)
-                      {
-                        echo '<script language="javascript">alert("Mật khẩu không trùng khớp"); window.history.go(-1);</script>'; 
+                
+                    $name = $_POST['name'];
+                    $email = $_POST['email'];
+                    $pass1 = $_POST['pass1'];
+                    $pass2 = $_POST['pass2'];
+                    $phone = $_POST['phone'];
+                    $address = $_POST['address'];
+                
+                
+                                                 
               
-                      }
-                      else
+                      if($pass1 == $pass2)
                       {
-                        
-
+                        //echo '<script language="javascript">alert("Mật khẩu không trùng khớp"); window.history.go(-1);</script>'; 
+                            
                         require 'resources/data/user.php';
                         $user = new User();
                         $result = $user->getUser($email,$pass);
@@ -126,8 +125,12 @@
                                     
                         //     }
                         // }
-                }}
-
+                      }
+                      else
+                      {
+                            echo '<script language="javascript">alert("Mật khẩu không trùng khớp"); window.history.go(-1);</script>'; 
+                        }
+            }
               ?>
            
 

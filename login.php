@@ -31,7 +31,7 @@
     </div> -->
 
 
-   <div class="content" style="background-image: url('./resources/img/background.jpg');
+   <div class="content" style="background-image: url('./resources/img/pink.jpg');
      background-repeat:no-repeat; background-size:cover; height:100vh; width:100% ;  display: flex; align-items: center;  " >
   
    <div class="container content-input content-input-wrap"  >
@@ -58,7 +58,7 @@
                     </div>
                 </DIV>
               
-             <input type="submit" class="form-control btn btn-primary btn-lg btn-block" name="btn" value="Đăng Nhập"></input>
+             <input type="submit" class="form-control btn btn-outline-danger btn-lg btn-block" name="btn" value="Đăng Nhập"></input>
                <div class="content-input-footer" >
                    <div style="color:black;">Đã có tài khoản</div>
                    <div> <a href="signUp.php"><u>Đăng Ký</u></a></div>
