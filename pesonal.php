@@ -22,10 +22,11 @@
 <body>
     <div class="header">
         <ul class="header-menu hide-menu">
-            <a href="#">HOME PAGE</a>
-            <a href="#">ABOUT US</a>
+            <a href="inde.php">HOME PAGE</a>
+            <a href="pesonal.php">HISTORY</a>
+            <a href="about.php">ABOUT US</a>
         </ul>
-        <a href="#" class="header-cart"><i class="fas fa-shopping-cart"></i></a>
+        <a href="order.php" class="header-cart"><i class="fas fa-shopping-cart"></i></a>
         <div class="header-logo">
             <p class="logo-title">FA</p>
             <img class="logo" src="./resources/img/logo.jpg" alt="logo">
@@ -36,11 +37,12 @@
             <i class="fas fa-ellipsis-h"></i>
         </label>
         <ul class="header-menu">
-            <a href="#" class="show-menu">HOME PAGE</a>
-            <a href="#" class="show-menu">ABOUT US</a>
-            <a href="#">SIGN IN</a>
+            <a href="inde.php" class="show-menu">HOME PAGE</a>
+            <a href="pesonal.php" class="show-menu">HISTORY</a>
+            <a href="about.php" class="show-menu">ABOUT US</a>
+            <a href="login.php">SIGN IN</a>
             <a href="#"><i class="fas fa-search"></i></a>
-            <a href="#"><i class="fas fa-shopping-cart"></i></a>
+            <a href="order.php"><i class="fas fa-shopping-cart"></i></a>
             <label for="chk" class="hide-menu-btn">
                 <i class="fas fa-times"></i>
             </label>
@@ -58,7 +60,7 @@
                 </div>
             </div>
         </div>
-        <div class="tab-content content-main">
+        <div class="tab-content content_box">
             <div class="tab-pane fade show active" id="confirmation">
                 <div class="content_table">
                     <div class="content_main">
@@ -67,79 +69,70 @@
                         <div class="content_main3">SUBTOTAL</div>
                         <div class="content_main4">DATE</div>
                     </div>
-
-
                     <div class="content_item">
                         <div class="content_item1">1</div>
                         <div class="content_item2">
-                            <a href="#nav1" class="drop_down_animation">Chi tiết sản phẩm <i class="fas fa-caret-down"></i></a>
+                            <a href="#nav1" class="drop_down_animation">Order details<i class="fas fa-caret-down"></i></a>
                         </div>
                         <div class="content_item3">500K</div>
                         <div class="content_item4">15/2/2020</div>
                     </div>
                     <div class="expandable" id="nav1">
-                        <p>Cum enim magna parturient ac elementum, tincidunt tempor ac lectus platea placerat. Eros dis lectus. Ut aliquam. Porttitor risus mattis mauris lacus a, aliquam augue cras elementum! Adipiscing, vel ridiculus diam pellentesque sociis
-                            habitasse pellentesque, augue parturient sed elementum aenean. Tincidunt tristique.</p>
+                        <div class="table_details">
+                            <div class="table_details_item1">
+                                1
+                            </div>
+                            <div class="table_details_item2">
+                                keo
+                            </div>
+                            <div class="table_details_item3">
+                                <img src="https://cdn.tgdd.vn/Products/Images/7199/79592/bhx/keo-mem-sugus-trai-cay-tui-210g-4-700x467.jpg" alt="">
+                            </div>
+                            <div class="table_details_item4">
+                                15
+                            </div>
+                            <div class="table_details_item5">
+                                200k
+                            </div>
+                        </div>
                     </div>
-
-
                     <div class="content_item">
                         <div class="content_item1">1</div>
                         <div class="content_item2">
-                            <a href="#nav2" class="drop_down_animation">Chi tiết sản phẩm <i class="fas fa-caret-down"></i></a>
+                            <a href="#nav2" class="drop_down_animation">Order details<i class="fas fa-caret-down"></i></a>
                         </div>
                         <div class="content_item3">500K</div>
                         <div class="content_item4">15/2/2020</div>
                     </div>
                     <div class="expandable" id="nav2">
-                        <p>Cum enim magna parturient ac elementum, tincidunt tempor ac lectus platea placerat. Eros dis lectus. Ut aliquam. Porttitor risus mattis mauris lacus a, aliquam augue cras elementum! Adipiscing, vel ridiculus diam pellentesque sociis
-                            habitasse pellentesque, augue parturient sed elementum aenean. Tincidunt tristique.</p>
+                        <div class="table_details">
+                            <div class="table_details_item1">
+                                1
+                            </div>
+                            <div class="table_details_item2">
+                                keo
+                            </div>
+                            <div class="table_details_item3">
+                                <img src="https://cdn.tgdd.vn/Products/Images/7199/79592/bhx/keo-mem-sugus-trai-cay-tui-210g-4-700x467.jpg" alt="">
+                            </div>
+                            <div class="table_details_item4">
+                                15
+                            </div>
+                            <div class="table_details_item5">
+                                200k
+                            </div>
+                        </div>
                     </div>
+
                 </div>
             </div>
             <div class="tab-pane fade" id="shipping">
                 <div class="content_table">
-                    <div class="content_row_main">
-                        <div class="content_row_item1">ID</div>
-                        <div class="content_row_item2">LIST PRODUCT</div>
-                        <div class="content_row_item3">SUBTOTAL</div>
-                        <div class="content_row_item4">DATE</div>
-                    </div>
-                    <div class="content_row_item">
-                        <div class="content_row_item1">1</div>
-                        <div class="content_row_item2">Chi tiết sản phẩm <i class="fas fa-caret-down"></i></div>
-                        <div class="content_row_item3">500K</div>
-                        <div class="content_row_item4">15/2/2020</div>
-                    </div>
-                    <div class="content_row_item">
-                        <div class="content_row_item1">1</div>
-                        <div class="content_row_item2">Chi tiết sản phẩm <i class="fas fa-caret-down"></i></div>
-                        <div class="content_row_item3">500K</div>
-                        <div class="content_row_item4">15/2/2020</div>
-                    </div>
+
                 </div>
             </div>
             <div class="tab-pane fade" id="received">
-                <div class="content_table">
-                    <div class="content_row_main">
-                        <div class="content_row_item1">ID</div>
-                        <div class="content_row_item2">LIST PRODUCT</div>
-                        <div class="content_row_item3">SUBTOTAL</div>
-                        <div class="content_row_item4">DATE</div>
-                    </div>
-                    <div class="content_row_item">
-                        <div class="content_row_item1">1</div>
-                        <div class="content_row_item2">Chi tiết sản phẩm <i class="fas fa-caret-down"></i></div>
-                        <div class="content_row_item3">500K</div>
-                        <div class="content_row_item4">15/2/2020</div>
-                    </div>
-                    <div class="content_row_item">
-                        <div class="content_row_item1">1</div>
-                        <div class="content_row_item2">Chi tiết sản phẩm <i class="fas fa-caret-down"></i></div>
-                        <div class="content_row_item3">500K</div>
-                        <div class="content_row_item4">15/2/2020</div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
