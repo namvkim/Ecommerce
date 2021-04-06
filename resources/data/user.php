@@ -38,6 +38,13 @@
             $conn->req($data,$sql);
         }
 
+        public function block($id,$status){
+            $conn = new connect_data();
+            $data= $conn->connect();
+            $sql ="UPDATE users SET  status = $status WHERE ID_user=$id ";
+            $conn->req($data,$sql);
+        }
+
     }
 
 ?>

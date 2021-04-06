@@ -15,7 +15,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="./resources/css/admin.css">
+    <link rel="stylesheet" href="./resources/css/admin.css">
     <link rel="stylesheet" href="./resources/css/menu.css">
 
 
@@ -98,9 +98,9 @@
 
 
             <div class="tab-pane fade" id="store">
-                <button class="btn btn-primary" data-toggle="modal" data-target="#addProductModal">
-                    <i class="fas fa-plus mr-2"></i> </button>
-
+                <a href="">
+                    <button class="add_btn"><i class="fas fa-plus"></i> add</button>
+                </a>
                 <div class="content_table">
                     <div class="content_store_main">
                         <div class="store_main1">ID</div>
@@ -124,58 +124,19 @@
                             <div class="store_item3"><?php echo $row['amount_mate']; ?></div>
                             <div class="store_item4"><?php echo $row['price_mate']; ?></div>
                             <div class="store_item5"><?php echo $row['date_input']; ?></div>
-                            <div class="store_item6" style="display: flex;">
-                                <button type="button">EDIT</button>
-
-                                <a href="resources/data/delete_store.php?id=<?php echo $row['ID_mate'] ?>"><button class="ml-sm-3">DELETE</button></a>
+                            <div class="store_item6">
+                                <a href="resources/processing/edit_store.php?id=<?php echo $row['ID_mate'] ?>"><button>EDIT</button></a>
+                                <a href="resources/processing/delete_store.php?id=<?php echo $row['ID_mate'] ?>"><button>DELETE</button></a>
                             </div>
-                            <!-- modal -->
-                            <div id="myModal" class="modal">
-                                <div class="modal-content">>
-                                    <div class="modal-body">
-                                        <div class="container">
-                                            <form method="POST" id="form" action="">
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <table class="table">
-                                                            <tr>
-                                                                <td>NAME:</td>
-                                                                <td><input type="text" id="name_mate" name="name_mate" value="<?php echo $row['name_mate']; ?>"></td>
-                                                            </tr>
 
-                                                            <tr>
-                                                                <td>AMOUNT:</td>
-                                                                <td><input type="number" id="amount_mate" name="amount_mate" value="<?php echo $row['amount_mate']; ?>"></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>PRICE:</td>
-                                                                <td><input type="number" id="price_mate" name="price_mate" value="<?php echo $row['price_mate']; ?>"></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>DAY</td>
-                                                                <td><input type="text" id="date_input" name="date_input" value="<?php echo $row['date_input']; ?>"></td>
-                                                            </tr>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                                <button type="submit" id="submit" value="submit" class="btn btn-primary btn-lg" name="submit">
-                                                    ADD
-                                                </button>
-
-                                            </form>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- // -->
                         </div>
                     <?php } ?>
                 </div>
             </div>
             <div class="tab-pane fade" id="product">
-                <button class="btn btn-primary" data-toggle="modal" data-target="#addProductModal">
-                    <i class="fas fa-plus mr-2"></i> </button>
+                <a href="resources/processing/add_pro.php">
+                    <button class="add_btn"><i class="fas fa-plus"></i> add</button>
+                </a>
                 <div class="content_table">
                     <div class="content_store_main">
                         <div class="store_main1">ID</div>
@@ -198,9 +159,9 @@
                             <div class="store_item3"><?php echo $row['price']; ?></div>
                             <div class="store_item4"><?php echo $row['describes']; ?></div>
                             <div class="store_item4"><?php echo $row['category']; ?></div>
-                            <div class="store_item6" style="display: flex;">
-                                <button type="submit" name="EDIT">EDIT</button>
-                                <a href="resources/data/delete_pro.php?id=<?php echo $row['ID_pro'] ?>"><button class="ml-sm-3">DELETE</button></a>
+                            <div class="store_item6">
+                                <a href="resources/processing/edit_pro.php?id=<?php echo $row['ID_pro'] ?>"><button>EDIT</button></a>
+                                <a href="resources/processing/delete_pro.php?id=<?php echo $row['ID_pro'] ?>"><button>DELETE</button></a>
                             </div>
 
                         </div>
@@ -229,9 +190,19 @@
                             <div class="user_item2"><?php echo $row['name_user']; ?></div>
                             <div class="user_item3"><?php echo $row['phone_num']; ?></div>
                             <div class="user_item4"><?php echo $row['email']; ?></div>
-                            <div class="user_item5" style="display: flex;">
-                                <button type="submit" name="EDIT">DETAILS</button>
-                                <a href="resources/processing/delete_cus.php?id=<?php echo $row['ID_user'] ?>"><button class="ml-sm-3">BLOCK</button></a>
+                            <div class="user_item5">
+                                <?php
+                                if ($row['status'] == 0) {
+                                ?>
+                                    <a href="resources/processing/unlock_cus.php?id=<?php echo $row['ID_user'] ?>"><button class="unlock">UNLOCK</button></a>
+                                <?php
+                                }
+                                if ($row['status'] == 1) {
+                                ?>
+                                    <a href="resources/processing/block_cus.php?id=<?php echo $row['ID_user'] ?>"><button class="block">BLOCK</button></a>
+                                <?php
+                                }
+                                ?>
                             </div>
                         </div>
                     <?php } ?>
