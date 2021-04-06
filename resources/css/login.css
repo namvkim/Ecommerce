@@ -59,7 +59,7 @@ input[class=form-control] {
 
 input[class=form-control]:focus {
     outline: none;
-    background:#FFAEB9;
+    background: #FFAEB9;
     border: 1px solid palevioletred;
     color: #f33838;
 }
