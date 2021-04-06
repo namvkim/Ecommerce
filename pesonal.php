@@ -66,64 +66,72 @@
                     <div class="content_main">
                         <div class="content_main1">ID</div>
                         <div class="content_main2">LIST PRODUCT</div>
-                        <div class="content_main3">SUBTOTAL</div>
-                        <div class="content_main4">DATE</div>
-                    </div>
-                    <div class="content_item">
-                        <div class="content_item1">1</div>
-                        <div class="content_item2">
-                            <a href="#nav1" class="drop_down_animation">Order details<i class="fas fa-caret-down"></i></a>
-                        </div>
-                        <div class="content_item3">500K</div>
-                        <div class="content_item4">15/2/2020</div>
-                    </div>
-                    <div class="expandable" id="nav1">
-                        <div class="table_details">
-                            <div class="table_details_item1">
-                                1
-                            </div>
-                            <div class="table_details_item2">
-                                keo
-                            </div>
-                            <div class="table_details_item3">
-                                <img src="https://cdn.tgdd.vn/Products/Images/7199/79592/bhx/keo-mem-sugus-trai-cay-tui-210g-4-700x467.jpg" alt="">
-                            </div>
-                            <div class="table_details_item4">
-                                15
-                            </div>
-                            <div class="table_details_item5">
-                                200k
-                            </div>
-                        </div>
-                    </div>
-                    <div class="content_item">
-                        <div class="content_item1">1</div>
-                        <div class="content_item2">
-                            <a href="#nav2" class="drop_down_animation">Order details<i class="fas fa-caret-down"></i></a>
-                        </div>
-                        <div class="content_item3">500K</div>
-                        <div class="content_item4">15/2/2020</div>
-                    </div>
-                    <div class="expandable" id="nav2">
-                        <div class="table_details">
-                            <div class="table_details_item1">
-                                1
-                            </div>
-                            <div class="table_details_item2">
-                                keo
-                            </div>
-                            <div class="table_details_item3">
-                                <img src="https://cdn.tgdd.vn/Products/Images/7199/79592/bhx/keo-mem-sugus-trai-cay-tui-210g-4-700x467.jpg" alt="">
-                            </div>
-                            <div class="table_details_item4">
-                                15
-                            </div>
-                            <div class="table_details_item5">
-                                200k
-                            </div>
-                        </div>
+                        <div class="content_main3">DATE</div>
                     </div>
 
+                    <?php
+                    require_once 'resources/data/order_data.php';
+                    require_once 'resources/data/order_details_data.php';
+                    require_once 'resources/data/product_data.php';
+                    require_once 'resources/data/picture_data.php';
+
+                    $order = new orders();
+                    $order_details = new orders_details();
+                    $pro = new product();
+                    $pic = new picture();
+
+                    $result_order = $order->get_user(1);
+                    $i = 0;
+                    while ($row_order = mysqli_fetch_assoc($result_order)) {
+                        $i++;
+                        $result_order_details = $order_details->get($row_order['ID_order']);
+                    ?>
+                        <div class="content_item">
+                            <div class="content_item1"><?php echo $i ?></div>
+                            <div class="content_item2">
+                                <a href="#nav1" class="drop_down_animation">Order details<i class="fas fa-caret-down"></i></a>
+                            </div>
+                            <div class="content_item3"><?php echo $row_order['datee'] ?></div>
+                        </div>
+                        <div class="expandable" id="nav1">
+                            <?php
+                            $j = 0;
+                            while ($row_order_details = mysqli_fetch_assoc($result_order_details)) {
+                                $j++;
+                                $result_pro = $pro->get_pro($row_order_details['ID_pro']);
+                                $row_pro = mysqli_fetch_assoc($result_pro);
+                                $result_pic = $pic->get($row_order_details['ID_pro']);
+                                $row_pic = mysqli_fetch_assoc($result_pic);
+                            ?>
+                                <div class="table_details">
+                                    <div class="table_details_item1">
+                                        <?php echo $j ?>
+                                    </div>
+                                    <div class="table_details_item2">
+                                        <?php echo $row_pro['name_pro'] ?>
+                                    </div>
+                                    <div class="table_details_item3">
+                                        <img src="<?php echo $row_pic['pic'] ?>" alt="">
+                                    </div>
+                                    <div class="table_details_item4">
+                                        <?php echo $row_order_details['quantity'] ?>
+                                    </div>
+                                    <div class="table_details_item5">
+                                        <?php echo $row_pro['price'] ?>
+                                    </div>
+                                </div>
+                            <?php
+                            }
+                            ?>
+                            <div class="table_details">
+                                <div class="total">
+                                    fads
+                                </div>
+                            </div>
+                        </div>
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
             <div class="tab-pane fade" id="shipping">
