@@ -172,4 +172,61 @@ button {
 }
 
 
-/* --------------------------table product-------------------- */
+/* --------------------------table user-------------------- */
+
+.content_user_main,
+.content_user_item {
+    display: flex;
+}
+
+.content_user_main {
+    background-color: #5f727f;
+    color: white;
+    font-weight: bold;
+}
+
+.content_user_item {
+    border: 1px solid #5f727f;
+}
+
+.user_item1,
+.user_item2,
+.user_item3,
+.user_item4,
+.user_item5,
+.user_main1,
+.user_main2,
+.user_main3,
+.user_main4,
+.user_main5 {
+    padding: 10px;
+}
+
+.user_main1,
+.user_item1 {
+    width: 10%;
+}
+
+.user_main2,
+.user_item2 {
+    width: 20%;
+    border-left: ridge silver;
+}
+
+.user_main3,
+.user_item3 {
+    width: 20%;
+    border-left: ridge silver;
+}
+
+.user_main4,
+.user_item4 {
+    width: 30%;
+    border-left: ridge silver;
+}
+
+.user_main5,
+.user_item5 {
+    width: 20%;
+    border-left: ridge silver;
+}

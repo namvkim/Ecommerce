@@ -18,12 +18,13 @@ create table users(
   pass varchar(15),
   phone_num decimal(10),
   email varchar(30),
-  address varchar(50)
+  address varchar(50),
+  status int
 );
 
-insert into users(name_user, pass, phone_num, email, address)
-values('Nam', '123', 12343, 'sonnamttt@gmail.com', 'Da Nang'),
-  ('Ni', '234', 23435255, 'ni@gmal.com', 'Da Nang');
+insert into users(name_user, pass, phone_num, email, address,status)
+values('Nam', '123', 12343, 'sonnamttt@gmail.com', 'Da Nang',1),
+  ('Ni', '234', 23435255, 'ni@gmal.com', 'Da Nang',1);
 
 create table admin(user_AD varchar(50), pass varchar(15));
 insert into admin(user_AD, pass) value('admin', '12345');
@@ -33,21 +34,22 @@ create table products(
   name_pro varchar(50),
   price decimal(10,3),
   describes varchar(100),
-  category char(50)
+  category char(50),
+  status int
 );
 
-insert into products(name_pro, price, describes, category)
-values('Bánh tráng trộn', '20', '1 đĩa', 1),
-  ('Khoai tây chiên', '15', '1 phần', 1),
-  ('Xúc xích phô mai', '10', '1 cây', 1),
-  ('Bánh mì thịt chả', '15', '1 ổ', 1),
-  ('Ốc hút', '20', '1 đĩa', 1),
-  ('Bánh cuốn', '10', '1 đĩa', 1),
-  ('Bún đậu mắm tôm', '50', '1 đĩa', 1),
-  ('Coca cola', '10', '1 lon', 2),
-  ('Pepsi', '10', '1 lon', 2),
-  ('Sinh Tố', '20', '1 ly', 2),
-  ('Trà Sữa', '25', '1 ly', 2);
+insert into products(name_pro, price, describes, category,status)
+values('Bánh tráng trộn', '20', '1 đĩa', 1,1),
+  ('Khoai tây chiên', '15', '1 phần', 1,1),
+  ('Xúc xích phô mai', '10', '1 cây', 1,1),
+  ('Bánh mì thịt chả', '15', '1 ổ', 1,1),
+  ('Ốc hút', '20', '1 đĩa', 1,1),
+  ('Bánh cuốn', '10', '1 đĩa', 1,1),
+  ('Bún đậu mắm tôm', '50', '1 đĩa', 1,1),
+  ('Coca cola', '10', '1 lon', 2,1),
+  ('Pepsi', '10', '1 lon', 2,1),
+  ('Sinh Tố', '20', '1 ly', 2,1),
+  ('Trà Sữa', '25', '1 ly', 2,1);
 
 create table pictures(
   ID_pic int primary key auto_increment,
