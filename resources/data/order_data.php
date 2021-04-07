@@ -37,11 +37,11 @@ class orders
     return $conn1->req($data, $sql);
   }
   
-  public function get_user($id)
+  public function get_user($id,$status)
   {
     $conn1 = new connect_data();
     $data = $conn1->connect();
-    $sql = "select * from orders where ID_user = $id";
+    $sql = "select * from orders where ID_user = $id and status= $status";
     return $conn1->req($data, $sql);
   }
 }

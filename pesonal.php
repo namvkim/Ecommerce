@@ -80,10 +80,163 @@
                     $pro = new product();
                     $pic = new picture();
 
-                    $result_order = $order->get_user(1);
+                    $result_order = $order->get_user(1,1);
                     $i = 0;
                     while ($row_order = mysqli_fetch_assoc($result_order)) {
                         $i++;
+                        $total=0;
+                        $result_order_details = $order_details->get($row_order['ID_order']);
+                    ?>
+                        <div class="content_item">
+                            <div class="content_item1"><?php echo $i ?></div>
+                            <div class="content_item2">
+                                <a href="#nav1<?php echo $i ?>" class="drop_down_animation">Order details<i class="fas fa-caret-down"></i></a>
+                            </div>
+                            <div class="content_item3"><?php echo $row_order['datee'] ?></div>
+                        </div>
+                        <div class="expandable" id="nav1<?php echo $i ?>">
+                            <?php
+                            $j = 0;
+                            while ($row_order_details = mysqli_fetch_assoc($result_order_details)) {
+                                $j++;
+                                $result_pro = $pro->get_pro($row_order_details['ID_pro']);
+                                $row_pro = mysqli_fetch_assoc($result_pro);
+                                $result_pic = $pic->get($row_order_details['ID_pro']);
+                                $row_pic = mysqli_fetch_assoc($result_pic);
+                                $total+=$row_pro['price']*$row_order_details['quantity'];                  
+                            ?>
+                                <div class="table_details">
+                                    <div class="table_details_item1">
+                                        <?php echo $j ?>
+                                    </div>
+                                    <div class="table_details_item2">
+                                        <?php echo $row_pro['name_pro'] ?>
+                                    </div>
+                                    <div class="table_details_item3">
+                                        <img src="./resources/img/img_pro/<?php echo $row_pic['pic'] ?>" alt="">
+                                    </div>
+                                    <div class="table_details_item4">
+                                        <?php echo $row_order_details['quantity'] ?>
+                                    </div>
+                                    <div class="table_details_item5">
+                                        <?php echo $row_pro['price'] ?>
+                                    </div>
+                                </div>
+                            <?php
+                            }
+                            ?>
+                            <div class="table_details">
+                                <div class="title">Total</div>
+                                <div class="total">
+                                    <?php echo $total ?> đ
+                                </div>
+                            </div>
+                        </div>
+                    <?php
+                    }
+                    ?>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="shipping">
+            <div class="content_table">
+                    <div class="content_main">
+                        <div class="content_main1">ID</div>
+                        <div class="content_main2">LIST PRODUCT</div>
+                        <div class="content_main3">DATE</div>
+                    </div>
+
+                    <?php
+                    require_once 'resources/data/order_data.php';
+                    require_once 'resources/data/order_details_data.php';
+                    require_once 'resources/data/product_data.php';
+                    require_once 'resources/data/picture_data.php';
+
+                    $order = new orders();
+                    $order_details = new orders_details();
+                    $pro = new product();
+                    $pic = new picture();
+
+                    $result_order = $order->get_user(1,2);
+                    $i = 0;
+                    while ($row_order = mysqli_fetch_assoc($result_order)) {
+                        $i++;
+                        $total=0;
+                        $result_order_details = $order_details->get($row_order['ID_order']);
+                    ?>
+                        <div class="content_item">
+                            <div class="content_item1"><?php echo $i ?></div>
+                            <div class="content_item2">
+                                <a href="#nav2" class="drop_down_animation">Order details<i class="fas fa-caret-down"></i></a>
+                            </div>
+                            <div class="content_item3"><?php echo $row_order['datee'] ?></div>
+                        </div>
+                        <div class="expandable" id="nav1">
+                            <?php
+                            $j = 0;
+                            while ($row_order_details = mysqli_fetch_assoc($result_order_details)) {
+                                $j++;
+                                $result_pro = $pro->get_pro($row_order_details['ID_pro']);
+                                $row_pro = mysqli_fetch_assoc($result_pro);
+                                $result_pic = $pic->get($row_order_details['ID_pro']);
+                                $row_pic = mysqli_fetch_assoc($result_pic);
+                                $total+=$row_pro['price']*$row_order_details['quantity'];                  
+                            ?>
+                                <div class="table_details">
+                                    <div class="table_details_item1">
+                                        <?php echo $j ?>
+                                    </div>
+                                    <div class="table_details_item2">
+                                        <?php echo $row_pro['name_pro'] ?>
+                                    </div>
+                                    <div class="table_details_item3">
+                                        <img src="./resources/img/img_pro/<?php echo $row_pic['pic'] ?>" alt="">
+                                    </div>
+                                    <div class="table_details_item4">
+                                        <?php echo $row_order_details['quantity'] ?>
+                                    </div>
+                                    <div class="table_details_item5">
+                                        <?php echo $row_pro['price'] ?>
+                                    </div>
+                                </div>
+                            <?php
+                            }
+                            ?>
+                            <div class="table_details">
+                                <div class="title">Total</div>
+                                <div class="total">
+                                    <?php echo $total ?> đ
+                                </div>
+                            </div>
+                        </div>
+                    <?php
+                    }
+                    ?>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="received">
+            <div class="content_table">
+                    <div class="content_main">
+                        <div class="content_main1">ID</div>
+                        <div class="content_main2">LIST PRODUCT</div>
+                        <div class="content_main3">DATE</div>
+                    </div>
+
+                    <?php
+                    require_once 'resources/data/order_data.php';
+                    require_once 'resources/data/order_details_data.php';
+                    require_once 'resources/data/product_data.php';
+                    require_once 'resources/data/picture_data.php';
+
+                    $order = new orders();
+                    $order_details = new orders_details();
+                    $pro = new product();
+                    $pic = new picture();
+
+                    $result_order = $order->get_user(1,3);
+                    $i = 0;
+                    while ($row_order = mysqli_fetch_assoc($result_order)) {
+                        $i++;
+                        $total=0;
                         $result_order_details = $order_details->get($row_order['ID_order']);
                     ?>
                         <div class="content_item">
@@ -102,6 +255,7 @@
                                 $row_pro = mysqli_fetch_assoc($result_pro);
                                 $result_pic = $pic->get($row_order_details['ID_pro']);
                                 $row_pic = mysqli_fetch_assoc($result_pic);
+                                $total+=$row_pro['price']*$row_order_details['quantity'];                  
                             ?>
                                 <div class="table_details">
                                     <div class="table_details_item1">
@@ -111,7 +265,7 @@
                                         <?php echo $row_pro['name_pro'] ?>
                                     </div>
                                     <div class="table_details_item3">
-                                        <img src="<?php echo $row_pic['pic'] ?>" alt="">
+                                        <img src="./resources/img/img_pro/<?php echo $row_pic['pic'] ?>" alt="">
                                     </div>
                                     <div class="table_details_item4">
                                         <?php echo $row_order_details['quantity'] ?>
@@ -124,23 +278,16 @@
                             }
                             ?>
                             <div class="table_details">
+                                <div class="title">Total</div>
                                 <div class="total">
-                                    fads
+                                    <?php echo $total ?> đ
                                 </div>
                             </div>
                         </div>
                     <?php
                     }
                     ?>
-                </div>
-            </div>
-            <div class="tab-pane fade" id="shipping">
-                <div class="content_table">
-
-                </div>
-            </div>
-            <div class="tab-pane fade" id="received">
-
+                </div>   
             </div>
         </div>
     </div>

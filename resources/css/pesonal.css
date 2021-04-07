@@ -165,7 +165,16 @@ a {
     width: 10%;
 }
 
+.title {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
 .total {
     padding: 5px 10px;
     margin-left: auto;
+    font-size: 20px;
+    font-weight: bold;
 }

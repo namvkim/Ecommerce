@@ -40,7 +40,7 @@
         public function get_cate($category){
             $conn = new connect_data();
             $data= $conn->connect();
-            $sql="select * from products where category ='$category' ";
+            $sql="select * from products where category ='$category' and status = 1";
             return $conn->req($data,$sql);
         }
     }

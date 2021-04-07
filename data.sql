@@ -24,7 +24,8 @@ create table users(
 
 insert into users(name_user, pass, phone_num, email, address,status)
 values('Nam', '123', 12343, 'sonnamttt@gmail.com', 'Da Nang',1),
-  ('Ni', '234', 23435255, 'ni@gmal.com', 'Da Nang',1);
+  ('Ni', '234', 23435255, 'ni@gmal.com', 'Da Nang',1),
+  ('ha', '456', 0168600552, 'ha@gmail.com', 'Da Nang',0);
 
 create table admin(user_AD varchar(50), pass varchar(15));
 insert into admin(user_AD, pass) value('admin', '12345');
@@ -32,24 +33,38 @@ insert into admin(user_AD, pass) value('admin', '12345');
 create table products(
   ID_pro int primary key auto_increment,
   name_pro varchar(50),
-  price decimal(10,3),
+  price decimal(10,0),
   describes varchar(100),
   category char(50),
   status int
 );
-
 insert into products(name_pro, price, describes, category,status)
-values('Bánh tráng trộn', '20', '1 đĩa', 1,1),
-  ('Khoai tây chiên', '15', '1 phần', 1,1),
-  ('Xúc xích phô mai', '10', '1 cây', 1,1),
-  ('Bánh mì thịt chả', '15', '1 ổ', 1,1),
-  ('Ốc hút', '20', '1 đĩa', 1,1),
-  ('Bánh cuốn', '10', '1 đĩa', 1,1),
-  ('Bún đậu mắm tôm', '50', '1 đĩa', 1,1),
-  ('Coca cola', '10', '1 lon', 2,1),
-  ('Pepsi', '10', '1 lon', 2,1),
-  ('Sinh Tố', '20', '1 ly', 2,1),
-  ('Trà Sữa', '25', '1 ly', 2,1);
+values
+  ('Bánh tráng trộn', '20000', '1 đĩa', 1,1),
+  ('Khoai tây chiên', '15000', '1 phần', 1,1),
+  ('Xúc xích phô mai', '10000', '1 cây', 1,1),
+  ('Bánh mì thịt chả', '15000', '1 ổ', 1,1),
+  ('Ốc hút', '20000', '1 đĩa', 1,1),
+  ('Bánh cuốn', '20000', '1 đĩa', 1,1),
+  ('Bún đậu mắm tôm', '50000', '1 đĩa', 1,1),
+  ('Coca cola', '10000', '1 lon', 2,1),
+  ('Pepsi', '10000', '1 lon', 2,1),
+  ('Sinh Tố dâu chuối', '20000', '1 ly', 2,1),
+  ('Cà phê', '20000', '1 ly', 2,1),
+  ('Trà Sữa', '25000', '1 ly', 2,1),
+  ('Phở', '25000', '1 tô', 1,1),
+  ('Hủ tiếu sườn heo', '25000', '1 tô', 1,1),
+  ('Mì quảng', '25000', '1 tô', 1,1),
+  ('Cơm sườn', '20000', '1 đĩa', 1,1),
+  ('Bún hến', '20000', '1 tô', 1,1),
+  ('Mì cay', '45000', '1 tô', 1,1),
+  ('Cháo gà', '25000', '1 tô', 1,1),
+  ('Bánh xèo', '25000', '3 lá', 1,1),
+  ('Bạc sĩu', '10000', '1 lon', 2,1),
+  ('Milô', '10000', '1 lon', 2,1),
+  ('Sữa chua nếp cẩm', '20000', '1 ly', 2,1),
+  ('Nước cam', '20000', '1 ly', 2,1),
+  ('Trà tắt', '25000', '1 ly', 2,1);
 
 create table pictures(
   ID_pic int primary key auto_increment,
@@ -57,21 +72,34 @@ create table pictures(
   pic varchar(250),
   FOREIGN KEY (ID_pro) REFERENCES products (ID_pro) on delete cascade
 );
-
 insert into pictures(ID_pro, pic)
-values(
-    1,'https://sascotravel.com/wp-content/uploads/2020/03/maxresdefault.jpg'),
-  (1,'https://images.says.com/uploads/story_source/source_image/671341/4c31.jpg'),
-  (2,'https://danviet.mediacdn.vn/zoom/700_438/upload/4-2016/images/2016-11-24/147997482165214-khoai-2.jpg'),
-  (3,'https://trasua38govap.com/upload/sanpham/khoai-tay-lac-8277.png'),
-  (4,'https://monanvietnamblog.files.wordpress.com/2017/07/banh-mi-kep-cha-lua.jpg'),
-  (5,'https://danangreview.com/wp-content/uploads/2018/10/quan-oc-hut-ba-my-da-nang-quan-oc-hut-ngon-tai-da-nang.jpg'),
-  (6,'https://quynhonservice.com/wp-content/uploads/2019/10/b%C3%A1nh-cu%E1%BB%91n-.jpg'),
-  (7,'https://beptruong.edu.vn/wp-content/uploads/2018/06/bun-dau-mam-tom-thap-cam.jpg'),
-  (8,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6653b84qLQeQslFlZ3HaeajSlsXbjCUy4bg&usqp=CAU'),
-  (9,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTC9NbRhANhOmzufCR5x3DIJkb9mWG7JSr9mQ&usqp=CAU'),
-  (10,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiLzX6Ry7Ih_VqR3Ih4w8VaalUt2fJN2yygg&usqp=CAU'),
-  (11,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3AoKdmgRdWGeqKCgj10v1Z27T0GRTFEaRSQ&usqp=CAU');
+values
+  (1,'banhTrangTron.jpg'),
+  (2,'khoaiTayChien.jpg'),
+  (3,'hotDog.jpg'),
+  (4,'banhMi.jpg'),
+  (5,'ocHut.jpg'),
+  (6,'banhCuon.jpg'),
+  (7,'bunDau.jpg'),
+  (8,'coCa.png'),
+  (9,'pepsi.jpg'),
+  (10,'sinhToChuoi.jpg'),
+  (11,'cafe.jpg'),
+  (12,'traSua.jpg'),
+  (13,'phoBo.jpg'),
+  (14,'huTieu.jpg'),
+  (15,'miQuang.jpg'),
+  (16,'comSuon.jpg'),
+  (17,'bunHen.jpg'),
+  (18,'miCay.png'),
+  (19,'chaoGa.jpg'),
+  (20,'banhXeo.jpg'),
+  (21,'bacSiu.png'),
+  (22,'milo.jpg'),
+  (23,'napCam.jpg'),
+  (24,'nuocCam.jpg'),
+  (25,'traTac.jpg')
+  ;
 create table orders(
   ID_order int primary key auto_increment,
   ID_user int,
@@ -81,7 +109,7 @@ create table orders(
 );
 
 insert into orders(ID_user,datee,status)
-values(1,"27-2-2002",1), (2,"15-5-2001",1);
+values(1,"27-2-2002",1),(1,"30-3-2002",1),(1,"15-5-2001",2),(1,"9-5-2001",3);
 
 create table order_details(
   ID_order_detail int PRIMARY KEY auto_increment,
@@ -93,8 +121,7 @@ create table order_details(
 );
 
 insert into order_details(ID_order, ID_pro, quantity)
-values(1, 1, 15), 
-  (1, 2, 20);
+values(1, 1, 15), (1, 2, 20),(2, 5, 7), (2, 20, 9), (3, 9, 18), (3, 16, 6),(4,12,3);
 
 create table carts(
   ID_cart int primary key auto_increment,
