@@ -1,3 +1,10 @@
+
+<?php
+
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +21,7 @@
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-   <link rel="stylesheet" href="./resources/css/login.css">
+   <link rel="stylesheet" href="./resources/css/signUp.css">
   
 </head>
 <body>
@@ -54,29 +61,18 @@
 
                     </div>
                     <div style="color:black;" >
-                        <a><u> Quên mật khẩu</u> </a>
+                        <a href="Forgot password.PHP"><u> Quên mật khẩu</u> </a>
                     </div>
                 </DIV>
               
              <input type="submit" class="form-control btn btn-outline-danger btn-lg btn-block" name="btn" value="Đăng Nhập"></input>
                <div class="content-input-footer" >
-                   <div style="color:black;">Đã có tài khoản</div>
+                   <div style="color:black; padding-right:5px;">Chưa có tài khoản</div>
                    <div> <a href="signUp.php"><u>Đăng Ký</u></a></div>
                </div><br>
            </form>
        </div>
    </div>
-<!--
-   <div class="footer" style="background-color :cadetblue;  height:40px;">
-      
-   <div class="footer-logo" style=" display: flex;
-   justify-content: center;">
-      
-       <p class="footer-logo-title"  >FA</p>
-       <img class="logo" src="./resources/img/logo.jpg" alt="logo" style="width:30px; height:30px;"  >
-       <p class="footer-logo-title"  >TEAM</p>
-</div>
-   </div> -->
 </body>
 <?php
               
@@ -87,13 +83,19 @@ if(isset($_POST['btn']))
     $email = $_POST['email'];
     $pass = $_POST['password'];
 
-    require_once "./resources/data/user.php";
+    require "./resources/data/user.php";
     $user = new User();
     $result = $user->getUser($email,$pass);
-    // $row=mysqli_fetch_assoc($result);
-    // echo $row['email'];
+    // while (  $r = mysqli_fetch_assoc($result))
+    // {
+    //     echo $r['email'];
+    // }
+
+     
     if( mysqli_num_rows($result) > 0)
     {
+        $_SESSION['user'] = $_POST['ID_user'];
+
      echo '<script language="javascript">alert("Đăng nhập thành công"); window.location="inde.php";</script>';
     }
     else
@@ -103,44 +105,6 @@ if(isset($_POST['btn']))
 
 }
 
-
-   // $kt=0;
-// mysqli_num_rows()
-    // while ($row = mysqli_fetch_assoc($result)) {
-    //     if ( $username == $row['name_user'])
-    //     {
-    //         if( $pass == $row['pass'])
-    //         {
-    //             $kt =1;
-    //             break;
-    //             //echo '<script language="javascript">alert("Đăng nhập thành công");window.history.go(-1)</script>'; 
-    //             //header("Location:inde.php");
-    //             //echo '<script language="javascript">alert("Đăng nhập thành công"); window.location="inde.php";</script>';
-    
-    //         }
-           // else
-          //  {
-                //$kt =2;
-                //echo '<script language="javascript">alert("Mật khẩu sai"); window.history.go(-1);</script>';  
-           // break;          
-    //        // }
-    //     }
-    //     else 
-    //     {
-    //         echo '<script language="javascript">alert("Tài khoản không tồn tại"); window.history.go(-1);</script>'; 
-    //         break;           
-
-    //     }
-    //  }
-    //  if($kt ==1){
-    //     echo '<script language="javascript">alert("Đăng nhập thành công"); window.location="inde.php";</script>';
-    //  } else
-    //  {
-    //     echo '<script language="javascript">alert("Mật khẩu sai"); window.history.go(-1);</script>';  
-    //  }
-
-
-    
 
 ?>
 <script src="./resources/js/signUp.js"></script>
