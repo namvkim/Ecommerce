@@ -132,9 +132,9 @@ create table carts(
   FOREIGN KEY (ID_pro) REFERENCES products (ID_pro) on delete cascade
 );
 
-insert into carts(ID_user, ID_pro, quantity)
-values(1, 1, 15),
-  (1, 2, 20);
+insert into carts(ID_user, ID_pro)
+values(1, 1),
+  (1, 2);
 
 create table materials(
   ID_mate int primary key auto_increment,

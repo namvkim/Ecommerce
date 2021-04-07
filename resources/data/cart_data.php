@@ -4,10 +4,10 @@
    
     class cart{
      
-        public function post($id, $id_user, $id_pro, $quantity){
+        public function post($id_user, $id_pro){
             $conn = new connect_data();
             $data = $conn->connect();
-            $sql = "insert into carts(ID_user, ID_pro, quantity) value ($id_user,$id_pro,$quantity)";
+            $sql = "insert into carts(ID_user, ID_pro, quantity) value ($id_user,$id_pro)";
             $conn->req($data,$sql);
         }
         public function put($id, $id_user, $id_pro, $quantity){

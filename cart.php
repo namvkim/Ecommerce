@@ -70,62 +70,57 @@
             $pro = new product();
             $pic = new picture();
             $result_cart = $cart->getUser(1);
-
+            $i = 0;
             while ($row_cart = mysqli_fetch_assoc($result_cart)) {
                 $result_pro = $pro->get_pro($row_cart['ID_pro']);
                 $row_pro = mysqli_fetch_assoc($result_pro);
 
                 $result_pic = $pic->get($row_cart['ID_pro']);
                 $row_pic = mysqli_fetch_assoc($result_pic);
-
-                echo "
-                    <div class='content_item'>
-                    <div class='content_item1'>{$row_cart['ID_cart']}</div>
-                    <div class='content_item2'>
-                        <img src='{$row_pic['pic']}' alt=''>
-                    </div>
-                    <div class='content_item3'>{$row_pro['name_pro']}</div>
-                    <div class='content_item4'>{$row_pro['price']}</div>
-                    <div class='content_item5'>{$row_cart['quantity']}</div>
-                    <div class='content_item6'>
-                        <input type='checkbox'>
-    
-                    </div>
-                    <div class='content_item7'><i class='far fa-trash-alt'></i></div>
-                </div>
-                    ";
-            }
+                $i++;
             ?>
-            <!-- <div class="content_item">
-                <div class="content_item1">1</div>
-                <div class="content_item2">
-                    <img src="https://cdn.tgdd.vn/Products/Images/7199/79592/bhx/keo-mem-sugus-trai-cay-tui-210g-4-700x467.jpg" alt="">
-                </div>
-                <div class="content_item3">
-                    keo
-                </div>
-                <div class="content_item4">650K</div>
-                <div class="content_item5">15</div>
-                <div class="content_item6">
-                    <input type="checkbox">
+                <form action="" method="POST">
+                    <div class='content_item'>
+                        <div class='content_item1'><?php echo $i ?></div>
+                        <div class='content_item2'>
+                            <img src='./resources/img/img_pro/<?php echo $row_pic['pic'] ?>' alt=''>
+                        </div>
+                        <div class='content_item3'><?php echo $row_pro['name_pro'] ?></div>
+                        <div class='content_item4'><?php echo $row_pro['price'] ?></div>
+                        <div class='content_item5'>
+                            <input onclick="var result = document.getElementById('quantity'); var qty = result.value; if( !isNaN(qty) && qty > 1 ) result.value--;return false;" type='button' value='-' />
+                            <input id='quantity' min='1' name='quantity' type='text' value='1' size=1 />
+                            <input onclick="var result = document.getElementById('quantity'); var qty = result.value; if( !isNaN(qty)) result.value++;return false;" type='button' value='+' />
 
-                </div>
-                <div class="content_item7"><i class="far fa-trash-alt"></i></div>
-            </div> -->
-            <div class="content_footer">
-                <a href="">
-                    <div class="content_footer_update">
-                        UPDATE CART
+                        </div>
+                        <div class='content_item6'>
+                            <input type='checkbox' name="<?php echo $i ?>">
+                            <?php
+                            if (isset($_POST["$i"]))
+                                echo $i;
+                            else {
+                                echo "Không d?ng ý";
+                            } ?>
+                        </div>
+                        <div class='content_item7'><a href="./resources/processing/delete_cart.php?id=<?php echo $row_cart['ID_cart'] ?>"><i class='far fa-trash-alt'></a></i></div>
                     </div>
-                </a>
-                <a href="">
-                    <div class="content_footer_checkout">
+                <?php
+            }
+                ?>
+                <div class="content_footer">
+                    <a href="http://localhost:8080/Ecommerce/inde.php">
+                        <div class="content_footer_update">
+                            UPDATE CART
+                        </div>
+                    </a>
+                    <button class="content_footer_checkout" name="btn">
                         <i class="far fa-check-circle"></i>
                         CHECK OUT
-                    </div>
-                </a>
-            </div>
+                    </button>
+                </form>
         </div>
+
+    </div>
     </div>
     <div class="footer">
 
