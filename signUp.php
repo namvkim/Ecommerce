@@ -92,7 +92,8 @@
                     
                         if( mysqli_num_rows($result) > 0)
                         {
-                         echo '<script language="javascript">alert("Tài khoản đã tồn tại"); window.history.go(-1);</script>'; 
+                            
+                          echo '<script language="javascript">alert("Tài khoản đã tồn tại"); window.history.go(-1);</script>'; 
                         }
                         else
                         {

@@ -49,7 +49,205 @@
     </div>
 
     <div class="content">
-        <img class="content-poster" src="https://nhandaovadoisong.com.vn/wp-content/uploads/2019/05/anh-thien-nhien-dep-1200x675.jpg" alt="">
+
+
+    <div class="header">
+        <ul class="header-menu hide-menu">
+            <a href="#">HOME PAGE</a>
+            <a href="#">ABOUT US</a>
+        </ul>
+        <a href="#" class="header-cart"><i class="fas fa-shopping-cart"></i></a>
+        <div class="header-logo">
+            <p class="logo-title">FA</p>
+            <img class="logo" src="./resources/img/logo.jpg" alt="logo">
+            <p class="logo-title">TEAM</p>
+        </div>
+        <input type="checkbox" id="chk">
+        <label for="chk" class="show-menu-btn">
+            <i class="fas fa-ellipsis-h"></i>
+        </label>
+
+        <ul class="header-menu">
+            <a href="#" class="show-menu">HOME PAGE</a>
+            <a href="#" class="show-menu">ABOUT US</a>
+            <a href="#">SIGN IN</a>
+            <a href="#"><i class="fas fa-search"></i></a>
+            <a href="#"><i class="fas fa-shopping-cart"></i></a>
+            <label for="chk" class="hide-menu-btn">
+                <i class="fas fa-times"></i>
+            </label>
+        </ul>
+    </div>
+
+    <div class="content content-poster">
+        <!--slideshow-->
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="https://cdn.asiatatler.com/asiatatler/i/th/2019/08/15162927-dsc0499_cover_2000x1335.jpg" alt="First slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1>Ẩm thực 3 miền</h1>
+                        <h5>Miền Bắc - Miền Trung - Miền Nam</h5>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="https://tuongotchinsu.net/wp-content/uploads/2020/05/an-vat.jpg" alt="Second slide">
+                <div class="carousel-caption d-none d-md-block">
+                        <h1>Nước uống các loại</h1>
+                        <h5>Không ga - Nguồn gốc trái cây - Nguồn gốc trái cây - Nguồn gốc ngữ cốc </h5>
+                    </div>
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="https://d1ralsognjng37.cloudfront.net/040c06d5-9d77-4574-84e0-ba050c9e237b" alt="Third slide">
+                <div class="carousel-caption d-none d-md-block">
+                        <h1>Món ăn hàng đầu</h1>
+                        <h5>Được nhiều người lựa chọn</h5>
+                    </div>
+            </div>
+        </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+    </div>  
+
+
+
+
+
+
+
+
+
+
+
+
+    <?php
+
+
+
+    // if( isset($_GET['ID_pro']))
+    // {
+
+    // }
+        require_once "./resources/data/product_data.php";
+        $pro = new product();
+        $result = $pro-> get_pro('1');
+        while ($row=mysqli_fetch_assoc($result))
+        {
+
+        
+
+            require_once "./resources/data/picture_data.php";
+            $pict = new picture();
+            $result1 = $pict-> get('1');
+            while ($row1 = mysqli_fetch_assoc($result1))
+            {
+                
+
+
+        ?>
+        <div class="conntent-details">
+            <div class="conntent-details__img">
+                <div id="demo" class="carousel slide" data-ride="carousel">
+                    <ul class="carousel-indicators">
+                        <li data-target="#demo" data-slide-to="0" class="active"></li>
+                        <li data-target="#demo" data-slide-to="1"></li>
+                        <li data-target="#demo" data-slide-to="2"></li>
+                    </ul>
+                    <div class="carousel-inner">
+
+
+               
+                        <div class="carousel-item active">
+                            <div class="conntent-details__img-box">
+                                <img class="conntent-details__img-item" src="<?php  echo $row1['ID_pic']; ?>"  width="1100" height="500">
+                            </div>
+                        </div>
+                
+                <?php
+                        }
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+<!-- 
+
+                        <div class="carousel-item active">
+                            <div class="conntent-details__img-box">
+                                <img class="conntent-details__img-item" src="<?php  echo $row1['ID_pic']; ?>" alt="Los Angeles" width="1100" height="500">
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="conntent-details__img-box">
+                                <img class="conntent-details__img-item" src="<?php  echo $row1['ID_pic']; ?>" alt="Chicago" width="1100" height="500">
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="conntent-details__img-box">
+                                <img class="conntent-details__img-item" src="<?php  echo $row1['ID_pic']; ?>" alt="Los Angeles" width="1100" height="500">
+                            </div>
+                        </div> -->
+                        <?php
+
+
+                        //}
+                        ?>
+                    </div>
+                    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                        <i class="fas fa-chevron-left conntent-details__img-icon"></i>
+                    </a>
+                    <a class="carousel-control-next" href="#demo" data-slide="next">
+                        <i class="fas fa-chevron-right conntent-details__img-icon"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="conntent-details__info">
+            <p class="conntent-details__title"> <?php  echo $row['name_pro']; ?></p>
+                <hr class="conntent-details__clear">
+                <p class="conntent-details__price">  <?php   echo $row['price']; ?></p>
+                <p class="conntent-details__note">   <?php   echo $row['describes']; ?> </p>
+                <div class="conntent-details__btn">
+                    <button type="button" name="conntent-details__add" class="conntent-details__add"><i class="fas fa-shopping-cart"></i> ADD TO CART</button>
+                    <button type="button" name="conntent-details__buy" class="conntent-details__buy">BUY NOW</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<?php }
+?>
+
+
+
+    <div class="footer">
+
+    </div>
+</body>
+<script src="./resources/js/admin.js"></script>
+
+</html>
+
+<!-- <div class="clearfix"></div> -->
+<!-- <h1 class="animate__animated animate__bounce">An animated element</h1> -->
+
+
+<!-- 
+
+</div>  
         <div class="conntent-details">
             <div class="conntent-details__img">
                 <div id="demo" class="carousel slide" data-ride="carousel">
@@ -98,13 +296,7 @@
             </div>
         </div>
     </div>
-    <div class="footer">
 
-    </div>
-</body>
-<script src="./resources/js/admin.js"></script>
 
-</html>
 
-<!-- <div class="clearfix"></div> -->
-<!-- <h1 class="animate__animated animate__bounce">An animated element</h1> -->
+ -->
