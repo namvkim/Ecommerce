@@ -45,6 +45,14 @@
             $conn->req($data,$sql);
         }
 
+        public function getEmail($email)
+        {
+            $conn = new connect_data();
+            $data= $conn->connect();
+            $sql ="SELECT * from users WHERE email = '$email'  ";
+            return $conn->req($data,$sql);
+        }
+
     }
 
 ?>

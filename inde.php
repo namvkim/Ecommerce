@@ -57,15 +57,27 @@
                 <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
             </ol>
-        <div class="carousel-inner">
+            <div class="carousel-inner">
             <div class="carousel-item active">
                 <img class="d-block w-100" src="https://cdn.asiatatler.com/asiatatler/i/th/2019/08/15162927-dsc0499_cover_2000x1335.jpg" alt="First slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1>Ẩm thực 3 miền</h1>
+                        <h5>Miền Bắc - Miền Trung - Miền Nam</h5>
+                </div>
             </div>
             <div class="carousel-item">
                 <img class="d-block w-100" src="https://tuongotchinsu.net/wp-content/uploads/2020/05/an-vat.jpg" alt="Second slide">
+                <div class="carousel-caption d-none d-md-block">
+                        <h1>Nước uống các loại</h1>
+                        <h5>Không ga - Nguồn gốc trái cây - Nguồn gốc trái cây - Nguồn gốc ngữ cốc </h5>
+                    </div>
             </div>
             <div class="carousel-item">
-            <img class="d-block w-100" src="https://d1ralsognjng37.cloudfront.net/040c06d5-9d77-4574-84e0-ba050c9e237b" alt="Third slide">
+                <img class="d-block w-100" src="https://d1ralsognjng37.cloudfront.net/040c06d5-9d77-4574-84e0-ba050c9e237b" alt="Third slide">
+                <div class="carousel-caption d-none d-md-block">
+                        <h1>Món ăn hàng đầu</h1>
+                        <h5>Được nhiều người lựa chọn</h5>
+                    </div>
             </div>
         </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -85,7 +97,7 @@
             <div class="tab">   
                 <button class="btn" name ="food" value ="Food">Food</button>
                 <button class="btn" name ="drink" value ="Drink">Drink</button>
-                <button class="btn" name ="top" value ="Top">Top</button>
+                <button class="btn" name ="top" value ="Top">Fruit</button>
                 <button class="btn" name ="sale" value ="Sale">Sale</button>
     
             </div>
@@ -99,7 +111,7 @@
             require_once 'resources\data\product_data.php';
 
                 $pro = new product();
-                $result = $pro->get();
+
 
                 require_once 'resources\data\picture_data.php';  
                 $pic = new picture();
@@ -108,74 +120,38 @@
                 $order = new orders_details();
 
                 if(isset($_POST['drink'])){
+
                     ?>
-                    <div class="row">
-                    <?php  
-                    while($row = mysqli_fetch_assoc($result)){   
-
-                    if($row['category']== 2){    
-                   //     while ($data = mysqli_fetch_assoc($pic->get('ID_pro'))){                                            
-                        ?> 
-                        <div class="column">
-                            <div class ="card">
-                            <?php
-                                while ($data = mysqli_fetch_assoc($pic->get($row['ID_pro']))){ 
-                                if($data['ID_pro'] == $row['ID_pro']){
-                                ?> 
-                                    <img class ="column_img" src="<?php echo $data['pic']?>"  alt="<?php echo $row['name_pro']; ?>">
-                                   <?php
-                                    break;
-                                    }
-                                    }                                       
-                                    ?>
-                                    <h4><?php echo $row['name_pro']?></h4>
-                                    <p><?php echo $row['describes']?></p>
-                                    <p class="column_Price_Cart"><?php echo $row['price']?> đ <button class="column-cart"  name="Add"> <i class="fa fa-cart-arrow-down"></i> Add to cart</button></p>
-                            </div> 
-                        </div>                         
-                        <?php 
-                                           
-                        }
-                    }                  
-                    ?>
-                    </div>
-                    <?php
-
-                    
-                     }else if(isset($_POST['top'])){
-
-                        ?>
                         <div class="row">
-                        <?php  
-                        while($row = mysqli_fetch_assoc($result)){   
-    
-                        if($row['category']== 2){    
-                       //     while ($data = mysqli_fetch_assoc($pic->get('ID_pro'))){                                            
+                        <?php 
+                        $result = $pro->get_cate(2);                         
+                        while($row = mysqli_fetch_assoc($result)){                                         
                             ?> 
                             <div class="column">
                                 <div class ="card">
                                 <?php
-                                    while ($data = mysqli_fetch_assoc($pic->get('ID_pro'))){ 
-                                  //  if($data['ID_pro'] == $row['ID_pro']){
+                                    $result_pic = $pic->get($row['ID_pro']);
+                                    $data = mysqli_fetch_assoc($result_pic);
                                     ?> 
-                                        <img class ="column_img" src="<?php echo $data['pic']?>"  alt="<?php echo $row['name_pro']; ?>">
-                                       <?php
-                                        break;
-                                     //   }
-                                        }                                       
-                                        ?>
+                                        <img class ="column_img" src="./resources/img/img_pro/<?php echo $data['pic']?>"  alt="<?php echo $row['name_pro']; ?>">
                                         <h4><?php echo $row['name_pro']?></h4>
                                         <p><?php echo $row['describes']?></p>
-                                        <p class="column_Price_Cart"><?php echo $row['price']?> đ <button class="column-cart"  name="Add"> <i class="fa fa-cart-arrow-down"></i> Add to cart</button></p>
+                                        <p class="column_Price_Cart"><button class ="column-detail">Chi tiết sản phẩm</button>
+                                            <a href="details.php?id=<?php echo $row['ID_pro'] ?>">
+                                        <button class="column-cart" name="Add"> <i class="fa fa-cart-arrow-down"></i> Add to cart</button></a></p>
+
+                                        <!-- <button > <a href="details.php?$id='$row'"></a>Chi tiết SP</button> -->
+
                                 </div> 
                             </div>                         
                             <?php 
-                                               
-                            }
                         }                  
                         ?>
-                        </div>
-                        <?php
+                    </div>
+                    <?php
+                    }else if(isset($_POST['top'])){
+
+
 
                     }else if(isset($_POST['sale'])){
 
@@ -183,56 +159,34 @@
 
                         ?>
                         <div class="row">
-                        <?php  
-                        while($row = mysqli_fetch_assoc($result)){   
-    
-                        if($row['category']== 1){    
-                       //     while ($data = mysqli_fetch_assoc($pic->get('ID_pro'))){                                            
+                        <?php 
+                        $result = $pro->get_cate(1);                         
+                        while($row = mysqli_fetch_assoc($result)){                                         
                             ?> 
                             <div class="column">
                                 <div class ="card">
                                 <?php
-                                    while ($data = mysqli_fetch_assoc($pic->get($row['ID_pro']))){ 
-                                    if($data['ID_pro'] == $row['ID_pro']){
+                                    $result_pic = $pic->get($row['ID_pro']);
+                                    $data = mysqli_fetch_assoc($result_pic);
                                     ?> 
-                                        <img class ="column_img" src="<?php echo $data['pic']?>"  alt="<?php echo $row['name_pro']; ?>">
-                                       <?php
-                                        break;
-                                        }
-                                        }                                       
-                                        ?>
+                                        <img class ="column_img" src="./resources/img/img_pro/<?php echo $data['pic']?>"  alt="<?php echo $row['name_pro']; ?>">
                                         <h4><?php echo $row['name_pro']?></h4>
                                         <p><?php echo $row['describes']?></p>
-                                        <p class="column_Price_Cart"><?php echo $row['price']?> đ <button class="column-cart" name="Add"> <i class="fa fa-cart-arrow-down"></i> Add to cart</button></p>
+                                        <p class="column_Price_Cart"><button class ="column-detail">Chi tiết sản phẩm</button><a href="resources/processing/add_cart.php?id=<?php echo $row['ID_pro'] ?>"><button class="column-cart" name="Add"> <i class="fa fa-cart-arrow-down"></i> Add to cart</button></a></p>
                                 </div> 
                             </div>                         
                             <?php 
-                            // $quantity = 0;
-                            //     if(isset($_POST['Add'])){
-                            //         if()
-                            //         $quantity =$quantity + 1;
-                            //         while($add = mysqli_fetch_assoc($order->post($row['ID_pro'],$quantity))){
-                                        
-                            //         }
-                                    
-                            //     }
-                            }
                         }                  
                         ?>
                     </div>
                     <?php
-
                 }
               
-        //     }else{
-        //     echo "không kết nối";
-        // }
             ?>
                     </form>
             <!-- END MAIN -->
         </div>
 
-       
     </div>
     </div>
 
@@ -243,6 +197,3 @@
 </script>
 
 </html>
-
-<!-- <div class="clearfix"></div> -->
-<!-- <h1 class="animate__animated animate__bounce">An animated element</h1> -->
