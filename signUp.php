@@ -39,7 +39,7 @@
                    <input type="password" class="form-control" id="pass2" placeholder="Confirm *" name="pass2">
                </div>
                <div class="form-group">
-                   <input type="email" class="form-control" id="email" placeholder="Email *" name="email " value="<?php if(isset($_POST['email'])){echo $_POST["email"] ;}?>">
+                   <input type="email" class="form-control" id="email" placeholder="Email *" name="email" value="<?php if(isset($_POST['email'])){echo $_POST["email"] ;}?>">
                </div>
                <div class="form-group">
                    <input type="number" class="form-control" id="phone" placeholder="Phone number *" name="phone" value="<?php if(isset($_POST['phone'])){echo $_POST["phone"] ;}?>">
@@ -70,20 +70,19 @@
  
      
               if(isset($_POST['btn']))
-              {
-              
-                
-                    $name = $_POST['name'];
-                    $email = $_POST['email'];
-                    $pass1 = $_POST['pass1'];
-                    $pass2 = $_POST['pass2'];
-                    $phone = $_POST['phone'];
-                    $address = $_POST['address'];
-                
-                
-                                                 
-              
-                      if($pass1 == $pass2)
+              {                         
+                    if ( !empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['pass1']) &&!empty($_POST['pass2'])
+                     &&!empty($_POST['phone'])  &&!empty($_POST['address'])) 
+                     {
+                        $name = $_POST['name'];
+                        $email = $_POST['email'];
+                        $pass1 = $_POST['pass1'];
+                        $pass2 = $_POST['pass2'];
+                        $phone = $_POST['phone'];
+                        $address = $_POST['address'];
+
+
+                        if($pass1 == $pass2)
                       {
                         //echo '<script language="javascript">alert("Mật khẩu không trùng khớp"); window.history.go(-1);</script>'; 
                             
@@ -100,36 +99,21 @@
                             $user->post($name, $pass1, $phone,$email, $address);
                              echo '<script language="javascript">alert("Đăng ký thành công"); window.location="inde.php";</script>';
                         }
-                        // $result= $us->get();
-                        // $kt = 0;
-                        // while($row = mysqli_fetch_assoc($result))
-                        // {
-                        //   //  $user1 = $row["name_user"];
-                        //     if($email == $row["email"])
-                        //     {
-                        //         $kt=1;
-                        //     }
-                            
-                        // }
-                        //     if($kt == 1)
-                        //     {
-                        //         echo '<script language="javascript">alert("Tài khoản đã tồn tại"); window.history.go(-1);</script>';  
-                        //     }
-                        //     else{
-                        //             $us->post($name, $pass1, $phone,$email, $address);
-                        //         // echo "Đăng ký thành công <a href= './inde.php'>Vào trang chủ</a>";
-                        //             echo '<script language="javascript">alert("Đăng ký thành công"); window.location="inde.php";</script>';
-                                
-
-
-                                    
-                        //     }
-                        // }
+                       
                       }
                       else
                       {
                             echo '<script language="javascript">alert("Mật khẩu không trùng khớp"); window.history.go(-1);</script>'; 
                         }
+
+                     }    
+                     else
+                     {
+                        echo '<script language="javascript">alert("Bạn chưa nhập thông tin"); window.history.go(-1);</script>'; 
+
+                     }                     
+              
+                     
             }
               ?>
            

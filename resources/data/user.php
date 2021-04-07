@@ -11,15 +11,15 @@
         public function getUser($email, $pass){
             $conn = new connect_data();
             $data= $conn->connect();
-            $sql="SELECT * from users WHERE email = '$email' and pass = '$pass'";
+            $sql="SELECT * from users WHERE email = '$email' and pass = '$pass' status = 1";
             return $conn->req($data,$sql);
         }
 
         public function post($name, $password, $phone,$email, $address){
             $conn = new connect_data();
             $data= $conn->connect();
-            $sql="INSERT INTO users( name_user, pass, phone_num, email, address) 
-            VALUES('$name', '$password', $phone, '$email', '$address')";
+            $sql="INSERT INTO users( name_user, pass, phone_num, email, address, status) 
+            VALUES('$name', '$password', $phone, '$email', '$address', 1)";
             $conn->req($data,$sql);
         }
 
