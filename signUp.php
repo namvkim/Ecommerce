@@ -26,7 +26,7 @@
    <h3 class=" text-center "  ><b> ĐĂNG Ký</b></h3>
     
           
-                  <form action="" method="POST"  >
+                  <form action="" method="POST" id="myform" >
                <br>
                <div class="form-group">
                    <input type="text" class="form-control" id="name" placeholder="Fullname *" name="name" value="<?php if(isset($_POST['name'])){echo $_POST["name"] ;}?>">
@@ -49,8 +49,8 @@
                </div>
            
              
-                <input type="submit" class="form-control btn btn-outline-danger btn-lg btn-block" name="btn" value="Đăng Ký" />
-
+                <input type="submit" class="form-control btn btn-outline-danger btn-lg btn-block"  onclick="sendEmail()"name="btn" value="Đăng Ký" />
+ 
                 
                 
                <div class="content-input-footer" >
@@ -61,9 +61,9 @@
         
        </div>
    </div>
-
+ 
    
-
+ 
                     
 <?php
               
@@ -80,8 +80,8 @@
                         $pass2 = $_POST['pass2'];
                         $phone = $_POST['phone'];
                         $address = $_POST['address'];
-
-
+ 
+ 
                         if($pass1 == $pass2)
                       {
                         //echo '<script language="javascript">alert("Mật khẩu không trùng khớp"); window.history.go(-1);</script>'; 
@@ -105,19 +105,49 @@
                       {
                             echo '<script language="javascript">alert("Mật khẩu không trùng khớp"); window.history.go(-1);</script>'; 
                         }
-
+ 
                      }    
                      else
                      {
                         echo '<script language="javascript">alert("Bạn chưa nhập thông tin"); window.history.go(-1);</script>'; 
-
+ 
                      }                     
               
                      
             }
               ?>
            
-
+ 
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        function sendEmail() {
+            var email = $("#email");
+ 
+            if ( isNotEmpty(email) ) {
+                $.ajax({
+                   url: 'sendEmail.php',
+                   method: 'POST',
+                   dataType: 'json',
+                   data: {
+                       email: email.val(),
+                   }, success: function (response) {
+                        $('#myForm')[0].reset();
+                        $('.sent-notification').text("Message Sent Successfully.");
+                   }
+                });
+            }
+        }
+ 
+        function isNotEmpty(caller) {
+            if (caller.val() == "") {
+                caller.css('border', '1px solid red');
+                return false;
+            } else
+                caller.css('border', '');
+ 
+            return true;
+        }
+    </script>
    
 </body>
 <script src="./resources/js/signUp.js"></script>
@@ -127,3 +157,6 @@
  
  
  
+ 
+
+

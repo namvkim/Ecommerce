@@ -11,7 +11,7 @@
         public function getUser($email, $pass){
             $conn = new connect_data();
             $data= $conn->connect();
-            $sql="SELECT * from users WHERE email = '$email' and pass = '$pass' status = 1";
+            $sql="SELECT * from users WHERE email = '$email' and pass = '$pass'  and status = 1";
             return $conn->req($data,$sql);
         }
 
@@ -36,6 +36,14 @@
             $sql ="UPDATE users SET name_user =' $name', pass = '$password', phone_num = $phone,
             email = '$email', address = '$address' WHERE ID_user=$id ";
             $conn->req($data,$sql);
+        }
+        public function putpass ($pass1)
+        {
+            $conn = new connect_data();
+            $data= $conn->connect();
+            $sql ="UPDATE users SET pass =' $pass1'";
+            $conn->req($data,$sql);
+
         }
 
         public function block($id,$status){
