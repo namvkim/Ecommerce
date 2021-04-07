@@ -20,6 +20,7 @@
 
 
 
+
 </head>
 
 <body>
@@ -66,35 +67,14 @@
         </div>
         <div class="tab-content content-main">
             <div class="tab-pane fade show active" id="orders">
-
-                <div class="content_table">
-                    <div class="content_orders_main">
-                        <div class="orders_main1">ID_ORDER</div>
-                        <div class="orders_main2">ID_USER</div>
-                        <div class="orders_main3">STATUS</div>
-                        <div class="orders_main4">ACTION</div>
-                    </div>
-
-                    <?php
-                    require 'resources/data/order_data.php';
-                    $orders = new orders();
-                    $result = $orders->get();
-
-                    while ($row = mysqli_fetch_array($result)) { //đi tìm dữ liệu đưa vào mảng.
-                    ?>
-                        <div class="content_store_item">
-                            <div class="orders_item1"><?php echo $row['ID_order']; ?></div>
-                            <div class="orders_item2"><?php echo $row['ID_user']; ?></div>
-                            <div class="orders_item3"><?php echo $row['status']; ?></div>
-                            <div class="orders_item4" style="display: flex;">
-                                <button type="submit" id="#profil1">EDIT</button>
-                                <button type="submit" name="delete" class="ml-sm-3">DELETE</button>
-                            </div>
-
-                        </div>
-                    <?php } ?>
-                </div>
+                <center>
+                    <button style="width: 30vh; height: 5vh"><a href="resources/processing/order_list.php" style="color:  #5f727f;">REQUIRED ORDERS </a></button>
+                    <button class="ml-sm-3" style="width: 30vh; height: 5vh"><a href="resources/processing/order_confirm.php" style="color:  #5f727f;">CONFIRMED ORDERS </a></button>
+                    <button class="ml-sm-3" style="width: 30vh; height: 5vh"><a href="resources/processing/order_sent.php" style="color:  #5f727f;">SENT ORDER</a></button>
+                </center>
             </div>
+
+
 
 
             <div class="tab-pane fade" id="store">

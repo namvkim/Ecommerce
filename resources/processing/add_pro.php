@@ -56,6 +56,11 @@
         </div>
         <div class="item"><a href=""><button class="btn">add</button></a></div>
       </form>
+      <?php 
+        require_once '../data/product_data.php';
+        $pro = new Product();      
+
+      ?>
     </div>
   </div>
   <div class="footer">
