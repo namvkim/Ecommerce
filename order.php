@@ -21,7 +21,7 @@ session_start();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="./resources/css/menu.css">
-    <link rel="stylesheet" href="./resources/css/cart.css">
+    <link rel="stylesheet" href="./resources/css/order.css">
 </head>
 
 <body>
@@ -67,58 +67,40 @@ session_start();
                 <div class="content_main6">CHOSE</div>
                 <div class="content_main7">DELETE</div>
             </div>
-            <form action="order.php" method="POST">
+            <?php
+                $i=1;
+                $name_check="check".$i;
+                while(isset($_POST[$name_check])){              
+                    $name_qtt="qtt".$i;
 
-                <?php
-                require_once 'resources/data/cart_data.php';
-                require_once 'resources/data/product_data.php';
-                require_once 'resources/data/picture_data.php';
-                $cart = new cart();
-                $pro = new product();
-                $pic = new picture();
-                $result_cart = $cart->getUser(1);
-                $i = 0;
-                while ($row_cart = mysqli_fetch_assoc($result_cart)) {
-                    $result_pro = $pro->get_pro($row_cart['ID_pro']);
-                    $row_pro = mysqli_fetch_assoc($result_pro);
 
-                    $result_pic = $pic->get($row_cart['ID_pro']);
-                    $row_pic = mysqli_fetch_assoc($result_pic);
+
+                    echo $_POST[$name_qtt];
+                    echo $_POST[$name_check];
+
+                    
                     $i++;
-                ?>
+                    $name_check="check".$i;
+                };
+            ?>
+           
 
-                    <div class='content_item'>
-                        <div class='content_item1'><?php echo $i ?></div>
-                        <div class='content_item2'>
-                            <img src='./resources/img/img_pro/<?php echo $row_pic['pic'] ?>' alt=''>
-                        </div>
-                        <div class='content_item3'><?php echo $row_pro['name_pro'] ?></div>
-                        <div class='content_item4'><?php echo $row_pro['price'] ?></div>
-                        <div class='content_item5'>
-                            <input type="number" value="1" name="qtt<?php echo $i?>" class="quantity"/>   
-                        </div>
-                        <div class='content_item6'>
-                            <input type='checkbox' name="check<?php echo $i?>" value="<?php echo $row_cart['ID_pro'] ?>">                  
-                        </div>
-                        <div class='content_item7'><a href="./resources/processing/delete_cart.php?id=<?php echo $row_cart['ID_cart'] ?>"><i class='far fa-trash-alt'></a></i></div>
+            <div class="content_footer">
+                <a href="http://localhost:8080/Ecommerce/inde.php">
+                    <div class="content_footer_update">
+                        UPDATE CART
                     </div>
-                <?php
-                }
-                ?>
-                <div class="content_footer">
-                    <a href="http://localhost:8080/Ecommerce/inde.php">
-                        <div class="content_footer_update">
-                            UPDATE CART
-                        </div>
-                    </a>
-                    <button class="content_footer_checkout" name="btn">
+                </a>
+                <a href="http://localhost:8080/Ecommerce/order.php">
+                    <div class="content_footer_checkout" name="btn">
                         <i class="far fa-check-circle"></i>
                         CHECK OUT
-                    </button>
-            </form>
-        </div>
+                    </div>
+                </a>
+                </form>
+            </div>
 
-    </div>
+        </div>
     </div>
     <div class="footer">
 

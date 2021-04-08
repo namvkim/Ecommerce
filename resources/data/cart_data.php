@@ -13,7 +13,7 @@
         public function put($id, $id_user, $id_pro){
             $conn = new connect_data();
             $data = $conn->connect();
-            $sql = "UPDATE carts SET ID_user =$id_user, ID_pro =$id_pro, quantity=$quantity where ID_order= $id";
+            $sql = "UPDATE carts SET ID_user =$id_user, ID_pro =$id_pro where ID_order= $id";
             $conn->req($data,$sql);
         }
         public function delete($id){
