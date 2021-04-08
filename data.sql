@@ -17,7 +17,7 @@ create table users(
   name_user varchar(50),
   pass varchar(15),
   phone_num decimal(10),
-  email varchar(30),
+  email varchar(50),
   address varchar(50),
   status int
 );

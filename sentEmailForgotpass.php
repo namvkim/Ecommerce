@@ -1,11 +1,18 @@
+
+
 <?php
+session_start();
+
+
+
     use PHPMailer\PHPMailer\PHPMailer;
 
     if ( isset($_POST['email'])) {
         $name = "FA4 Team";
         $email = $_POST['email'];
-        $subject ="Email Xác Nhận Mật Khẩu";
+        $subject ="Email Confirm password";
         $code = rand(1000,9999);
+        $_SESSION['code'] = $code;
 
         require_once "PHPMailer/PHPMailer.php";
         require_once "PHPMailer/SMTP.php";

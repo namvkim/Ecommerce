@@ -11,15 +11,15 @@
         public function getUser($email, $pass){
             $conn = new connect_data();
             $data= $conn->connect();
-            $sql="SELECT * from users WHERE email = '$email' and pass = '$pass'  and status = 1";
+            $sql=" SELECT * from users WHERE email = '$email' and pass = '$pass' and status = 1";
             return $conn->req($data,$sql);
         }
-        // public function getUserEmail($email){
-        //     $conn = new connect_data();
-        //     $data= $conn->connect();
-        //     $sql="SELECT * from users WHERE email = '$email' or status = 1";
-        //     return $conn->req($data,$sql);
-        // }
+        public function getUserEmail($email){
+            $conn = new connect_data();
+            $data= $conn->connect();
+            $sql="SELECT * from users WHERE email = '$email' or status = 1";
+            return $conn->req($data,$sql);
+        }
 
         public function post($name, $password, $phone,$email, $address){
             $conn = new connect_data();

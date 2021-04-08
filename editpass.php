@@ -47,7 +47,7 @@ session_start();
                
            
              
-                <input type="submit" class="form-control btn btn-outline-danger btn-lg btn-block"  onclick="sendEmail()"name="btn" value="Lưu" />
+                <input type="submit" class="form-control btn btn-outline-danger btn-lg btn-block"  name="btn" value="Lưu" />
  
                 
                 
@@ -64,9 +64,9 @@ session_start();
                         $code = $_POST['code'];
                         
 
-                        if()
+                        if($code == $_SESSION['code' ])
                         {
-                            echo " 
+                          ?>
                             <form action='' method='POST' id='myform' >
                             <br>
                            
@@ -82,22 +82,27 @@ session_start();
               
                              
                             <br>
-                        </form>
-                            ";
+                        </form><?php
+
+                            $password1= $_POST['password1'];
+                            $password2= $_POST['password2'];
+                            if($password1 == $password2)
+                            {
+                            require 'resources/data/user.php';
+                            $pass = new User();
+                            $pass->putpass ($pass1);
+                            echo '<script language="javascript">alert("Đổi mật khẩu thành công. Hãy đăng nhập vào"); window.location="signUp.php";</script>';
+
+                            }
+                            }
+                            else
+                            {
+                            echo '<script language="javascript">alert("Mật khẩu không trùng khớp"); window.history.go(-1);</script>'; 
+
+                            }
+                            
                         }
-                        $password1= $_POST['password1'];
-                        $password2= $_POST['password2'];
-                        if($password1 == $password2)
-                      {
-                        echo '<script language="javascript">alert("Đổi mật khẩu thành công. Hãy đăng nhập vào"); window.location="signUp.php";</script>';
-
-                     }
-                    }
-                    else
-                    {
-                        echo '<script language="javascript">alert("Mật khẩu không trùng khớp"); window.history.go(-1);</script>'; 
-
-                    }
+                        
                             
                 }
                         ?>

@@ -37,7 +37,7 @@ session_start();
                    <input type="email" class="form-control" id="email" placeholder="Email" name="email">
                </div>
               
-             <input type="submit" class="form-control btn btn-outline-danger btn-lg btn-block" name="btn" value="Tìm"></input>
+             <input type="submit" class="form-control btn btn-outline-danger btn-lg btn-block" onclick="sendEmail()" name="btn" value="Tìm"></input>
                <div class="content-input-footer" >
                    <div style="color:black; padding-right:5px;">Chưa có tài khoản</div>
                    <div> <a href="signUp.php"><u>Đăng Ký</u></a></div>
@@ -57,21 +57,20 @@ if(isset($_POST['btn']))
 
     require "./resources/data/user.php";
     $user = new User();
-    $result = $user->get();
-     while ($row = mysqli_fetch_array($result))
+    $result = $user->getUserEmail($email);
+     if ($row = mysqli_fetch_array($result) > 0)
      {
-        if( $email == $row['email'])
-        {
+        
             $_SESSION['email'] = $_POST['email'];
 
             echo '<script language="javascript"> window.location="editpass.php";</script>';
-        }
+     }
         else
         {
             echo '<script language="javascript">alert("Không có tài khoản này"); window.history.go(-1);</script>'; 
    
         }  
-     }
+     
       
      
 
