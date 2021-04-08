@@ -1,3 +1,8 @@
+<?php
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -80,7 +85,7 @@
                     $pro = new product();
                     $pic = new picture();
 
-                    $result_order = $order->get_user(1,1);
+                    $result_order = $order->get_user($_SESSION['user'],1);
                     $i = 0;
                     while ($row_order = mysqli_fetch_assoc($result_order)) {
                         $i++;
@@ -156,7 +161,7 @@
                     $pro = new product();
                     $pic = new picture();
 
-                    $result_order = $order->get_user(1,2);
+                    $result_order = $order->get_user($_SESSION['user'],2);
                     $i = 0;
                     while ($row_order = mysqli_fetch_assoc($result_order)) {
                         $i++;
@@ -232,7 +237,7 @@
                     $pro = new product();
                     $pic = new picture();
 
-                    $result_order = $order->get_user(1,3);
+                    $result_order = $order->get_user($_SESSION['user'],3);
                     $i = 0;
                     while ($row_order = mysqli_fetch_assoc($result_order)) {
                         $i++;

@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,12 +25,13 @@
 
 <body>
 
-    <div class="header">
+<div class="header">
         <ul class="header-menu hide-menu">
-            <a href="#">HOME PAGE</a>
-            <a href="#">ABOUT US</a>
+            <a href="inde.php">HOME PAGE</a>
+            <a href="pesonal.php">HISTORY</a>
+            <a href="about.php">ABOUT US</a>
         </ul>
-        <a href="#" class="header-cart"><i class="fas fa-shopping-cart"></i></a>
+        <a href="order.php" class="header-cart"><i class="fas fa-shopping-cart"></i></a>
         <div class="header-logo">
             <p class="logo-title">FA</p>
             <img class="logo" src="./resources/img/logo.jpg" alt="logo">
@@ -36,13 +41,13 @@
         <label for="chk" class="show-menu-btn">
             <i class="fas fa-ellipsis-h"></i>
         </label>
-
         <ul class="header-menu">
-            <a href="#" class="show-menu">HOME PAGE</a>
-            <a href="#" class="show-menu">ABOUT US</a>
-            <a href="#">SIGN IN</a>
+            <a href="inde.php" class="show-menu">HOME PAGE</a>
+            <a href="pesonal.php" class="show-menu">HISTORY</a>
+            <a href="about.php" class="show-menu">ABOUT US</a>
+            <a href="login.php">SIGN IN</a>
             <a href="#"><i class="fas fa-search"></i></a>
-            <a href="#"><i class="fas fa-shopping-cart"></i></a>
+            <a href="cart.php"><i class="fas fa-shopping-cart"></i></a>
             <label for="chk" class="hide-menu-btn">
                 <i class="fas fa-times"></i>
             </label>
@@ -105,9 +110,6 @@
             <hr>
 
             <?php
-
-            if(isset($_POST['near']))echo "HI";
- 
             require_once 'resources\data\product_data.php';
 
                 $pro = new product();
@@ -138,7 +140,8 @@
                                         <p><?php echo $row['describes']?></p>
                                         <h5><?php echo $row['price']?> đ</h5>
                                         <p class="column_Price_Cart"><a class ="column-detail" href = "details.php?id=<?php echo $row['ID_pro'] ?>">Chi tiết sản phẩm</a><a class="column-cart" name="Add" href="resources/processing/add_cart.php?id=<?php echo $row['ID_pro'] ?>"> <i class="fa fa-cart-arrow-down"></i> Add to cart</a></p>
-                                </div>                         
+                                </div> 
+                            </div>                         
                             <?php 
                         }                  
                         ?>
@@ -164,7 +167,7 @@
                                         <p class="column_Price_Cart"><a class ="column-detail" href = "details.php?id=<?php echo $row['ID_pro'] ?>">Chi tiết sản phẩm</a><a class="column-cart" name="Add" href="resources/processing/add_cart.php?id=<?php echo $row['ID_pro'] ?>"> <i class="fa fa-cart-arrow-down"></i> Add to cart</a></p>
                                 </div> 
                             </div>                         
-                        <?php 
+                            <?php 
                         }                  
                         ?>
                     </div>

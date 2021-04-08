@@ -139,7 +139,6 @@ create table carts(
   ID_cart int primary key auto_increment,
   ID_user int,
   ID_pro int,
-  quantity int,
   FOREIGN KEY (ID_user) REFERENCES users (ID_user) on delete cascade,
   FOREIGN KEY (ID_pro) REFERENCES products (ID_pro) on delete cascade
 );

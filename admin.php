@@ -25,31 +25,12 @@
 
 <body>
     <div class="header">
-        <!-- <ul class="header-menu hide-menu">
-            <a href="#">HOME PAGE</a>
-            <a href="#">ABOUT US</a>
-        </ul> -->
         <a href="#" class="header-cart"><i class="fas fa-shopping-cart"></i></a>
         <div class="header-logo">
             <p class="logo-title">FA</p>
             <img class="logo" src="./resources/img/logo.jpg" alt="logo">
             <p class="logo-title">TEAM</p>
         </div>
-        <!-- <input type="checkbox" id="chk">
-        <label for="chk" class="show-menu-btn">
-            <i class="fas fa-ellipsis-h"></i>
-        </label> -->
-
-        <!-- <ul class="header-menu">
-            <a href="#" class="show-menu">HOME PAGE</a>
-            <a href="#" class="show-menu">ABOUT US</a>
-            <a href="#">SIGN IN</a>
-            <a href="#"><i class="fas fa-search"></i></a>
-            <a href="#"><i class="fas fa-shopping-cart"></i></a>
-            <label for="chk" class="hide-menu-btn">
-                <i class="fas fa-times"></i>
-            </label>
-        </ul> -->
     </div>
     <div class="content">
         <div class="collapse show content-navigate">

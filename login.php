@@ -1,6 +1,5 @@
 
 <?php
-
 session_start();
 ?>
 
@@ -94,7 +93,8 @@ if(isset($_POST['btn']))
      
     if( mysqli_num_rows($result) > 0)
     {
-        $_SESSION['user'] = $_POST['ID_user'];
+        $row= mysqli_fetch_assoc($result);
+        $_SESSION['user'] = $row['ID_user'];
 
      echo '<script language="javascript">alert("Đăng nhập thành công"); window.location="inde.php";</script>';
     }

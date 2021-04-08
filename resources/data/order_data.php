@@ -9,15 +9,15 @@ class orders
   {
     $conn1 = new connect_data();
     $data = $conn1->connect();
-    $sql = "INSERT INTO orders ( ID_user, datee) VALUES ($ID_user,'$datee')";
+    $sql = "INSERT INTO orders ( ID_user, datee, status) VALUES ($ID_user,'$datee',1)";
     $conn1->req($data, $sql);
   }
 
-  public function put($ID_order, $ID_user, $datee)
+  public function put($ID_order, $ID_user, $datee, $status)
   {
     $conn1 = new connect_data();
     $data = $conn1->connect();
-    $sql = "UPDATE orders SET ID_user= $ID_user,datee='$datee' WHERE ID_order=$ID_order";
+    $sql = "UPDATE orders SET ID_user= $ID_user,datee='$datee, status=$status WHERE ID_order=$ID_order";
     $conn1->req($data, $sql);
   }
 

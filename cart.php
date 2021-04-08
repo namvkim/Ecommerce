@@ -1,3 +1,8 @@
+<?php
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,7 +74,7 @@
             $cart = new cart();
             $pro = new product();
             $pic = new picture();
-            $result_cart = $cart->getUser(1);
+            $result_cart = $cart->getUser($_SESSION['user']);
             $i = 0;
             while ($row_cart = mysqli_fetch_assoc($result_cart)) {
                 $result_pro = $pro->get_pro($row_cart['ID_pro']);
