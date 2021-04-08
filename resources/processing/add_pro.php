@@ -59,7 +59,7 @@
       <?php 
         require_once '../data/product_data.php';
         $pro = new Product();      
-
+        
       ?>
     </div>
   </div>
