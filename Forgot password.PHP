@@ -79,5 +79,38 @@ if(isset($_POST['btn']))
 
 
 ?>
+
+
+
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        function sendEmail() {
+            var email = $("#email");
+ 
+            if ( isNotEmpty(email) ) {
+                $.ajax({
+                   url: 'sentEmailForgotpass.php',
+                   method: 'POST',
+                   dataType: 'json',
+                   data: {
+                       email: email.val(),
+                   }, success: function (response) {
+                        $('#myForm')[0].reset();
+                        $('.sent-notification').text("Message Sent Successfully.");
+                   }
+                });
+            }
+        }
+ 
+        function isNotEmpty(caller) {
+            if (caller.val() == "") {
+                caller.css('border', '1px solid red');
+                return false;
+            } else
+                caller.css('border', '');
+ 
+            return true;
+        }
+    </script>
 </body>
 </html>

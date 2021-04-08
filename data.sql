@@ -25,7 +25,7 @@ create table users(
 insert into users(name_user, pass, phone_num, email, address,status)
 values('Nam', '123', 12343, 'sonnamttt@gmail.com', 'Da Nang',1),
   ('Ni', '234', 23435255, 'ni@gmal.com', 'Da Nang',1),
-  ('ha', '456', 0168600552, 'ha@gmail.com', 'Da Nang',0);
+  ('ha', '456', 0168600552, 'ha@gmail.com', 'Da Nang',1);
 
 create table admin(user_AD varchar(50), pass varchar(15));
 insert into admin(user_AD, pass) value('admin', '12345');

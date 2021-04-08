@@ -31,7 +31,7 @@ session_start();
      background-repeat:no-repeat; background-size:cover; height:100vh; width:100% ;  display: flex; align-items: center;  " >
   
    <div class="container content-input content-input-wrap"  >
-   <h3 class=" text-center " ><b> Nhập mật khẩu mới</b></h3>
+   <h3 class=" text-center " ><b> Nhập Mã</b></h3>
 
           
                   <form action="" method="POST" id="myform" >
@@ -59,14 +59,38 @@ session_start();
 <?php
    if(isset($_POST['btn']))
               {                         
-                    if (  !empty($_POST['pass1']) &&!empty($_POST['pass2'])) 
+                    if (  !empty($_POST['code'])) 
                      {
-                        $pass1 = $_POST['pass1'];
-                        $pass2 = $_POST['pass2'];
+                        $code = $_POST['code'];
                         
-                        if($pass1 == $pass2)
+
+                        if()
+                        {
+                            echo " 
+                            <form action='' method='POST' id='myform' >
+                            <br>
+                           
+                            <div class='form-group'>
+                                <input type='password' class='form-control' id='password1'   name='password1' >
+                            </div>
+                            <div class='form-group'>
+                            <input type='password' class='form-control' id='password2'   name='password2' >
+
+                            </div>
+                            
+                             <input type='submit' class='form-control btn btn-outline-danger btn-lg btn-block'  onclick='sendEmail()'name='btn' value='Lưu' />
+              
+                             
+                            <br>
+                        </form>
+                            ";
+                        }
+                        $password1= $_POST['password1'];
+                        $password2= $_POST['password2'];
+                        if($password1 == $password2)
                       {
-                          
+                        echo '<script language="javascript">alert("Đổi mật khẩu thành công. Hãy đăng nhập vào"); window.location="signUp.php";</script>';
+
                      }
                     }
                     else
