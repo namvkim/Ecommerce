@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,24 +48,44 @@
       </div>
     </div>
     <div class="box">
-    <div class="table">
-      <form action="" method="POST">
-        <center><h2>ADD PRODUCT</h2></center>
-        <div class="item"> Name product: <input type="text" name="name">
-        </div>
-        <div class="item"> Price: <input type="number" name="price">
-        </div>
-        <div class="item"> Category: <input type="text" name="cate">
-        </div>
-        <div class="item"> Describes: <textarea name="des" id="" cols="30" rows="4"></textarea>
-        </div>
-        <div class="item"><a href=""><button class="btn">Add</button></a></div>
-      </form>
-    </div>
-    <div class="table2">
-        <center>Add image: <input type="file" value="Choose image" class="mt-2"><button name="btn_add" class="btn_add">add</button></center>
-        <hr>
-    </div>   
+      <div class="table">
+        <form action="" method="POST">
+          <center>
+            <h2>ADD PRODUCT</h2>
+          </center>
+          <div class="item"> Name product: <input type="text" name="name">
+          </div>
+          <div class="item"> Price: <input type="number" name="price">
+          </div>
+          <div class="item"> Category: <input type="text" name="cate">
+          </div>
+          <div class="item"> Describes: <textarea name="des" id="" cols="30" rows="4"></textarea>
+          </div>
+          <div class="item"><a href=""><button class="btn">Add</button></a></div>
+        </form>
+      </div>
+      <div class="table2">
+        <form action="" method="POST" enctype="multipart/form-data">
+          <center>Add image: <input type="file" value="Choose image" name="f" class="mt-2"><button name="btn_add" class="btn_add">add</button></center>
+          <hr>
+          <?php
+          $_SESSION['n'] = 0;
+          if (isset($_POST['btn_add'])) {
+            $f = $_FILES['f']['tmp_name'];
+            $path = "../img/" . $_FILES['f']['name'];
+            move_uploaded_file($f, $path);
+            $_SESSION['img'][$i] = $_FILES['f']['name'];
+            $i++;
+            echo $i;
+            for ($j = 0; $j < $i; $j++) {
+          ?>
+              <img src="../img/<?php echo $_SESSION['img'][$j] ?>" height="100px" alt="" class="m-2">
+          <?php
+            }
+          }
+          ?>
+        </form>
+      </div>
     </div>
   </div>
   <div class="footer">
