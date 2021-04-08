@@ -1,0 +1,72 @@
+/* -------------------------------------------form-------------------------------- */
+
+.box {
+    margin-top: 7vh;
+    margin-left: 2vh;
+    display: flex;
+    height: 410px;
+    border: 2px solid gray;
+}
+
+.table {
+    width: 500px;
+    height: 410px;
+    font-size: 20px;
+    position: relative;
+}
+
+.item {
+    margin: 20px;
+}
+
+.item input,
+textarea {
+    border: 1px solid black;
+    float: right;
+    width: 300px;
+}
+
+.btn {
+    background-color: #00b894;
+    font-weight: bold;
+    color: white;
+    border-radius: 4px;
+    border: 2px solid #00b894;
+    width: 150px;
+    font-size: 18px;
+}
+
+.btn:hover {
+    background: white;
+    color: #00b894;
+    transition: 0.5s;
+}
+
+.item a {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+
+.table2 {
+    width: 800px;
+    height: 410px;
+    font-size: 16px;
+    border-left: 1px solid black;
+    padding: 10px;
+}
+
+.btn_add {
+    padding: 5px 30px;
+    border: 2px solid #576574;
+    border-radius: 4px;
+    background-color: #576574;
+    color: white;
+    font-weight: bold;
+}
+
+.btn_add:hover {
+    background-color: white;
+    color: #576574;
+    transition: 0.5s;
+}

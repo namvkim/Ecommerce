@@ -17,7 +17,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="../css/menu.css">
   <link rel="stylesheet" href="../css/CRUD.css">
-
+  <link rel="stylesheet" href="../css/add_pro.css">
 </head>
 
 <body>
@@ -43,6 +43,7 @@
         </div>
       </div>
     </div>
+    <div class="box">
     <div class="table">
       <form action="" method="POST">
         <center><h2>ADD PRODUCT</h2></center>
@@ -54,13 +55,13 @@
         </div>
         <div class="item"> Describes: <textarea name="des" id="" cols="30" rows="4"></textarea>
         </div>
-        <div class="item"><a href=""><button class="btn">add</button></a></div>
+        <div class="item"><a href=""><button class="btn">Add</button></a></div>
       </form>
-      <?php 
-        require_once '../data/product_data.php';
-        $pro = new Product();      
-        
-      ?>
+    </div>
+    <div class="table2">
+        <center>Add image: <input type="file" value="Choose image" class="mt-2"><button name="btn_add" class="btn_add">add</button></center>
+        <hr>
+    </div>   
     </div>
   </div>
   <div class="footer">
