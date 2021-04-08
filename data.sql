@@ -64,7 +64,13 @@ values
   ('Milô', '10000', '1 lon', 2,1),
   ('Sữa chua nếp cẩm', '20000', '1 ly', 2,1),
   ('Nước cam', '20000', '1 ly', 2,1),
-  ('Trà tắt', '25000', '1 ly', 2,1);
+  ('Trà tắt', '25000', '1 ly', 2,1),
+  ('Cam', '25000', '1 ký', 3,1),
+  ('Xoài non chấm mắm ruốt', '15000', '1 hộp /200 gam', 3,1),
+  ('Mận Bắc', '15000', '1 hộp /200 gam', 3,1),
+  ('Thanh Long', '30000', '1 hộp /500 gam', 3,1),
+  ('Sầu riêng', '40000', '1 hộp /300 gam', 3,1)
+  ;
 
 create table pictures(
   ID_pic int primary key auto_increment,
@@ -98,7 +104,13 @@ values
   (22,'milo.jpg'),
   (23,'napCam.jpg'),
   (24,'nuocCam.jpg'),
-  (25,'traTac.jpg')
+  (25,'traTac.jpg'),
+  (26,'cam.jpg'),
+  (27,'xoai.jpg'),
+  (28,'man.jpg'),
+  (29,'thanhLong.jpg'),
+  (30,'sauRieng.jpg')
+
   ;
 create table orders(
   ID_order int primary key auto_increment,

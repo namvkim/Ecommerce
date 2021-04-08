@@ -97,8 +97,8 @@
             <div class="tab">   
                 <button class="btn" name ="food" value ="Food">Food</button>
                 <button class="btn" name ="drink" value ="Drink">Drink</button>
-                <button class="btn" name ="top" value ="Top">Fruit</button>
-                <button class="btn" name ="sale" value ="Sale">Sale</button>
+                <button class="btn" name ="fruit" value ="Fruit">Fruit</button>
+                <button class="btn" name ="sale" value ="Top">Top Food</button>
     
             </div>
 
@@ -136,25 +136,42 @@
                                         <img class ="column_img" src="./resources/img/img_pro/<?php echo $data['pic']?>"  alt="<?php echo $row['name_pro']; ?>">
                                         <h4><?php echo $row['name_pro']?></h4>
                                         <p><?php echo $row['describes']?></p>
-                                        <p class="column_Price_Cart"><button class ="column-detail">Chi tiết sản phẩm</button>
-                                            <a href="details.php?id=<?php echo $row['ID_pro'] ?>">
-                                        <button class="column-cart" name="Add"> <i class="fa fa-cart-arrow-down"></i> Add to cart</button></a></p>
-
-                                        <!-- <button > <a href="details.php?$id='$row'"></a>Chi tiết SP</button> -->
-
-                                </div> 
-                            </div>                         
+                                        <h5><?php echo $row['price']?> đ</h5>
+                                        <p class="column_Price_Cart"><a class ="column-detail" href = "details.php?id=<?php echo $row['ID_pro'] ?>">Chi tiết sản phẩm</a><a class="column-cart" name="Add" href="resources/processing/add_cart.php?id=<?php echo $row['ID_pro'] ?>"> <i class="fa fa-cart-arrow-down"></i> Add to cart</a></p>
+                                </div>                         
                             <?php 
                         }                  
                         ?>
                     </div>
                     <?php
-                    }else if(isset($_POST['top'])){
+                    }else if(isset($_POST['fruit'])){
+                        ?>
+                        <div class="row">
+                        <?php 
+                        $result = $pro->get_cate(3);                         
+                        while($row = mysqli_fetch_assoc($result)){                                         
+                            ?> 
+                            <div class="column">
+                                <div class ="card">
+                                <?php
+                                    $result_pic = $pic->get($row['ID_pro']);
+                                    $data = mysqli_fetch_assoc($result_pic);
+                                    ?> 
+                                        <img class ="column_img" src="./resources/img/img_pro/<?php echo $data['pic']?>"  alt="<?php echo $row['name_pro']; ?>">
+                                        <h4><?php echo $row['name_pro']?></h4>
+                                        <p><?php echo $row['describes']?></p>
+                                        <h5><?php echo $row['price']?> đ</h5>
+                                        <p class="column_Price_Cart"><a class ="column-detail" href = "details.php?id=<?php echo $row['ID_pro'] ?>">Chi tiết sản phẩm</a><a class="column-cart" name="Add" href="resources/processing/add_cart.php?id=<?php echo $row['ID_pro'] ?>"> <i class="fa fa-cart-arrow-down"></i> Add to cart</a></p>
+                                </div> 
+                            </div>                         
+                        <?php 
+                        }                  
+                        ?>
+                    </div>
+                    <?php
 
-
-
-                    }else if(isset($_POST['sale'])){
-
+                    }else if(isset($_POST['Top'])){
+                        
                     }else{
 
                         ?>
@@ -172,7 +189,8 @@
                                         <img class ="column_img" src="./resources/img/img_pro/<?php echo $data['pic']?>"  alt="<?php echo $row['name_pro']; ?>">
                                         <h4><?php echo $row['name_pro']?></h4>
                                         <p><?php echo $row['describes']?></p>
-                                        <p class="column_Price_Cart"><button class ="column-detail">Chi tiết sản phẩm</button><a href="resources/processing/add_cart.php?id=<?php echo $row['ID_pro'] ?>"><button class="column-cart" name="Add"> <i class="fa fa-cart-arrow-down"></i> Add to cart</button></a></p>
+                                        <h5><?php echo $row['price']?> đ</h5>
+                                        <p class="column_Price_Cart"><a class ="column-detail" href = "details.php?id=<?php echo $row['ID_pro'] ?>">Chi tiết sản phẩm</a><a class="column-cart" name="Add" href="resources/processing/add_cart.php?id=<?php echo $row['ID_pro'] ?>"> <i class="fa fa-cart-arrow-down"></i> Add to cart</a></p>
                                 </div> 
                             </div>                         
                             <?php 
@@ -197,3 +215,6 @@
 </script>
 
 </html>
+
+<!-- <div class="clearfix"></div> -->
+<!-- <h1 class="animate__animated animate__bounce">An animated element</h1> -->
