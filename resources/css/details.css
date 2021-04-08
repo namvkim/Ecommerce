@@ -36,6 +36,11 @@ html {
     margin: 0 auto;
 }
 
+.conntent-details-pro {
+    display: flex;
+    justify-content: center;
+}
+
 .conntent-details__img {
     float: left;
     width: 40%;

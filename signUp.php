@@ -87,18 +87,26 @@
                         //echo '<script language="javascript">alert("Mật khẩu không trùng khớp"); window.history.go(-1);</script>'; 
                             
                         require 'resources/data/user.php';
-                        $user = new User();
-                        $result = $user->getUser($email,$pass);
-                    
-                        if( mysqli_num_rows($result) > 0)
+                        $use = new User();
+                        $result = $use->getUser($email,$pass1);
+                       
+                       
+                       
+                        // while($row = mysqli_fetch_assoc($result))
+                        // {
+
+                        
+                        // echo $row['email'];}
+                         if( mysqli_num_rows($result) > 0)
+                        //if( $email == $row['email'])
                         {
                             
                           echo '<script language="javascript">alert("Tài khoản đã tồn tại"); window.history.go(-1);</script>'; 
                         }
                         else
                         {
-                            $user->post($name, $pass1, $phone,$email, $address);
-                             echo '<script language="javascript">alert("Đăng ký thành công"); window.location="inde.php";</script>';
+                            $use->post($name, $pass1, $phone,$email, $address);
+                           //  echo '<script language="javascript">alert("Đăng ký thành công"); window.location="inde.php";</script>';
                         }
                        
                       }

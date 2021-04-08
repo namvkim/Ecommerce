@@ -25,16 +25,6 @@ session_start();
 </head>
 <body>
  
-<!-- 
-<div class="header">
-      
-         <div class="header-logo"  style="display: flex;  justify-content: center; background:cadetblue;">
-            <p class="logo-title">FA</p>
-            <img class="logo" src="./resources/img/logo.jpg" alt="logo" style="width: 20px; height:20px;">
-            <p class="logo-title">TEAM</p>
-        </div>
-         
-    </div> -->
 
 
    <div class="content" style="background-image: url('./resources/img/pink.jpg');

@@ -17,7 +17,7 @@ create table users(
   name_user varchar(50),
   pass varchar(15),
   phone_num decimal(10),
-  email varchar(30),
+  email varchar(50),
   address varchar(50),
   status int
 );
@@ -25,7 +25,7 @@ create table users(
 insert into users(name_user, pass, phone_num, email, address,status)
 values('Nam', '123', 12343, 'sonnamttt@gmail.com', 'Da Nang',1),
   ('Ni', '234', 23435255, 'ni@gmal.com', 'Da Nang',1),
-  ('ha', '456', 0168600552, 'ha@gmail.com', 'Da Nang',0);
+  ('ha', '456', 0168600552, 'ha@gmail.com', 'Da Nang',1);
 
 create table admin(user_AD varchar(50), pass varchar(15));
 insert into admin(user_AD, pass) value('admin', '12345');
@@ -110,7 +110,6 @@ values
   (28,'man.jpg'),
   (29,'thanhLong.jpg'),
   (30,'sauRieng.jpg')
-
   ;
 create table orders(
   ID_order int primary key auto_increment,

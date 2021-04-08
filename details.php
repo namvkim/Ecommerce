@@ -122,115 +122,86 @@
 
 
 
-
-
-
-
-
-
-
-
-
     <?php
 
 
 
-    // if( isset($_GET['ID_pro']))
-    // {
+if( isset($_GET['id']))
+{
 
-    // }
-        require_once "./resources/data/product_data.php";
-        $pro = new product();
-        $result = $pro-> get_pro('1');
-        while ($row=mysqli_fetch_assoc($result))
-        {
 
+    require_once "./resources/data/product_data.php";
+    $pro = new product();
+    $result = $pro-> get_pro($_GET['id']);
+
+    while ($row=mysqli_fetch_assoc($result))
+    {
+
+
+
+        require_once "./resources/data/picture_data.php";
+        $pict = new picture();
+        $result1 = $pict-> get($row['ID_pro']);
+        $row1 = mysqli_fetch_assoc($result1);
+        
+            
         
 
-            require_once "./resources/data/picture_data.php";
-            $pict = new picture();
-            $result1 = $pict-> get('1');
-            while ($row1 = mysqli_fetch_assoc($result1))
-            {
-                
+    ?>
 
-
-        ?>
-        <div class="conntent-details">
-            <div class="conntent-details__img">
-                <div id="demo" class="carousel slide" data-ride="carousel">
-                    <ul class="carousel-indicators">
-                        <li data-target="#demo" data-slide-to="0" class="active"></li>
-                        <li data-target="#demo" data-slide-to="1"></li>
-                        <li data-target="#demo" data-slide-to="2"></li>
-                    </ul>
-                    <div class="carousel-inner">
-
-
-               
-                        <div class="carousel-item active">
-                            <div class="conntent-details__img-box">
-                                <img class="conntent-details__img-item" src="<?php  echo $row1['ID_pic']; ?>"  width="1100" height="500">
-                            </div>
-                        </div>
-                
-                <?php
-                        }
-                        ?>
+    <div class="conntent-details">
+    <div class="conntent-details__img">
+        <div id="demo" class="carousel slide" data-ride="carousel">
+            <ul class="carousel-indicators">
+                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                <li data-target="#demo" data-slide-to="1"></li>
+                <li data-target="#demo" data-slide-to="2"></li>
+            </ul>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="conntent-details__img-box">
+                        <img class="conntent-details__img-item" src="./resources/img/img_pro/<?php  echo $row1['pic']; ?>" alt="Los Angeles" width="1100" height="500">
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="conntent-details__img-box">
+                        <img class="conntent-details__img-item" src="./resources/img/img_pro/<?php  echo $row1['pic']; ?>" alt="Chicago" width="1100" height="500">
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="conntent-details__img-box">
+                        <img class="conntent-details__img-item" src="./resources/img/img_pro/<?php  echo $row1['pic']; ?>" alt="Los Angeles" width="1100" height="500">
                     </div>
                 </div>
             </div>
-        </div>
-
-
-<!-- 
-
-                        <div class="carousel-item active">
-                            <div class="conntent-details__img-box">
-                                <img class="conntent-details__img-item" src="<?php  echo $row1['ID_pic']; ?>" alt="Los Angeles" width="1100" height="500">
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="conntent-details__img-box">
-                                <img class="conntent-details__img-item" src="<?php  echo $row1['ID_pic']; ?>" alt="Chicago" width="1100" height="500">
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="conntent-details__img-box">
-                                <img class="conntent-details__img-item" src="<?php  echo $row1['ID_pic']; ?>" alt="Los Angeles" width="1100" height="500">
-                            </div>
-                        </div> -->
-                        <?php
-
-
-                        //}
-                        ?>
-                    </div>
-                    <a class="carousel-control-prev" href="#demo" data-slide="prev">
-                        <i class="fas fa-chevron-left conntent-details__img-icon"></i>
-                    </a>
-                    <a class="carousel-control-next" href="#demo" data-slide="next">
-                        <i class="fas fa-chevron-right conntent-details__img-icon"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="conntent-details__info">
-            <p class="conntent-details__title"> <?php  echo $row['name_pro']; ?></p>
-                <hr class="conntent-details__clear">
-                <p class="conntent-details__price">  <?php   echo $row['price']; ?></p>
-                <p class="conntent-details__note">   <?php   echo $row['describes']; ?> </p>
-                <div class="conntent-details__btn">
-                    <button type="button" name="conntent-details__add" class="conntent-details__add"><i class="fas fa-shopping-cart"></i> ADD TO CART</button>
-                    <button type="button" name="conntent-details__buy" class="conntent-details__buy">BUY NOW</button>
-                </div>
-            </div>
+            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                <i class="fas fa-chevron-left conntent-details__img-icon"></i>
+            </a>
+            <a class="carousel-control-next" href="#demo" data-slide="next">
+                <i class="fas fa-chevron-right conntent-details__img-icon"></i>
+            </a>
         </div>
     </div>
 
+    <?php
+       // }
+        ?>
+    <div class="conntent-details__info">
+        <p class="conntent-details__title"><?php  echo $row['name_pro']; ?></p>
+        <hr class="conntent-details__clear">
+        <p class="conntent-details__price"><?php  echo $row['price']; ?></p>
+        <p class="conntent-details__note"><?php  echo $row['describes']; ?></p>
+        <div class="conntent-details__btn">
+            <button type="button" name="conntent-details__add" class="conntent-details__add"><i class="fas fa-shopping-cart"></i> ADD TO CART</button>
+            <button type="button" name="conntent-details__buy" class="conntent-details__buy">BUY NOW</button>
+        </div>
+    </div>
+</div>
 
-<?php }
+    <?php
+    }
+        }
 ?>
-
 
 
     <div class="footer">
@@ -240,63 +211,3 @@
 <script src="./resources/js/admin.js"></script>
 
 </html>
-
-<!-- <div class="clearfix"></div> -->
-<!-- <h1 class="animate__animated animate__bounce">An animated element</h1> -->
-
-
-<!-- 
-
-</div>  
-        <div class="conntent-details">
-            <div class="conntent-details__img">
-                <div id="demo" class="carousel slide" data-ride="carousel">
-                    <ul class="carousel-indicators">
-                        <li data-target="#demo" data-slide-to="0" class="active"></li>
-                        <li data-target="#demo" data-slide-to="1"></li>
-                        <li data-target="#demo" data-slide-to="2"></li>
-                    </ul>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="conntent-details__img-box">
-                                <img class="conntent-details__img-item" src="https://cdn.daotaobeptruong.vn/wp-content/uploads/2020/11/an-vat-han-quoc.jpg" alt="Los Angeles" width="1100" height="500">
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="conntent-details__img-box">
-                                <img class="conntent-details__img-item" src="https://i.pinimg.com/736x/fa/01/7d/fa017dd4f5faeba4dc369c8cf7de7c00.jpg" alt="Chicago" width="1100" height="500">
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="conntent-details__img-box">
-                                <img class="conntent-details__img-item" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRV8V2qhHuRS7yrZJQM_sJhKXNdBJrzNPNPWg&usqp=CAU" alt="Los Angeles" width="1100" height="500">
-                            </div>
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#demo" data-slide="prev">
-                        <i class="fas fa-chevron-left conntent-details__img-icon"></i>
-                    </a>
-                    <a class="carousel-control-next" href="#demo" data-slide="next">
-                        <i class="fas fa-chevron-right conntent-details__img-icon"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="conntent-details__info">
-                <p class="conntent-details__title">Toboki</p>
-                <hr class="conntent-details__clear">
-                <p class="conntent-details__price">1 tỉ đô la</p>
-                <p class="conntent-details__note">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex expedita veritatis illo inventore? Voluptate eius eos harum assumenda! Amet voluptas corrupti laboriosam quis iure ab qui soluta quaerat! Modi tenetur quidem voluptatem quam
-                    eius voluptate eveniet? Incidunt quae quaerat nisi est tenetur cupiditate, maiores itaque. Cupiditate officiis inventore natus vero ullam numquam fugit quia ducimus odit aperiam totam aliquam, facilis explicabo voluptas ipsum quo.
-                    Laborum ea ipsam, voluptatibus ex facilis reprehenderit maiores sapiente! Est debitis officiis consectetur voluptas blanditiis inventore sunt similique. Adipisci odio culpa quae, laborum repellat, soluta placeat non nulla laudantium
-                    beatae voluptatibus dolorem. Necessitatibus aliquam minus vero.</p>
-                <div class="conntent-details__btn">
-                    <button type="button" name="conntent-details__add" class="conntent-details__add"><i class="fas fa-shopping-cart"></i> ADD TO CART</button>
-                    <button type="button" name="conntent-details__buy" class="conntent-details__buy">BUY NOW</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
- -->
