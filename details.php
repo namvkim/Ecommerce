@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,7 +43,16 @@
             <a href="inde.php" class="show-menu">HOME PAGE</a>
             <a href="pesonal.php" class="show-menu">HISTORY</a>
             <a href="about.php" class="show-menu">ABOUT US</a>
+            <?php echo $_SESSION['user'];
+            if(isset($_SESSION['user'])){
+                require_once './resources/data/user.php';
+                $user = new User();
+                $result_user =  $user->get_IDUser($_SESSION['user']);
+                $row_user= mysqli_fetch_assoc($result_user);
+                echo $row_user['name_user'];
+            } else{?>
             <a href="login.php">SIGN IN</a>
+            <?php } ?>
             <a href="#"><i class="fas fa-search"></i></a>
             <a href="cart.php"><i class="fas fa-shopping-cart"></i></a>
             <label for="chk" class="hide-menu-btn">
@@ -192,7 +205,7 @@ if( isset($_GET['id']))
         <p class="conntent-details__price"><?php  echo $row['price']; ?></p>
         <p class="conntent-details__note"><?php  echo $row['describes']; ?></p>
         <div class="conntent-details__btn">
-            <button type="button" name="conntent-details__add" class="conntent-details__add"><i class="fas fa-shopping-cart"></i> ADD TO CART</button>
+            <a href="resources/processing/add_cart.php?id=<?php echo $row['ID_pro'] ?>"><button type="button" name="conntent-details__add" class="conntent-details__add"><i class="fas fa-shopping-cart"></i> ADD TO CART</button></a>
             <button type="button" name="conntent-details__buy" class="conntent-details__buy">BUY NOW</button>
         </div>
     </div>

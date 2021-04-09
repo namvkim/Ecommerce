@@ -153,35 +153,35 @@ session_start();
                     </div>
                 </a>
                 <form action="" method="POST">
-                    <button class="content_footer_checkout" name="btn">
+                    <button class="content_footer_checkout" name="btn2">
                         <i class="far fa-check-circle"></i>
                         ORDER
                     </button>
 
                     <?php
-                    if (isset($_POST['btn'])) {
-                        require_once '../Ecommerce/resources/data/order_data.php';
-                        require_once '../Ecommerce/resources/data/order_details_data.php';
+                    if (isset($_POST['btn2'])) {
+                    //     require_once '../Ecommerce/resources/data/order_data.php';
+                    //     require_once '../Ecommerce/resources/data/order_details_data.php';
 
-                        $order = new orders();
-                        $order_details = new orders_details();
+                    //     $order = new orders();
+                    //     $order_details = new orders_details();
 
-                        $i = 1;
-                        $name_qtt = "qtt" . $i;
-                        while (isset($_POST[$name_qtt])) {
-                            $name_check = "check" . $i;
-                            if (isset($_POST[$name_check])) {                                                 
+                    //     $i = 1;
+                    //     $name_qtt = "qtt" . $i;
+                    //     while (isset($_POST[$name_qtt])) {
+                    //         $name_check = "check" . $i;
+                    //         if (isset($_POST[$name_check])) {           
 
-                                $order->post($_SESSION['user'], date("d/m/Y"));
+                    //             $order->post($_SESSION['user'], date("d/m/Y"));
 
-                                $result_order=$order->get_max();
-                                $row_order=mysqli_fetch_assoc($result_order);
+                    //             $result_order=$order->get_max();
+                    //             $row_order=mysqli_fetch_assoc($result_order);
 
-                                $order_details->post($row_order['ID_order'],$_POST[$name_check],$_POST[$name_qtt]);
-                            }
-                            $i++;
-                            $name_qtt = "qtt" . $i;
-                        }
+                    //             $order_details->post($row_order['ID_order'],$_POST[$name_check],$_POST[$name_qtt]);
+                    //         }
+                    //         $i++;
+                    //         $name_qtt = "qtt" . $i;
+                    //     }
                         header("location:http://localhost/ecommerce/inde.php");
                     }
                     ?>
