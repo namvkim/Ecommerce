@@ -1,10 +1,5 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <title>Admin Page -- Fa -- PNV</title>
   <meta charset="UTF-8">
@@ -49,7 +44,7 @@ session_start();
     </div>
     <div class="box">
       <div class="table">
-        <form action="" method="POST">
+        <form action="" method="POST" enctype="multipart/form-data">
           <center>
             <h2>ADD PRODUCT</h2>
           </center>
@@ -61,27 +56,25 @@ session_start();
           </div>
           <div class="item"> Describes: <textarea name="des" id="" cols="30" rows="4"></textarea>
           </div>
-          <div class="item"><a href=""><button class="btn">Add</button></a></div>
-        </form>
-      </div>
-      <div class="table2">
-        <form action="" method="POST" enctype="multipart/form-data">
-          <center>Add image: <input type="file" value="Choose image" name="f" class="mt-2"><button name="btn_add" class="btn_add">add</button></center>
+          <div class="item">Add image: <input type="file" value="Choose image" name="f"></div>
+          <div class="item"><a href="./add_product.php"><button class="btn" name="add_pro">Add</button></a></div>
           <hr>
+
           <?php
-          $_SESSION['n'] = 0;
-          if (isset($_POST['btn_add'])) {
+          require_once '../data/product_data.php';
+          require_once '../data/picture_data.php';
+          $pro = new Product();           
+          $pic = new picture();
+
+          if (isset($_POST['add_pro'])) {
             $f = $_FILES['f']['tmp_name'];
-            $path = "../img/" . $_FILES['f']['name'];
+            $path = "../img/img_pro/". $_FILES['f']['name'];
+            $pro->post($_POST['name'],$_POST['price'],$_POST['des'],$_POST['cate']);
+            $result_pro=$pro->get_max();
+            $row_pro=mysqli_fetch_assoc($result_pro);
+            $pic->post($row_pro,$_FILES['f']['name']);
             move_uploaded_file($f, $path);
-            $_SESSION['img'][$i] = $_FILES['f']['name'];
-            $i++;
-            echo $i;
-            for ($j = 0; $j < $i; $j++) {
-          ?>
-              <img src="../img/<?php echo $_SESSION['img'][$j] ?>" height="100px" alt="" class="m-2">
-          <?php
-            }
+            header("location:http://localhost/ecommerce/admin.php");
           }
           ?>
         </form>

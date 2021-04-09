@@ -21,6 +21,14 @@ class orders
     $conn1->req($data, $sql);
   }
 
+  public function put_status($ID_order, $status)
+  {
+    $conn1 = new connect_data();
+    $data = $conn1->connect();
+    $sql = "UPDATE orders SET status= $status WHERE ID_order=$ID_order";
+    $conn1->req($data, $sql);
+  }
+
   public function delete($ID_order)
   {
     $conn1 = new connect_data();
@@ -42,6 +50,20 @@ class orders
     $conn1 = new connect_data();
     $data = $conn1->connect();
     $sql = "select * from orders where ID_user = $id and status= $status";
+    return $conn1->req($data, $sql);
+  }
+  public function get_status($status)
+  {
+    $conn1 = new connect_data();
+    $data = $conn1->connect();
+    $sql = "select * from orders where status= $status";
+    return $conn1->req($data, $sql);
+  }
+  public function get_max()
+  {
+    $conn1 = new connect_data();
+    $data = $conn1->connect();
+    $sql = "select * from orders order by ID_order DESC limit 1";
     return $conn1->req($data, $sql);
   }
 }

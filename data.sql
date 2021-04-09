@@ -17,15 +17,16 @@ create table users(
   name_user varchar(50),
   pass varchar(15),
   phone_num decimal(10),
-  email varchar(50),
+  email varchar(100),
   address varchar(50),
   status int
 );
 
 insert into users(name_user, pass, phone_num, email, address,status)
-values('Nam', '123', 12343, 'sonnamttt@gmail.com', 'Da Nang',1),
-  ('Ni', '234', 23435255, 'ni@gmal.com', 'Da Nang',1),
-  ('ha', '456', 0168600552, 'ha@gmail.com', 'Da Nang',1);
+values('Lê Sơn Nam', '123', 01686005775, 'sonnamttt@gmail.com', 'Da Nang',1),
+  ('Hồ Thị Đa Ni', '234', 0914603565, 'ni@gmail.com', 'Da Nang',1),
+  ('Nguyễn Thị Thu Hà', '456', 0168600552, 'ha@gmail.com', 'Da Nang',1),
+  ('Đặng Thị Thu Sang', '45e6', 058945612321, 'sang@gmail.com', 'Da Nang',0);
 
 create table admin(user_AD varchar(50), pass varchar(15));
 insert into admin(user_AD, pass) value('admin', '12345');
@@ -120,7 +121,7 @@ create table orders(
 );
 
 insert into orders(ID_user,datee,status)
-values(1,"27-2-2002",1),(1,"30-3-2002",1),(1,"15-5-2001",2),(1,"9-5-2001",3);
+values(1,"27/2/2002",1),(1,"30/3-2002",1),(1,"15/5/2001",2),(1,"9/5/2001",3),(2,"1/4/2012",1),(3,"16/8/2015",1);
 
 create table order_details(
   ID_order_detail int PRIMARY KEY auto_increment,
@@ -132,7 +133,7 @@ create table order_details(
 );
 
 insert into order_details(ID_order, ID_pro, quantity)
-values(1, 1, 15), (1, 2, 20),(2, 5, 7), (2, 20, 9), (3, 9, 18), (3, 16, 6),(4,12,3);
+values(1, 1, 15), (1, 2, 20),(2, 5, 7), (2, 20, 9), (3, 9, 18), (3, 16, 6),(4,12,3),(5,18,5),(6,29,4);
 
 create table carts(
   ID_cart int primary key auto_increment,
@@ -154,5 +155,5 @@ create table materials(
   date_input varchar(50)
 );
 insert into materials(name_mate, amount_mate, price_mate, date_input)
-values('Cá', 1, 10000, '11-12-2019'),
-  ('Thịt', 2, 10000, '10-11-2017');
+values('Cá ngừ đại dương', 1, 10000, '11-12-2019'),
+  ('Thịt bò kobe', 2, 10000, '10-11-2017');

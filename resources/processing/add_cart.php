@@ -1,9 +1,5 @@
 <?php
 session_start();
-?>
-
-
-<?php
 require_once '../data/cart_data.php';
 $cart = new cart();      
 if(isset($_GET['id'])){

@@ -24,7 +24,6 @@ session_start();
 </head>
 
 <body>
-
 <div class="header">
         <ul class="header-menu hide-menu">
             <a href="inde.php">HOME PAGE</a>
@@ -53,6 +52,7 @@ session_start();
             </label>
         </ul>
     </div>
+
 
     <div class="content content-poster">
         <!--slideshow-->
@@ -94,8 +94,7 @@ session_start();
                 <span class="sr-only">Next</span>
             </a>
     </div>  
-        <!--sli-->
-        <!-- <img class="content-poster" src="https://cdn.asiatatler.com/asiatatler/i/th/2019/08/15162927-dsc0499_cover_2000x1335.jpg" alt="background"> </image> -->
+       
         <br><br>
         <div class="main">
         <form action ="" method ="POST"class="form">
